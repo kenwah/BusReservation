@@ -1,3 +1,4 @@
+package BusReservation;
 public class CreditCard extends Payment{
     private String cardName;
     private long cardNum;

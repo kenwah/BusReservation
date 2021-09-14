@@ -1,3 +1,5 @@
+package BusReservation;
+
 public class OnlineBanking extends Payment{
     private String bankName;
     private long accountNum;

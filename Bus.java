@@ -1,6 +1,4 @@
-package Assignment;
-
-
+package BusReservation;
 
 import java.util.Scanner;
 import java.util.ArrayList;

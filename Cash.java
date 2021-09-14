@@ -1,3 +1,5 @@
+package BusReservation;
+
 public class Cash extends Payment{
     private double cashTendered;
     private double balance;

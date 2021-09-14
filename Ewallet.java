@@ -1,3 +1,5 @@
+package BusReservation;
+
 import java.util.Random;
 
 public class Ewallet extends Payment{
