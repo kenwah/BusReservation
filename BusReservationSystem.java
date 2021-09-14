@@ -3,7 +3,7 @@ package BusReservation;
 import java.io.*;
 public class BusReservationSystem {
 
-	public static void main(String args[]) throws IOException {
+	public static void reservation(String args[]) throws IOException {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
 		String user, password, yn, search, again, choice;
