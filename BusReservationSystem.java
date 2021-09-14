@@ -1,6 +1,5 @@
 import java.io.*;
-/*qwertyuiop*/
-public class BusReservationAndTicketingSystem {
+public class BusReservationSystem {
 
 	public static void main(String args[]) throws IOException {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
