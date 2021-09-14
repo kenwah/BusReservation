@@ -61,8 +61,8 @@ public class BusReservationSystem {
 							System.out.println("** 3.)NEGERI SEMBILAN   |  RM 15 |   " + available[3] + "   **");
 							System.out.println("** 4.)PERAK             |  RM 39 |   " + available[4] + "   **");
 							System.out.println("** 5.)PULAU PINANG      |  RM 40 |   " + available[5] + "   **");
-							System.out.println("** 5.)JOHOR BAHRU       |  RM 40 |   " + available[6] + "   **");
-							System.out.println("** 5.)KELANTAN          |  RM 42 |   " + available[7] + "   **");
+							System.out.println("** 6.)JOHOR BAHRU       |  RM 40 |   " + available[6] + "   **");
+							System.out.println("** 7.)KELANTAN          |  RM 42 |   " + available[7] + "   **");
 							System.out.println("********************************************");
 							System.out.println("********************************************\n");
 							x = 0;
