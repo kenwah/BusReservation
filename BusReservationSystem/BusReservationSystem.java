@@ -6,15 +6,13 @@ public class BusReservationSystem {
 	public static void reservation(String args[]) throws IOException {
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
-		String user, password, yn, search, again, choice;
+		String user, password, yn, choice;
 		int to = 0, y = 1, z = 0, end = 0;
 		int available[] = new int[29];
 		int ticketI[][] = new int[100][3];
 		String ticketS[][] = new String[100][4];
         String ticketB[][] = new String[100][4];
 		double ticketD[][] = new double[100][4];
-		double pay[] = new double[20];
-		double change[] = new double[20];
 
 		for (int i = 1; i < 4;) {
 			System.out.print("Enter Username: ");
