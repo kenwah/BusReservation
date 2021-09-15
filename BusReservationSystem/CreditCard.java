@@ -9,8 +9,8 @@ public class CreditCard extends Payment{
     public CreditCard(){}
 
     //parameterized constructor
-    public CreditCard(double serviceCharge, double amount, double totalIncludeSC, String cardName, long cardNum, String cardType, int cvv){
-        super(serviceCharge, amount, totalIncludeSC);
+    public CreditCard(int receiptNo, double serviceCharge, double amount, double totalIncludeSC, String cardName, long cardNum, String cardType, int cvv){
+        super(receiptNo, serviceCharge, amount, totalIncludeSC);
         this.cardName = cardName;
         this.cardNum = cardNum;
         this.cardType = cardType;
@@ -32,13 +32,18 @@ public class CreditCard extends Payment{
         return cvv;
     }
 
+    //getter for card type
+    public String getCardType() {
+        return cardType;
+    }
+
     //setter for card name
     public void setCardName(String cardName) {
         this.cardName = cardName;
     }
 
     //setter for card num
-    public void setCardNum(int cardNum) {
+    public void setCardNum(long cardNum) {
         this.cardNum = cardNum;
     }
 

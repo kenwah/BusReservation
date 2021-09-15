@@ -2,22 +2,25 @@ package BusReservationSystem;
 
 import java.util.Date;
 
-public class Payment {
+public class Payment implements serviceCharge{
 
     //private variables
     private int receiptNo;
     private Date paymentDate;
     private double serviceCharge;
-    private static final double SERVICE_CHARGE = 0.02;
+    
     private double amount;
     private double totalIncludeSC;
     private static int count = 1000;
     
     //constructor
-    public Payment(){}
+    public Payment(){
+        this.receiptNo = count;
+        count++;
+    }
 
     //parameterized constructor
-    public Payment(double serviceCharge, double amount, double totalIncludeSC){
+    public Payment(int receiptNo, double serviceCharge, double amount, double totalIncludeSC){
         this.receiptNo = count;
         this.serviceCharge = serviceCharge;
         this.amount = amount;
@@ -56,11 +59,18 @@ public class Payment {
         this.paymentDate = paymentDate;
     }
 
-    public void calcServiceCharge(){
-        serviceCharge = amount * SERVICE_CHARGE;
+    //polymorphism
+    public boolean validatePayCode(){
+        return true;
     }
 
-    public void calcTotalIncludeSC(){
+    @Override
+    public void calcServiceCharge(int amount){
+        serviceCharge = (double) amount * SERVICE_CHARGE;
+    }
+
+    @Override
+    public void calcTotalIncludeSC(int amount){
         totalIncludeSC = amount + serviceCharge;
     }
     

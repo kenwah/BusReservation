@@ -3,13 +3,14 @@ package BusReservationSystem;
 public class OnlineBanking extends Payment{
     private String bankName;
     private long accountNum;
+    private int payCode;
 
     //constructor
     public OnlineBanking(){}
 
     //parameterized constructor
-    public OnlineBanking(double serviceCharge, double amount, double totalIncludeSC, String bankName, long accountNum){
-        super(serviceCharge, amount, totalIncludeSC);
+    public OnlineBanking(int receiptNo, double serviceCharge, double amount, double totalIncludeSC, String bankName, long accountNum){
+        super(receiptNo, serviceCharge, amount, totalIncludeSC);
         this.bankName = bankName;
         this.accountNum = accountNum;
     }
@@ -22,6 +23,21 @@ public class OnlineBanking extends Payment{
     //getter for account number
     public long getAccountNum() {
         return accountNum;
+    }
+
+    //getter for payCode
+    public int getPayCode() {
+        return payCode;
+    }
+
+        //setter for payCode
+    public void setPayCode(int payCode) {
+        this.payCode = payCode;
+    }
+
+    //setter for account number
+    public void setAccountNum(long accountNum) {
+        this.accountNum = accountNum;
     }
 
     public void setBankName(int optionBank){
@@ -70,5 +86,16 @@ public class OnlineBanking extends Payment{
         }
         return true;
     }
+
+    //check code from user after they made payment
+    @Override
+    public boolean validatePayCode(){
+        if(String.valueOf(payCode).charAt(1) != '2'){
+            return false;
+        }
+        return true;
+    }
+
+    //toString
 
 }

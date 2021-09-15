@@ -7,13 +7,14 @@ public class Ewallet extends Payment{
     private String type; //use num let user choose tngowallet / boost / shopee pay*
     private String accountName;
     private int paymentCode;
+    private int payCode;
 
     //costructor
     public Ewallet(){}
 
     //parameterized constructor
-    public Ewallet(double serviceCharge, double amount, double totalIncludeSC, String type, String accountName, int paymentCode){
-        super(serviceCharge, amount, totalIncludeSC);
+    public Ewallet(int receiptNo, double serviceCharge, double amount, double totalIncludeSC, String type, String accountName, int paymentCode){
+        super(receiptNo, serviceCharge, amount, totalIncludeSC);
         this.type = type;
         this.accountName = accountName;
         this.paymentCode = paymentCode;
@@ -29,6 +30,16 @@ public class Ewallet extends Payment{
         return paymentCode;
     }
 
+    //getter for payCode
+    public int getPayCode() {
+        return payCode;
+    }
+
+    //setter for payCode
+   public void setPayCode(int payCode) {
+       this.payCode = payCode;
+   }
+
     //get type when after user choosed we only provide three options ewallet method 
     public void ewalletType(int ewalletOption){//use num let user choose tngowallet / boost / shopee pay*
         
@@ -42,16 +53,24 @@ public class Ewallet extends Payment{
             type = "ShopeePay";
     }
 
-    //random give user a code later for check but actually not very useful
+    //random give user a code for user to make payment in ewallet
     public void generatePaymentCode(){
         Random rand = new Random();
         paymentCode = rand.nextInt(10000);
     }
 
+    //check code from user after they made payment
+    @Override
+    public boolean validatePayCode(){
+        if(String.valueOf(payCode).charAt(1) != '2'){
+            return false;
+        }
+        return true;
+    }
+
     //toString method
     public String toString(){
-        return super.toString() +
-                "\nE-Waller Type: " + type +
+        return "\nE-Wallet Type: " + type +
                 "\nE-Wallet Account Name: " + accountName;
     }
 }
