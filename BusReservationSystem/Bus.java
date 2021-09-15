@@ -11,13 +11,13 @@ public class Bus {
     private String departureTime;
     private String departureDate;
     private String destination;
-    private static int busCount = 1;
+    private static int busCount = 0;
 
     public Bus(){
-        busCount++;
+        
     }
 
-    public Bus(String busID, String destination, String departureDate, String departureTime, double price,int seatNo ){
+    public Bus(int busCount, String busID, String destination, String departureDate, String departureTime, double price,int seatNo ){
         this.busID = busID;
         this.destination = destination;
         this.departureDate = departureDate;
@@ -75,34 +75,28 @@ public class Bus {
         this.destination = destination;
     }
 
-    public static int getBusCount(){
-        return busCount;
-    }
-
     public void displayBus(ArrayList<Bus> busList){
         System.out.println(" _____________________________________________________________________________________________________________________________________________");
-        System.out.println("|                                                                       Bus Detail                                                           |");
-        
-        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------");
-        
-        System.out.printf("| %-3d| %-10s| %-20s| %-15s| %-15s| RM%8.2f | %-5d|\n", "NO.","Bus ID","Destination","Departure Date","Departure Time","Price"," Seat Available");
-        
+        System.out.println("|                                                                       Bus Detail                                                            |");
+        System.out.println("+---------------------------------------------------------------------------------------------------------------------------------------------+");
+        System.out.println("| NO. |    Bus ID    |      Destination      |      Departure Date      |      Departure Time      |      Price      |     Seat Available     |");
         System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------");
 
     	for(int i=0;i<busList.size();i++){
+            busCount++;
             System.out.println(busList.get(i).toString());
         }
 
-        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------");
-        System.out.println("Total Bus Number: " + getBusCount());
+        System.out.println("+-----+--------------+-----------------------+--------------------------+--------------------------+-----------------+------------------------+");
+        System.out.println("Total Bus Number: " + busCount);
     }
 
     public void addNewBus(ArrayList<Bus> busList){
-        busList.add(new Bus(busID, destination, departureDate, departureTime, price, seatNo));
+        busList.add(new Bus(busCount, busID, destination, departureDate, departureTime, price, seatNo));
     }
 
     public void modifyBus(ArrayList<Bus> busList, int modifyBus){
-        busList.set((modifyBus), new Bus(busID, destination, departureDate, departureTime, price, seatNo));
+        busList.set((modifyBus), new Bus(busCount, busID, destination, departureDate, departureTime, price, seatNo));
     }
 
     public void deleteBus(ArrayList<Bus> busList, int deleteBus){
@@ -110,17 +104,16 @@ public class Bus {
     }
 
     public static boolean validateBusId(String newId){
-        int lengd = newId.length();
-        if(lengd <= 4){
-            if(newId.matches("[A-Z][A-Z][A-Z]+")){
-                return true;
-            }
+        if(newId.toUpperCase().matches("^[A-Z]{3} [0-9]{1,4}$")){
+            return true;
         }
+       
         return false;
     }
 
     public static boolean validateDestination(String newDestination){
-        if(newDestination.toUpperCase()=="SELANGOR" || newDestination.toUpperCase()=="PULAU PINANG" || newDestination.toUpperCase()=="JOHOR BAHRU" || newDestination.toUpperCase()=="NEGERI SEMBILAN" || newDestination.toUpperCase()=="MELAKA" || newDestination.toUpperCase()=="KELATAN" || newDestination.toUpperCase()=="PERAK"){
+        newDestination = newDestination.toUpperCase();
+        if(newDestination.equals("SELANGOR") || newDestination.equals("PULAU PINANG")|| newDestination.equals("JOHOR BAHRU") || newDestination.equals("NEGERI SEMBILAN") || newDestination.equals("PULAU PINANG") || newDestination.equals("KELATAN") || newDestination.equals("PERAK")){
             return true;
         }
         return false;
@@ -166,9 +159,9 @@ public class Bus {
         }
         return false;
     }
-
+    
     public static boolean validateprice(double newPrice){
-        if(newPrice > 0){
+        if(newPrice > 0 ){
             return true;
         }
         return false;
@@ -183,7 +176,7 @@ public class Bus {
 
     @Override
     public String toString(){
-        return String.format("| %-3d| %-10s| %-20s| %-15s| %-15s| RM%8.2f| %-5d\n",
+        return String.format("|  %-3d|   %-11s|     %-18s|        %-10s        |           %-15s|    RM%8.2f   |          %-5d         |\n",
                 busCount, busID, destination, departureDate, departureTime, price, seatNo);
     }
 }
