@@ -2,28 +2,29 @@ package BusReservationSystem;
 
 import java.io.*;
 import java.util.Scanner;
-import java.util.ArrayList;
+import java.util.Random;
 
 public class BusReservation {
-	
-	static String Name;
-	static int Destination;
-	static int Amount;
-	private static int[] seats = new int[30];
+
 	public int reservation(String [] args, double price) throws IOException {
 
-		int to = 0, z = 0;
+		int to = 0, z = 0,custAmount=0,s=0,f=0;
+		String name[]=new String[20];
 		int available[] = new int[29];
 		String BusId[] = new String[7];
+		String destination[] = new String[100];
   		double dest[] = new double [100];
+		String ticketDes[] = new String [100];
+		double ticketFare[] = new double[];
+		String ticketBus[] = new String [100];
+		int ticketSeat[] = new int [100];
 		Scanner book = new Scanner(System.in);
+
 		for (int i = 1; i < 4;) {
 
 			// "available[]" is the SEAT AVAILABLE//
 			// store 30 seats every destination [1-28]//
-			for (int l = 0; l < 30; l++) {
-				seats[l] = 0;
-			}
+			
 			for (int o = 1; o <= 28; o++) {
 				available[o] = 30;
 			}
@@ -98,10 +99,10 @@ public class BusReservation {
 				// inputing of Passenger's Name//
 				else {
 					for (x = 1; x == 1;) {
-						
+						for(int a=0;a<name.length;a++){
 						System.out.print("\nENTER PASSENGER'S NAME: ");
-						Name = book.nextLine();
-						
+						name[i] = book.nextLine();
+						}
 					}
 
 						x = 0;
@@ -113,15 +114,15 @@ public class BusReservation {
 					// inputing of Destination//
 					// integers Only [1-28]//
 					for (x = 1; x == 1;) {
-						System.out.print("ENTER DESTINATION [number]: ");
-						to = book.nextInt();
+							System.out.print("ENTER DESTINATION [number]: ");
+							to = book.nextInt();
 
-						// if Inputed integers are "<1" or ">28", display error and go back to Inputing//
-						if (Destination < 1 || Destination > 28) {
+							// if Inputed integers are "<1" or ">28", display error and go back to Inputing//
+							if (to < 1 || to > 28) {
 							System.out.println("Invalid Input!");
 							x = 1;
+							
 						}
-						
 						// if available seat is equal to "Zero", display error and go back to Inputing//
 						for (int d = 1; d <= 28; d++) {
 							if (to == d) {
@@ -132,9 +133,19 @@ public class BusReservation {
 								x = 0;
 							}
 						}
+						
+					}
+					for (x = 1; x == 1;) {
+						System.out.print("ENTER SEAT [from 1 to 30]: ");
+						ticketSeat[s] = book.nextInt();
+
+						// if Inputed integers are "<1" or ">28", display error and go back to Inputing//
+						if (s < 1 || s > 30) {
+						System.out.println("Invalid Input!");
+						x = 1;
+						
 					}
 
-					// convert the integer to string//
 					String Dest[] = { " ", "SELANGOR 7AM", "SELANGOR 10AM", "SELANGOR 5PM", "SELANGOR 8PM",
 							"PULAU PINANG 7AM", "PULAU PINANG 10AM", "PULAU PINANG 5PM", "PULAU PINANG 8PM",
 							"JOHOR BAHRU 7AM", "JOHOR BAHRU 10AM", "JOHOR BAHRU 5PM", "JOHOR BAHRU 8PM",
@@ -148,23 +159,81 @@ public class BusReservation {
 							"WXR 2322", "WDY 3288", "WSB 1611", "WMQ 8787", "WEU 4211", "WZD 8826", "WRF 6736",
 							"WTF 4522", "WFX 9128", "WGL 9060", "WYQ 4868", "WBY 5428", "WFN 6188", "WNX 0932",
 							"WON 1539" };
+					int seatID[]={0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30};
 
 					// converted integer to string, transfer to storage array//
-					int Destination= Dest[to];
-					ticketD[z][0] = fare[to];
-					ticketB[z][2] = busID[to];
+					ticketDes[to] = Dest[to];
+					ticketBus[to] = busID[to];
+					ticketSeat[s] = seatID[s];
+					switch(to){
+						case 1: ticketFare[f]=fare[1];
+						break;
+						case 2: ticketFare[f]=fare[2];
+						break;
+						case 3: ticketFare[f]=fare[3];
+						break;
+						case 4: ticketFare[f]=fare[4];
+						break;
+						case 5: ticketFare[f]=fare[5];
+						break;
+						case 6: ticketFare[f]=fare[6];
+						break;
+						case 7: ticketFare[f]=fare[7];
+						break;
+						case 8: ticketFare[f]=fare[8];
+						break;
+						case 9: ticketFare[f]=fare[9];
+						break;
+						case 10: ticketFare[f]=fare[10];
+						break;
+						case 11: ticketFare[f]=fare[11];
+						break;
+						case 12: ticketFare[f]=fare[12];
+						break;
+						case 13: ticketFare[f]=fare[13];
+						break;
+						case 14: ticketFare[f]=fare[14];
+						break;
+						case 15: ticketFare[f]=fare[15];
+						break;
+						case 16: ticketFare[f]=fare[16];
+						break;
+						case 17: ticketFare[f]=fare[17];
+						break;
+						case 18: ticketFare[f]=fare[18];
+						break;
+						case 19: ticketFare[f]=fare[19];
+						break;
+						case 20: ticketFare[f]=fare[20];
+						break;
+						case 21: ticketFare[f]=fare[21];
+						break;
+						case 22: ticketFare[f]=fare[22];
+						break;
+						case 23: ticketFare[f]=fare[23];
+						break;
+						case 24: ticketFare[f]=fare[24];
+						break;
+						case 25: ticketFare[f]=fare[25];
+						break;
+						case 26: ticketFare[f]=fare[26];
+						break;
+						case 27: ticketFare[f]=fare[27];
+						break;
+						case 28: ticketFare[f]=fare[28];
+						break;
+						
+					}
 
 					// inputing for Number of Passenger's//
 					for (x = 1; x == 1;) {
 						System.out.print("HOW MANY PASSENGERS ARE YOU?: ");
-						Amount = book.nextInt();
+						custAmount = book.nextInt();
 
 						// subtract the available seat by the the number inputed//
-						for (int l = 0; i < 30; i++) {
-							if (seats[l] == 0) {
-							seats[l] = 1;
+						for (int p = 0; p < 30; p++) {
+							if(to==p){
 							available[to]=available[to]-1;
-							return l + 1;
 							print=1;
 							}
 							
@@ -175,8 +244,8 @@ public class BusReservation {
 								// display the available seat and back to the inputing//
 								if (available[to] < 0) {
 									System.out.print(
-											"Sorry, We don't have seat available for " + Amount + " person\n");
-									available[to] = available[to] - Amount;
+											"Sorry, We don't have seat available for " + custAmount + " person\n");
+									available[to] = available[to] - custAmount;
 									System.out.print("We only have " + available[to] + " seat available\n");
 									x = 1;
 									print = 0;
@@ -194,19 +263,18 @@ public class BusReservation {
 						System.out.println("\n***************************************");
 						System.out.println("**        PASSENGER'S DETAILS        **");
 						System.out.println("***************************************");
-						System.out.println("PASSENGER'S NAME: " + Name);
-						System.out.println("PASSENGER'S DESTINATION : " + Destination);
-						System.out.println("FARE PRICE(PER PERSON): RM " + ticketD[z][0]);
-						System.out.println("NO. OF PASSENGERS: " + Amount);
-						System.out.println("BUS ID: " + ticketI[z][2]);
+						System.out.println("PASSENGER'S NAME: " + name);
+						System.out.println("PASSENGER'S DESTINATION : " + ticketDes[to]);
+						System.out.println("FARE PRICE(PER PERSON): RM " + ticketFare[f]);
+						System.out.println("NO. OF PASSENGERS: " + custAmount);
+						System.out.println("SEAT: " + ticketSeat[s]);
+						System.out.println("BUS ID: " + BusId[to]);
 						System.out.println("***************************************");
 						System.out.println("***************************************\n");
-						ticketS[z][3] = "0";
-						ticketD[z][3] = ((ticketI[z][0] - ticketI[z][1]) * ticketD[z][0]);
-						x = 0;
 					}
 					z++;
 				}
 			}
-
-		}}}
+		}
+	}
+}
