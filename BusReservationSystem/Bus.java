@@ -11,20 +11,18 @@ public class Bus {
     private String departureTime;
     private String departureDate;
     private String destination;
-    private static int busCount = 0;
 
     public Bus(){
         
     }
 
-    public Bus(int busCount, String busID, String destination, String departureDate, String departureTime, double price,int seatNo ){
+    public Bus( String busID, String destination, String departureDate, String departureTime, double price,int seatNo ){
         this.busID = busID;
         this.destination = destination;
         this.departureDate = departureDate;
         this.departureTime = departureTime;
         this.price = price;
         this.seatNo = seatNo;
-        busCount++;
     }
     
     public String getBusID(){
@@ -75,7 +73,9 @@ public class Bus {
         this.destination = destination;
     }
 
+
     public void displayBus(ArrayList<Bus> busList){
+        int count =1;
         System.out.println(" _____________________________________________________________________________________________________________________________________________");
         System.out.println("|                                                                       Bus Detail                                                            |");
         System.out.println("+---------------------------------------------------------------------------------------------------------------------------------------------+");
@@ -83,20 +83,21 @@ public class Bus {
         System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------");
 
     	for(int i=0;i<busList.size();i++){
-            busCount++;
+            System.out.printf("|  %-3d|",count);
             System.out.println(busList.get(i).toString());
+            count++;
         }
 
         System.out.println("+-----+--------------+-----------------------+--------------------------+--------------------------+-----------------+------------------------+");
-        System.out.println("Total Bus Number: " + busCount);
+        System.out.println("Total Bus Number: " + count);
     }
 
     public void addNewBus(ArrayList<Bus> busList){
-        busList.add(new Bus(busCount, busID, destination, departureDate, departureTime, price, seatNo));
+        busList.add(new Bus( busID, destination, departureDate, departureTime, price, seatNo));
     }
 
     public void modifyBus(ArrayList<Bus> busList, int modifyBus){
-        busList.set((modifyBus), new Bus(busCount, busID, destination, departureDate, departureTime, price, seatNo));
+        busList.set((modifyBus), new Bus(busID, destination, departureDate, departureTime, price, seatNo));
     }
 
     public void deleteBus(ArrayList<Bus> busList, int deleteBus){
@@ -176,7 +177,7 @@ public class Bus {
 
     @Override
     public String toString(){
-        return String.format("|  %-3d|   %-11s|     %-18s|        %-10s        |           %-15s|    RM%8.2f   |          %-5d         |\n",
-                busCount, busID, destination, departureDate, departureTime, price, seatNo);
+        return String.format("   %-11s|     %-18s|        %-10s        |           %-15s|    RM%8.2f   |          %-5d         |\n",
+                busID, destination, departureDate, departureTime, price, seatNo);
     }
 }
