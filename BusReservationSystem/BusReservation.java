@@ -2,20 +2,17 @@ package BusReservationSystem;
 
 import java.io.*;
 import java.util.Scanner;
-import java.util.Random;
 
 public class BusReservation {
 
-	public int reservation(String [] args, double price) throws IOException {
+	public void reservation(String [] args, double price) throws IOException {
 
-		int to = 0, z = 0,custAmount=0,s=0,f=0;
+		int to = 0,custAmount=0,s=0,f=0;
 		String name[]=new String[20];
 		int available[] = new int[29];
 		String BusId[] = new String[7];
-		String destination[] = new String[100];
-  		double dest[] = new double [100];
 		String ticketDes[] = new String [100];
-		double ticketFare[] = new double[];
+		double ticketFare[] = new double[3];
 		String ticketBus[] = new String [100];
 		int ticketSeat[] = new int [100];
 		Scanner book = new Scanner(System.in);
@@ -258,7 +255,6 @@ public class BusReservation {
 					}
 
 					// print out of passengers details....
-					int print;
 					if (print == 1) {
 						System.out.println("\n***************************************");
 						System.out.println("**        PASSENGER'S DETAILS        **");
@@ -272,9 +268,9 @@ public class BusReservation {
 						System.out.println("***************************************");
 						System.out.println("***************************************\n");
 					}
-					z++;
 				}
-			}
+				book.close();	}
 		}
+		
 	}
-}
+
