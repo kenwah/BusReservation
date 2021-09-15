@@ -15,6 +15,36 @@ public class Main {
             new User("C0005", 5897, "Emily", "020814-05-0128", "012-645287419", 'F')
         };
 
+        ArrayList<Bus> busList = new ArrayList<Bus>();
+        busList.add(new Bus("WZO 5989", "Selangor", "25/5/2021", "7.00am", 10.00, 30));
+        busList.add(new Bus("WAZ 1325", "Selangor", "25/5/2021", "10.00am", 11.00, 30));
+        busList.add(new Bus("WRT 7226", "Selangor", "25/5/2021", "5.00pm", 12.00, 30));
+        busList.add(new Bus("WFS 2391", "Selangor", "25/5/2021", "8.00pm", 10.00, 30));
+        busList.add(new Bus("WFK 1490", "Pulau Pinang", "25/5/2021", "7.00am", 40.00, 30));
+        busList.add(new Bus("WYF 6457", "Pulau Pinang", "25/5/2021", "10.00am", 41.00, 30));
+        busList.add(new Bus("WXI 1812", "Pulau Pinang", "25/5/2021", "5.00pm", 42.00, 30));
+        busList.add(new Bus("WEE 5027", "Pulau Pinang", "25/5/2021", "8.00pm", 40.00, 30));
+        busList.add(new Bus("WYP 0563", "Johor Bahru", "25/5/2021", "7.00am", 40.00, 30));
+        busList.add(new Bus("WFP 9608", "Johor Bahru", "25/5/2021", "10.00am", 41.00, 30));
+        busList.add(new Bus("WEO 7328", "Johor Bahru", "25/5/2021", "5.00pm", 42.00, 30));
+        busList.add(new Bus("WTD 9930", "Johor Bahru", "25/5/2021", "8.00pm", 40.00, 30));
+        busList.add(new Bus("WUO 4034", "Negeri Sembilan", "25/5/2021", "7.00am", 15.00, 30));
+        busList.add(new Bus("WXR 2322", "Negeri Sembilan", "25/5/2021", "10.00am", 16.00, 30));
+        busList.add(new Bus("WDY 3288", "Negeri Sembilan", "25/5/2021", "5.00pm", 17.00, 30));
+        busList.add(new Bus("WSB 1611", "Negeri Sembilan", "25/5/2021", "8.00pm", 15.00, 30));
+        busList.add(new Bus("WMQ 8787", "Melaka", "25/5/2021", "7.00am", 16.00, 30));
+        busList.add(new Bus("WEU 4211", "Melaka", "25/5/2021", "10.00am", 17.00, 30));
+        busList.add(new Bus("WZD 8826", "Melaka", "25/5/2021", "5.00pm", 18.00, 30));
+        busList.add(new Bus("WRF 6736", "Melaka", "25/5/2021", "8.00pm", 16.00, 30));
+        busList.add(new Bus("WTF 4522", "Kelantan", "25/5/2021", "7.00am", 42.00, 30));
+        busList.add(new Bus("WFX 9128", "Kelantan", "25/5/2021", "10.00am", 43.00, 30));
+        busList.add(new Bus("WGL 9060", "Kelantan", "25/5/2021", "5.00pm", 44.00, 30));
+        busList.add(new Bus("WYQ 4868", "Kelantan", "25/5/2021", "8.00pm", 42.00, 30));
+        busList.add(new Bus("WBY 5428", "Perak", "25/5/2021", "7.00am", 39.00, 30));
+        busList.add(new Bus("WFN 6188", "Perak", "25/5/2021", "10.00am", 40.00, 30));
+        busList.add(new Bus("WNX 0932", "Perak", "25/5/2021", "5.00pm", 41.00, 30));
+        busList.add(new Bus("WON 1539", "Perak", "25/5/2021", "8.00pm", 39.00, 30));
+
         ArrayList<Details> usersList = new ArrayList<>();
         for (int i = 0; i < user.length; i++) {
             usersList.add(user[i]);
