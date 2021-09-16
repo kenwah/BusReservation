@@ -105,10 +105,10 @@ public class UpdateBusDetail {
                     }
                 }while(Bus.validateTime(departureTime)!=true);
 
-            double price;
+            int price;
                 do{
                     System.out.println("Enter Price:");
-                    price = scanner.nextDouble();
+                    price = scanner.nextInt();
                     if(Bus.validateprice(price)!=true){
                         System.out.println("The price cannot be zero or negative.");
                         System.out.println("Please enter proper price!");
@@ -163,7 +163,7 @@ public class UpdateBusDetail {
                 String destination = "";
                 String departureDate = "";
                 String departureTime = "";
-                double price = 0;
+                int price = 0;
                 int seatNo = 0;
                 do{	
                     System.out.println("\nWhat do you wish to modify ?"
@@ -213,7 +213,7 @@ public class UpdateBusDetail {
                         
                             do{
                                 System.out.println("Enter Price:");
-                                price = scanner.nextDouble();
+                                price = scanner.nextInt();
                                 if(Bus.validateprice(price)!=true){
                                 System.out.println("The price cannot be zero or negative.");
                                     System.out.println("Please enter proper price!");

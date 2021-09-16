@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 public class Bus {
     private String busID;
     private int seatNo;
-    private double price;
+    private int price;
     private String departureTime;
     private String departureDate;
     private String destination;
@@ -16,7 +16,7 @@ public class Bus {
         
     }
 
-    public Bus( String busID, String destination, String departureDate, String departureTime, double price,int seatNo ){
+    public Bus( String busID, String destination, String departureDate, String departureTime, int price,int seatNo ){
         this.busID = busID;
         this.destination = destination;
         this.departureDate = departureDate;
@@ -41,11 +41,11 @@ public class Bus {
         this.seatNo = seatNo;
     }
 
-    public double getPrice(){
+    public int getPrice(){
         return price;
     }
 
-    public void setPrice(double price){
+    public void setPrice(int price){
         this.price = price;
     }
 
@@ -161,7 +161,7 @@ public class Bus {
         return false;
     }
     
-    public static boolean validateprice(double newPrice){
+    public static boolean validateprice(int newPrice){
         if(newPrice > 0 ){
             return true;
         }
@@ -177,7 +177,7 @@ public class Bus {
 
     @Override
     public String toString(){
-        return String.format("   %-11s|     %-18s|        %-10s        |           %-15s|    RM%8.2f   |          %-5d         |\n",
+        return String.format("   %-11s|     %-18s|        %-10s        |           %-15s|    RM%8d   |          %-5d         |\n",
                 busID, destination, departureDate, departureTime, price, seatNo);
     }
 }

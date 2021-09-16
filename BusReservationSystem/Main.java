@@ -17,34 +17,34 @@ public class Main {
         };
 
         ArrayList<Bus> busList = new ArrayList<Bus>();
-        busList.add(new Bus("WZO 5989", "Selangor", "25/5/2021", "7.00am", 10.00, 30));
-        busList.add(new Bus("WAZ 1325", "Selangor", "25/5/2021", "10.00am", 11.00, 30));
-        busList.add(new Bus("WRT 7226", "Selangor", "25/5/2021", "5.00pm", 12.00, 30));
-        busList.add(new Bus("WFS 2391", "Selangor", "25/5/2021", "8.00pm", 10.00, 30));
-        busList.add(new Bus("WFK 1490", "Pulau Pinang", "25/5/2021", "7.00am", 40.00, 30));
-        busList.add(new Bus("WYF 6457", "Pulau Pinang", "25/5/2021", "10.00am", 41.00, 30));
-        busList.add(new Bus("WXI 1812", "Pulau Pinang", "25/5/2021", "5.00pm", 42.00, 30));
-        busList.add(new Bus("WEE 5027", "Pulau Pinang", "25/5/2021", "8.00pm", 40.00, 30));
-        busList.add(new Bus("WYP 0563", "Johor Bahru", "25/5/2021", "7.00am", 40.00, 30));
-        busList.add(new Bus("WFP 9608", "Johor Bahru", "25/5/2021", "10.00am", 41.00, 30));
-        busList.add(new Bus("WEO 7328", "Johor Bahru", "25/5/2021", "5.00pm", 42.00, 30));
-        busList.add(new Bus("WTD 9930", "Johor Bahru", "25/5/2021", "8.00pm", 40.00, 30));
-        busList.add(new Bus("WUO 4034", "Negeri Sembilan", "25/5/2021", "7.00am", 15.00, 30));
-        busList.add(new Bus("WXR 2322", "Negeri Sembilan", "25/5/2021", "10.00am", 16.00, 30));
-        busList.add(new Bus("WDY 3288", "Negeri Sembilan", "25/5/2021", "5.00pm", 17.00, 30));
-        busList.add(new Bus("WSB 1611", "Negeri Sembilan", "25/5/2021", "8.00pm", 15.00, 30));
-        busList.add(new Bus("WMQ 8787", "Melaka", "25/5/2021", "7.00am", 16.00, 30));
-        busList.add(new Bus("WEU 4211", "Melaka", "25/5/2021", "10.00am", 17.00, 30));
-        busList.add(new Bus("WZD 8826", "Melaka", "25/5/2021", "5.00pm", 18.00, 30));
-        busList.add(new Bus("WRF 6736", "Melaka", "25/5/2021", "8.00pm", 16.00, 30));
-        busList.add(new Bus("WTF 4522", "Kelantan", "25/5/2021", "7.00am", 42.00, 30));
-        busList.add(new Bus("WFX 9128", "Kelantan", "25/5/2021", "10.00am", 43.00, 30));
-        busList.add(new Bus("WGL 9060", "Kelantan", "25/5/2021", "5.00pm", 44.00, 30));
-        busList.add(new Bus("WYQ 4868", "Kelantan", "25/5/2021", "8.00pm", 42.00, 30));
-        busList.add(new Bus("WBY 5428", "Perak", "25/5/2021", "7.00am", 39.00, 30));
-        busList.add(new Bus("WFN 6188", "Perak", "25/5/2021", "10.00am", 40.00, 30));
-        busList.add(new Bus("WNX 0932", "Perak", "25/5/2021", "5.00pm", 41.00, 30));
-        busList.add(new Bus("WON 1539", "Perak", "25/5/2021", "8.00pm", 39.00, 30));
+        busList.add(new Bus("WZO 5989", "Selangor", "25/5/2021", "7.00am", 10, 30));
+        busList.add(new Bus("WAZ 1325", "Selangor", "25/5/2021", "10.00am", 11, 30));
+        busList.add(new Bus("WRT 7226", "Selangor", "25/5/2021", "5.00pm", 12, 30));
+        busList.add(new Bus("WFS 2391", "Selangor", "25/5/2021", "8.00pm", 10, 30));
+        busList.add(new Bus("WFK 1490", "Pulau Pinang", "25/5/2021", "7.00am", 40, 30));
+        busList.add(new Bus("WYF 6457", "Pulau Pinang", "25/5/2021", "10.00am", 41, 30));
+        busList.add(new Bus("WXI 1812", "Pulau Pinang", "25/5/2021", "5.00pm", 42, 30));
+        busList.add(new Bus("WEE 5027", "Pulau Pinang", "25/5/2021", "8.00pm", 40, 30));
+        busList.add(new Bus("WYP 0563", "Johor Bahru", "25/5/2021", "7.00am", 40, 30));
+        busList.add(new Bus("WFP 9608", "Johor Bahru", "25/5/2021", "10.00am", 41, 30));
+        busList.add(new Bus("WEO 7328", "Johor Bahru", "25/5/2021", "5.00pm", 42, 30));
+        busList.add(new Bus("WTD 9930", "Johor Bahru", "25/5/2021", "8.00pm", 40, 30));
+        busList.add(new Bus("WUO 4034", "Negeri Sembilan", "25/5/2021", "7.00am", 15, 30));
+        busList.add(new Bus("WXR 2322", "Negeri Sembilan", "25/5/2021", "10.00am", 16, 30));
+        busList.add(new Bus("WDY 3288", "Negeri Sembilan", "25/5/2021", "5.00pm", 17, 30));
+        busList.add(new Bus("WSB 1611", "Negeri Sembilan", "25/5/2021", "8.00pm", 15, 30));
+        busList.add(new Bus("WMQ 8787", "Melaka", "25/5/2021", "7.00am", 16, 30));
+        busList.add(new Bus("WEU 4211", "Melaka", "25/5/2021", "10.00am", 17, 30));
+        busList.add(new Bus("WZD 8826", "Melaka", "25/5/2021", "5.00pm", 18, 30));
+        busList.add(new Bus("WRF 6736", "Melaka", "25/5/2021", "8.00pm", 16, 30));
+        busList.add(new Bus("WTF 4522", "Kelantan", "25/5/2021", "7.00am", 42, 30));
+        busList.add(new Bus("WFX 9128", "Kelantan", "25/5/2021", "10.00am", 43, 30));
+        busList.add(new Bus("WGL 9060", "Kelantan", "25/5/2021", "5.00pm", 44, 30));
+        busList.add(new Bus("WYQ 4868", "Kelantan", "25/5/2021", "8.00pm", 42, 30));
+        busList.add(new Bus("WBY 5428", "Perak", "25/5/2021", "7.00am", 39, 30));
+        busList.add(new Bus("WFN 6188", "Perak", "25/5/2021", "10.00am", 40, 30));
+        busList.add(new Bus("WNX 0932", "Perak", "25/5/2021", "5.00pm", 41, 30));
+        busList.add(new Bus("WON 1539", "Perak", "25/5/2021", "8.00pm", 39, 30));
 
         ArrayList<Details> usersList = new ArrayList<>();
         for (int i = 0; i < user.length; i++) {
@@ -239,7 +239,7 @@ public class Main {
             } while (continueInput);
             switch (select) {
                 case 1:
-                    //input Booking details
+                    bookingTicket(busList);
                     break;
                 case 2:
                 System.out.println("\n------------------------ Booking-------------------------");
@@ -303,7 +303,7 @@ public class Main {
 
 			// "available[]" is the SEAT AVAILABLE//
 			// store 30 seats every destination [1-28]//
-			
+
 			for (int o = 1; o <= 28; o++) {
 				available[o] = 30;
 			}
@@ -319,46 +319,46 @@ public class Main {
 				System.out.println("**   DESTINATION        |  FARE  |  SEAT  **");
 				System.out.println("********************************************");
 				System.out.println("**  - SELANGOR          |        |        **");
-				System.out.println("**    1)  7:00 A.M      |  RM " + price + " |   " + available[1] + "   **");
-				System.out.println("**    2)  10:00 A.M     |  RM " + price + " |   " + available[2] + "   **");
-				System.out.println("**    3)  5:00 P.M      |  RM " + price + " |   " + available[3] + "   **");
-				System.out.println("**    4)  8:00 P.M      |  RM " + price + " |   " + available[4] + "   **");
+				System.out.println("**    1)  7:00 A.M      |  RM " + busList.get(0).getPrice() + " |   " + available[1] + "   **");
+				System.out.println("**    2)  10:00 A.M     |  RM " + busList.get(1).getPrice() + " |   " + available[2] + "   **");
+				System.out.println("**    3)  5:00 P.M      |  RM " + busList.get(2).getPrice() + " |   " + available[3] + "   **");
+				System.out.println("**    4)  8:00 P.M      |  RM " + busList.get(3).getPrice() + " |   " + available[4] + "   **");
 				System.out.println("**----------------------------------------**");
 				System.out.println("**  - PULAU PINANG      |        |        **");
-				System.out.println("**    5)  7:00 A.M      |  RM " + price + " |   " + available[5] + "   **");
-				System.out.println("**    6)  10:00 A.M     |  RM " + price + " |   " + available[6] + "   **");
-				System.out.println("**    7)  5:00 P.M      |  RM " + price + " |   " + available[7] + "   **");
-				System.out.println("**    8)  8:00 P.M      |  RM " + price + " |   " + available[8] + "   **");
+				System.out.println("**    5)  7:00 A.M      |  RM " + busList.get(4).getPrice() + " |   " + available[5] + "   **");
+				System.out.println("**    6)  10:00 A.M     |  RM " + busList.get(5).getPrice() + " |   " + available[6] + "   **");
+				System.out.println("**    7)  5:00 P.M      |  RM " + busList.get(6).getPrice() + " |   " + available[7] + "   **");
+				System.out.println("**    8)  8:00 P.M      |  RM " + busList.get(7).getPrice() + " |   " + available[8] + "   **");
 				System.out.println("**----------------------------------------**");
 				System.out.println("**  - JOHOR BAHRU       |        |        **");
-				System.out.println("**    9)  7:00 A.M      |  RM " + price + " |   " + available[9] + "   **");
-				System.out.println("**    10) 10:00 A.M     |  RM " + price + " |   " + available[10] + "   **");
-				System.out.println("**    11) 5:00 P.M      |  RM " + price + " |   " + available[11] + "   **");
-				System.out.println("**    12) 8:00 P.M      |  RM " + price + " |   " + available[12] + "   **");
+				System.out.println("**    9)  7:00 A.M      |  RM " + busList.get(8).getPrice() + " |   " + available[9] + "   **");
+				System.out.println("**    10) 10:00 A.M     |  RM " + busList.get(9).getPrice() + " |   " + available[10] + "   **");
+				System.out.println("**    11) 5:00 P.M      |  RM " + busList.get(10).getPrice() + " |   " + available[11] + "   **");
+				System.out.println("**    12) 8:00 P.M      |  RM " + busList.get(11).getPrice() + " |   " + available[12] + "   **");
 				System.out.println("**----------------------------------------**");
 				System.out.println("**  - NEGERI SEMBILAN   |        |        **");
-				System.out.println("**    13) 7:00 A.M      |  RM " + price + " |   " + available[13] + "   **");
-				System.out.println("**    14) 10:00 A.M     |  RM " + price + " |   " + available[14] + "   **");
-				System.out.println("**    15) 5:00 P.M      |  RM " + price + " |   " + available[15] + "   **");
-				System.out.println("**    16) 8:00 P.M      |  RM " + price + " |   " + available[16] + "   **");
+				System.out.println("**    13) 7:00 A.M      |  RM " + busList.get(12).getPrice() + " |   " + available[13] + "   **");
+				System.out.println("**    14) 10:00 A.M     |  RM " + busList.get(13).getPrice() + " |   " + available[14] + "   **");
+				System.out.println("**    15) 5:00 P.M      |  RM " + busList.get(14).getPrice() + " |   " + available[15] + "   **");
+				System.out.println("**    16) 8:00 P.M      |  RM " + busList.get(15).getPrice() + " |   " + available[16] + "   **");
 				System.out.println("**----------------------------------------**");
 				System.out.println("**  - MALAKA            |        |        **");
-				System.out.println("**    17) 7:00 A.M      |  RM " + price + " |   " + available[17] + "   **");
-				System.out.println("**    18) 10:00 A.M     |  RM " + price + " |   " + available[18] + "   **");
-				System.out.println("**    19) 5:00 P.M      |  RM " + price + " |   " + available[19] + "   **");
-				System.out.println("**    20) 8:00 P.M      |  RM " + price + " |   " + available[20] + "   **");
+				System.out.println("**    17) 7:00 A.M      |  RM " + busList.get(16).getPrice() + " |   " + available[17] + "   **");
+				System.out.println("**    18) 10:00 A.M     |  RM " + busList.get(17).getPrice() + " |   " + available[18] + "   **");
+				System.out.println("**    19) 5:00 P.M      |  RM " + busList.get(18).getPrice() + " |   " + available[19] + "   **");
+				System.out.println("**    20) 8:00 P.M      |  RM " + busList.get(19).getPrice() + " |   " + available[20] + "   **");
 				System.out.println("**----------------------------------------**");
 				System.out.println("**  - KELANTAN          |        |        **");
-				System.out.println("**    21) 7:00 A.M      |  RM " + price + " |   " + available[21] + "   **");
-				System.out.println("**    22) 10:00 A.M     |  RM " + price + " |   " + available[22] + "   **");
-				System.out.println("**    23) 5:00 P.M      |  RM " + price + " |   " + available[23] + "   **");
-				System.out.println("**    24) 8:00 P.M      |  RM " + price + " |   " + available[24] + "   **");
+				System.out.println("**    21) 7:00 A.M      |  RM " + busList.get(20).getPrice() + " |   " + available[21] + "   **");
+				System.out.println("**    22) 10:00 A.M     |  RM " + busList.get(21).getPrice() + " |   " + available[22] + "   **");
+				System.out.println("**    23) 5:00 P.M      |  RM " + busList.get(22).getPrice() + " |   " + available[23] + "   **");
+				System.out.println("**    24) 8:00 P.M      |  RM " + busList.get(23).getPrice() + " |   " + available[24] + "   **");
 				System.out.println("**----------------------------------------**");
 				System.out.println("**  - PERAK             |        |        **");
-				System.out.println("**    25) 7:00 A.M      |  RM " + price + " |   " + available[25] + "   **");
-				System.out.println("**    26) 10:00 A.M     |  RM " + price + " |   " + available[26] + "   **");
-				System.out.println("**    27) 5:00 P.M      |  RM " + price + " |   " + available[27] + "   **");
-				System.out.println("**    28) 8:00 P.M      |  RM " + price + " |   " + available[28] + "   **");
+				System.out.println("**    25) 7:00 A.M      |  RM " + busList.get(24).getPrice() + " |   " + available[25] + "   **");
+				System.out.println("**    26) 10:00 A.M     |  RM " + busList.get(25).getPrice() + " |   " + available[26] + "   **");
+				System.out.println("**    27) 5:00 P.M      |  RM " + busList.get(26).getPrice() + " |   " + available[27] + "   **");
+				System.out.println("**    28) 8:00 P.M      |  RM " + busList.get(27).getPrice() + " |   " + available[28] + "   **");
 				System.out.println("********************************************");
 				System.out.println("********************************************\n");
 
@@ -515,8 +515,6 @@ public class Main {
 							available[to]=available[to]-1;
 							print=1;
 							}
-							
-
 								// if the subtracted available seat is "<0", display error//
 								// add the inputed number to the subtracted seat, to back the original
 								// seat//
@@ -533,7 +531,6 @@ public class Main {
 								}
 							}
 						}
-
 					}
 
 					// print out of passengers details....
@@ -551,8 +548,8 @@ public class Main {
 						System.out.println("***************************************\n");
 					}
 				}
-				book.close();	}
-			
+				book.close();
+            }	
     }
 
     public static void proceedPayment(int price, int quantity, int amount){
@@ -1026,10 +1023,10 @@ public class Main {
                 }
             }while(Bus.validateTime(departureTime)!=true);
 
-        double price;
+        int price;
             do{
                 System.out.println("Enter Price:");
-                price = scanner.nextDouble();
+                price = scanner.nextInt();
                 if(Bus.validateprice(price)!=true){
                     System.out.println("The price cannot be zero or negative.");
                     System.out.println("Please enter proper price!");
@@ -1084,7 +1081,7 @@ public class Main {
             String destination = "";
             String departureDate = "";
             String departureTime = "";
-            double price = 0;
+            int price = 0;
             int seatNo = 0;
             do{	
                 System.out.println("\nWhat do you wish to modify ?"
@@ -1134,7 +1131,7 @@ public class Main {
                     
                         do{
                             System.out.println("Enter Price:");
-                            price = scanner.nextDouble();
+                            price = scanner.nextInt();
                             if(Bus.validateprice(price)!=true){
                             System.out.println("The price cannot be zero or negative.");
                                 System.out.println("Please enter proper price!");
