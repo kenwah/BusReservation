@@ -220,7 +220,7 @@ public class BusReservation {
 						s1[to][b]=s;
 					}while(sAvailable=false);
 
-				}displayDetails.CustomerDetails(name, ticketDes, ticketFare, ticketSeat, custAmount, to, ticketBus, s);
+				}
 			}
 			
 			
