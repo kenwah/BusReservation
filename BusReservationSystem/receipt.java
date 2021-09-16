@@ -21,7 +21,7 @@ public class receipt implements serviceCharge{
 
     public receipt(String place, String time, int price, int quantity, int total, int receiptNo){
         this.place = place;
-        this.price = price;
+        this.time = time;
         this.price = price;
         this.quantity = quantity;
         this.total = total;
@@ -47,18 +47,25 @@ public class receipt implements serviceCharge{
     }
 
     public void printReceipt(){
-
+        
         calcServiceCharge(total);
         calcTotalIncludeSC(total);
-        System.out.println("\n\n************************************************************************************");
-        System.out.printf("*        Receipt No: %d               Date & Time: %s        *\n", receiptNo, currentDate);
-        System.out.println("************************************************************************************");
-        System.out.println("*  Description       Price (RM)               Quantity               Total (RM)    *");
-        System.out.printf("*%5s%s %10d %23d %25d       *\n",place, time, price, quantity, total);
-        System.out.println("************************************************************************************");
-        System.out.printf("*  Service Charge 2%%:                                              %.2f      *\n", serviceCharge);
-        System.out.printf("*  Grandtotal:                                                      %.2f      *\n", grandTotal);
-        System.out.println("************************************************************************************\n\n");
+        System.out.println("\n\n*************************************************************************************************");
+        System.out.printf("*        Receipt No: %d                               Date & Time: %s        *\n", receiptNo, currentDate);
+        System.out.println("*************************************************************************************************");
+        System.out.println("  Description                  Price (RM)              Quantity              Total (RM)    ");
+        System.out.printf("  %5s %s",place, time);
+        if(place.length() <= 8){
+            System.out.print("                ");
+        }
+        else{
+            System.out.print("             ");
+        }
+        System.out.printf("%d %23d %22d       \n",price, quantity, total);
+        System.out.println("*************************************************************************************************");
+        System.out.printf("*  Service Charge 2%%:                                                          %.2f             *\n", serviceCharge);
+        System.out.printf("*  Grandtotal:                                                                %.2f             *\n", grandTotal);
+        System.out.println("*************************************************************************************************\n\n");
         
     }
 }
