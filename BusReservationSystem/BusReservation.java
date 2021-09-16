@@ -2,10 +2,11 @@ package BusReservationSystem;
 
 import java.io.*;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class BusReservation {
 
-	public void reservation(String [] args, double price) throws IOException {
+	public void reservation(ArrayList<Bus> busList){
 
 		int to = 0,custAmount=0,s=0,f=0;
 		String name[]=new String[20];
@@ -37,49 +38,48 @@ public class BusReservation {
 				System.out.println("**   DESTINATION        |  FARE  |  SEAT  **");
 				System.out.println("********************************************");
 				System.out.println("**  - SELANGOR          |        |        **");
-				System.out.println("**    1)  7:00 A.M      |  RM " + price + " |   " + available[1] + "   **");
-				System.out.println("**    2)  10:00 A.M     |  RM " + price + " |   " + available[2] + "   **");
-				System.out.println("**    3)  5:00 P.M      |  RM " + price + " |   " + available[3] + "   **");
-				System.out.println("**    4)  8:00 P.M      |  RM " + price + " |   " + available[4] + "   **");
+				System.out.println("**    1)  7:00 A.M      |  RM " + busList.get(0).getPrice() + " |   " + available[1] + "   **");
+				System.out.println("**    2)  10:00 A.M     |  RM " + busList.get(1).getPrice() + " |   " + available[2] + "   **");
+				System.out.println("**    3)  5:00 P.M      |  RM " + busList.get(2).getPrice() + " |   " + available[3] + "   **");
+				System.out.println("**    4)  8:00 P.M      |  RM " + busList.get(3).getPrice() + " |   " + available[4] + "   **");
 				System.out.println("**----------------------------------------**");
 				System.out.println("**  - PULAU PINANG      |        |        **");
-				System.out.println("**    5)  7:00 A.M      |  RM " + price + " |   " + available[5] + "   **");
-				System.out.println("**    6)  10:00 A.M     |  RM " + price + " |   " + available[6] + "   **");
-				System.out.println("**    7)  5:00 P.M      |  RM " + price + " |   " + available[7] + "   **");
-				System.out.println("**    8)  8:00 P.M      |  RM " + price + " |   " + available[8] + "   **");
+				System.out.println("**    5)  7:00 A.M      |  RM " + busList.get(4).getPrice() + " |   " + available[5] + "   **");
+				System.out.println("**    6)  10:00 A.M     |  RM " + busList.get(5).getPrice() + " |   " + available[6] + "   **");
+				System.out.println("**    7)  5:00 P.M      |  RM " + busList.get(6).getPrice() + " |   " + available[7] + "   **");
+				System.out.println("**    8)  8:00 P.M      |  RM " + busList.get(7).getPrice() + " |   " + available[8] + "   **");
 				System.out.println("**----------------------------------------**");
 				System.out.println("**  - JOHOR BAHRU       |        |        **");
-				System.out.println("**    9)  7:00 A.M      |  RM " + price + " |   " + available[9] + "   **");
-				System.out.println("**    10) 10:00 A.M     |  RM " + price + " |   " + available[10] + "   **");
-				System.out.println("**    11) 5:00 P.M      |  RM " + price + " |   " + available[11] + "   **");
-				System.out.println("**    12) 8:00 P.M      |  RM " + price + " |   " + available[12] + "   **");
+				System.out.println("**    9)  7:00 A.M      |  RM " + busList.get(8).getPrice() + " |   " + available[9] + "   **");
+				System.out.println("**    10) 10:00 A.M     |  RM " + busList.get(9).getPrice() + " |   " + available[10] + "   **");
+				System.out.println("**    11) 5:00 P.M      |  RM " + busList.get(10).getPrice() + " |   " + available[11] + "   **");
+				System.out.println("**    12) 8:00 P.M      |  RM " + busList.get(11).getPrice() + " |   " + available[12] + "   **");
 				System.out.println("**----------------------------------------**");
 				System.out.println("**  - NEGERI SEMBILAN   |        |        **");
-				System.out.println("**    13) 7:00 A.M      |  RM " + price + " |   " + available[13] + "   **");
-				System.out.println("**    14) 10:00 A.M     |  RM " + price + " |   " + available[14] + "   **");
-				System.out.println("**    15) 5:00 P.M      |  RM " + price + " |   " + available[15] + "   **");
-				System.out.println("**    16) 8:00 P.M      |  RM " + price + " |   " + available[16] + "   **");
+				System.out.println("**    13) 7:00 A.M      |  RM " + busList.get(12).getPrice() + " |   " + available[13] + "   **");
+				System.out.println("**    14) 10:00 A.M     |  RM " + busList.get(13).getPrice() + " |   " + available[14] + "   **");
+				System.out.println("**    15) 5:00 P.M      |  RM " + busList.get(14).getPrice() + " |   " + available[15] + "   **");
+				System.out.println("**    16) 8:00 P.M      |  RM " + busList.get(15).getPrice() + " |   " + available[16] + "   **");
 				System.out.println("**----------------------------------------**");
 				System.out.println("**  - MALAKA            |        |        **");
-				System.out.println("**    17) 7:00 A.M      |  RM " + price + " |   " + available[17] + "   **");
-				System.out.println("**    18) 10:00 A.M     |  RM " + price + " |   " + available[18] + "   **");
-				System.out.println("**    19) 5:00 P.M      |  RM " + price + " |   " + available[19] + "   **");
-				System.out.println("**    20) 8:00 P.M      |  RM " + price + " |   " + available[20] + "   **");
+				System.out.println("**    17) 7:00 A.M      |  RM " + busList.get(16).getPrice() + " |   " + available[17] + "   **");
+				System.out.println("**    18) 10:00 A.M     |  RM " + busList.get(17).getPrice() + " |   " + available[18] + "   **");
+				System.out.println("**    19) 5:00 P.M      |  RM " + busList.get(18).getPrice() + " |   " + available[19] + "   **");
+				System.out.println("**    20) 8:00 P.M      |  RM " + busList.get(19).getPrice() + " |   " + available[20] + "   **");
 				System.out.println("**----------------------------------------**");
 				System.out.println("**  - KELANTAN          |        |        **");
-				System.out.println("**    21) 7:00 A.M      |  RM " + price + " |   " + available[21] + "   **");
-				System.out.println("**    22) 10:00 A.M     |  RM " + price + " |   " + available[22] + "   **");
-				System.out.println("**    23) 5:00 P.M      |  RM " + price + " |   " + available[23] + "   **");
-				System.out.println("**    24) 8:00 P.M      |  RM " + price + " |   " + available[24] + "   **");
+				System.out.println("**    21) 7:00 A.M      |  RM " + busList.get(20).getPrice() + " |   " + available[21] + "   **");
+				System.out.println("**    22) 10:00 A.M     |  RM " + busList.get(21).getPrice() + " |   " + available[22] + "   **");
+				System.out.println("**    23) 5:00 P.M      |  RM " + busList.get(22).getPrice() + " |   " + available[23] + "   **");
+				System.out.println("**    24) 8:00 P.M      |  RM " + busList.get(23).getPrice() + " |   " + available[24] + "   **");
 				System.out.println("**----------------------------------------**");
 				System.out.println("**  - PERAK             |        |        **");
-				System.out.println("**    25) 7:00 A.M      |  RM " + price + " |   " + available[25] + "   **");
-				System.out.println("**    26) 10:00 A.M     |  RM " + price + " |   " + available[26] + "   **");
-				System.out.println("**    27) 5:00 P.M      |  RM " + price + " |   " + available[27] + "   **");
-				System.out.println("**    28) 8:00 P.M      |  RM " + price + " |   " + available[28] + "   **");
+				System.out.println("**    25) 7:00 A.M      |  RM " + busList.get(24).getPrice() + " |   " + available[25] + "   **");
+				System.out.println("**    26) 10:00 A.M     |  RM " + busList.get(25).getPrice() + " |   " + available[26] + "   **");
+				System.out.println("**    27) 5:00 P.M      |  RM " + busList.get(26).getPrice() + " |   " + available[27] + "   **");
+				System.out.println("**    28) 8:00 P.M      |  RM " + busList.get(27).getPrice() + " |   " + available[28] + "   **");
 				System.out.println("********************************************");
 				System.out.println("********************************************\n");
-
 				if ((available[1] == 0) && (available[2] == 0) && (available[3] == 0) && (available[4] == 0)
 						&& (available[5] == 0) && (available[6] == 0) && (available[7] == 0) && (available[8] == 0)
 						&& (available[9] == 0) && (available[10] == 0) && (available[11] == 0) && (available[12] == 0)
@@ -102,12 +102,8 @@ public class BusReservation {
 						}
 					}
 
-						x = 0;
-
-						// if Passenger's Name already used, display error and go back to Inputing//
 						
-					}
-
+					
 					// inputing of Destination//
 					// integers Only [1-28]//
 					for (x = 1; x == 1;) {
@@ -136,91 +132,21 @@ public class BusReservation {
 						System.out.print("ENTER SEAT [from 1 to 30]: ");
 						ticketSeat[s] = book.nextInt();
 
-						// if Inputed integers are "<1" or ">28", display error and go back to Inputing//
+						// if Inputed integers are "<1" or ">30", display error and go back to Inputing//
 						if (s < 1 || s > 30) {
 						System.out.println("Invalid Input!");
 						x = 1;
 						
 					}
 
-					String Dest[] = { " ", "SELANGOR 7AM", "SELANGOR 10AM", "SELANGOR 5PM", "SELANGOR 8PM",
-							"PULAU PINANG 7AM", "PULAU PINANG 10AM", "PULAU PINANG 5PM", "PULAU PINANG 8PM",
-							"JOHOR BAHRU 7AM", "JOHOR BAHRU 10AM", "JOHOR BAHRU 5PM", "JOHOR BAHRU 8PM",
-							"NEGERI SEMBILAN 7AM", "NEGERI SEMBILAN 10AM", "NEGERI SEMBILAN 5PM", "NEGERI SEMBILAN 8PM",
-							"MELAKA 7AM", "MELAKA 10AM", "MELAKA 5PM", "MELAKA 8PM", "KELANTAN 7AM", "KELANTAN 10AM",
-							"KELANTAN 5PM", "KELANTAN 8PM", "PERAK 7AM", "PERAK 10AM", "PERAK 5PM", "PERAK 8PM", };
-					double fare[] = { 0, 10, 11, 12, 10, 40, 41, 42, 40, 40, 41, 42, 40, 15, 16, 17, 15, 16, 17, 18, 16,
-							42, 43, 44, 42, 39, 40, 41, 39 };
-					String busID[] = { " ", "WZO 5989", "WAZ 1325", "WRT 7226", "WFS 2391", "WFK 1490", "WYF 6457",
-							"WXI 1812", "WEE 5027", "WYP 0563", "WFP 9608", "WEO 7328", "WTD 9930", "WUO 4034",
-							"WXR 2322", "WDY 3288", "WSB 1611", "WMQ 8787", "WEU 4211", "WZD 8826", "WRF 6736",
-							"WTF 4522", "WFX 9128", "WGL 9060", "WYQ 4868", "WBY 5428", "WFN 6188", "WNX 0932",
-							"WON 1539" };
 					int seatID[]={0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30};
 
 					// converted integer to string, transfer to storage array//
-					ticketDes[to] = Dest[to];
-					ticketBus[to] = busID[to];
+					ticketDes[to] = busList.get(to).getDestination();
+					ticketFare[to] = busList.get(to).getPrice();
+					ticketBus[to] = busList.get(to).getBusID();
 					ticketSeat[s] = seatID[s];
-					switch(to){
-						case 1: ticketFare[f]=fare[1];
-						break;
-						case 2: ticketFare[f]=fare[2];
-						break;
-						case 3: ticketFare[f]=fare[3];
-						break;
-						case 4: ticketFare[f]=fare[4];
-						break;
-						case 5: ticketFare[f]=fare[5];
-						break;
-						case 6: ticketFare[f]=fare[6];
-						break;
-						case 7: ticketFare[f]=fare[7];
-						break;
-						case 8: ticketFare[f]=fare[8];
-						break;
-						case 9: ticketFare[f]=fare[9];
-						break;
-						case 10: ticketFare[f]=fare[10];
-						break;
-						case 11: ticketFare[f]=fare[11];
-						break;
-						case 12: ticketFare[f]=fare[12];
-						break;
-						case 13: ticketFare[f]=fare[13];
-						break;
-						case 14: ticketFare[f]=fare[14];
-						break;
-						case 15: ticketFare[f]=fare[15];
-						break;
-						case 16: ticketFare[f]=fare[16];
-						break;
-						case 17: ticketFare[f]=fare[17];
-						break;
-						case 18: ticketFare[f]=fare[18];
-						break;
-						case 19: ticketFare[f]=fare[19];
-						break;
-						case 20: ticketFare[f]=fare[20];
-						break;
-						case 21: ticketFare[f]=fare[21];
-						break;
-						case 22: ticketFare[f]=fare[22];
-						break;
-						case 23: ticketFare[f]=fare[23];
-						break;
-						case 24: ticketFare[f]=fare[24];
-						break;
-						case 25: ticketFare[f]=fare[25];
-						break;
-						case 26: ticketFare[f]=fare[26];
-						break;
-						case 27: ticketFare[f]=fare[27];
-						break;
-						case 28: ticketFare[f]=fare[28];
-						break;
-						
-					}
+					
 
 					// inputing for Number of Passenger's//
 					for (x = 1; x == 1;) {
@@ -261,7 +187,7 @@ public class BusReservation {
 						System.out.println("***************************************");
 						System.out.println("PASSENGER'S NAME: " + name);
 						System.out.println("PASSENGER'S DESTINATION : " + ticketDes[to]);
-						System.out.println("FARE PRICE(PER PERSON): RM " + ticketFare[f]);
+						System.out.println("FARE PRICE(PER PERSON): RM " + ticketFare[to]);
 						System.out.println("NO. OF PASSENGERS: " + custAmount);
 						System.out.println("SEAT: " + ticketSeat[s]);
 						System.out.println("BUS ID: " + BusId[to]);
@@ -274,3 +200,4 @@ public class BusReservation {
 		
 	}
 
+}
