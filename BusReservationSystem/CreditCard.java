@@ -1,25 +1,19 @@
 package BusReservationSystem;
 public class CreditCard extends Payment{
-    private String cardName;
+    
     private long cardNum;
     private String cardType;
-    private int cvv;
+    
 
     //constructor
     public CreditCard(){}
 
     //parameterized constructor
-    public CreditCard(int receiptNo, double serviceCharge, double amount, double totalIncludeSC, String cardName, long cardNum, String cardType, int cvv){
-        super(receiptNo, serviceCharge, amount, totalIncludeSC);
-        this.cardName = cardName;
+    public CreditCard(int receiptNo, double serviceCharge, double amount, double totalIncludeSC, long cardNum, String cardType){
+        super(receiptNo, serviceCharge, amount, totalIncludeSC);  
         this.cardNum = cardNum;
         this.cardType = cardType;
-        this.cvv = cvv;
-    }
-
-    //getter for card name
-    public String getCardName() {
-        return cardName;
+      
     }
 
     //getter for card num
@@ -27,19 +21,9 @@ public class CreditCard extends Payment{
         return cardNum;
     }
 
-    //getter for cvv
-    public int getCvv() {
-        return cvv;
-    }
-
     //getter for card type
     public String getCardType() {
         return cardType;
-    }
-
-    //setter for card name
-    public void setCardName(String cardName) {
-        this.cardName = cardName;
     }
 
     //setter for card num
@@ -50,11 +34,6 @@ public class CreditCard extends Payment{
     //setter for card type
     public void setCardType(String cardType) {
         this.cardType = cardType;
-    }
-
-    //setter fro cvv
-    public void setCvv(int cvv) {
-        this.cvv = cvv;
     }
 
     //method for validate credit card num
@@ -118,11 +97,9 @@ public class CreditCard extends Payment{
     }
 
     public String toString(){
-        return super.toString() +
-                "Credit Card Holder Name: " + cardName +
+        return super.toString() +        
                 "Credit Card Number: " + cardNum + 
-                "Credit Card Type (Visa / MasterCard): " + cardType +
-                "CVV: " + cvv;
+                "Credit Card Type (Visa / MasterCard): " + cardType;
     }
 }
 
