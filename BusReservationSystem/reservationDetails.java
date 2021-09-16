@@ -1,4 +1,4 @@
-/*package BusReservationSystem;
+package BusReservationSystem;
 
 public class reservationDetails {
     private String name;
@@ -26,4 +26,3 @@ public class reservationDetails {
     }
     
 }
-*/

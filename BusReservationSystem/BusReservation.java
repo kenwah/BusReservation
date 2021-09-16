@@ -8,12 +8,14 @@ public class BusReservation {
 	public void reservation(ArrayList<Bus> busList) {
 
 		int to = 0, custAmount = 0, s = 0;
-		String name[] = new String[20];
+		String name;
+		int s1[][]=new int[28][30];
 		int available[] = new int[27];
 		String ticketDes[] = new String[100];
 		double ticketFare[] = new double[3];
 		String ticketBus[] = new String[100];
 		int ticketSeat[] = new int[100];
+		boolean sAvailable= false;
 		Scanner book = new Scanner(System.in);
 
 		for (int i = 1; i < 4;) {
@@ -89,7 +91,7 @@ public class BusReservation {
 				}
 
 				// inputing of Passenger's Name//
-				else {
+				/*else {
 					for (x = 1; x == 1;) {
 						System.out.print("\n PASSENGER'S NAME: ");
 						name[0] = book.nextLine();
@@ -187,7 +189,43 @@ public class BusReservation {
 						displayDetails.CustomerDetails(name, ticketDes, ticketFare, ticketSeat, custAmount, to,
 								ticketBus, s);
 					}
+				}*/
+				else{
+				System.out.print("\n PASSENGER'S NAME: ");
+				name = book.nextLine();
+				
+				System.out.print("ENTER DESTINATION [number]: ");
+				to = book.nextInt();
+				if (to < 1 || to > 28) {
+					System.out.println("Sorry, it is a invalid number");
 				}
+
+				System.out.print("HOW MANY PASSENGERS ARE YOU?: ");
+				custAmount = book.nextInt();
+
+				//int seatID[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30 };
+
+				for(int b=0; b<custAmount; b++){
+					do{
+						System.out.print("ENTER SEAT NUMBER [1-30]: ");
+						s = book.nextInt();
+						
+						ticketSeat[b]=s;
+						for(int c=0; c<s1.length; c++){
+							if(s==s1[to][c]){
+							System.out.println("This seat is not available");
+							sAvailable=true;
+							}
+						}
+						s1[to][b]=s;
+					}while(sAvailable=false);
+
+				}displayDetails.CustomerDetails(name, ticketDes, ticketFare, ticketSeat, custAmount, to, ticketBus, s);
+			}
+			
+			
+				
+				
 				book.close();
 			}
 		}

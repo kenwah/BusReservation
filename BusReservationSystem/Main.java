@@ -5,16 +5,13 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args)
-    {
-        User[] user = {
-            new User("M1111", 6790, "Michael", "020519-05-0219", "018-910512213", 'M'),
-            new User("S0001", 2324, "John", "021212-05-0210", "011-331946128", 'M'),
-            new User("S0002", 2425, "Dylan", "020109-05-0313", "017-249101281", 'M'),
-            new User("S0003", 5877, "Dannie", "021101-05-0414", "019-21564241", 'F'),
-            new User("S0004", 2497, "Nicole", "020905-05-0218", "014-123456789", 'F'),
-            new User("S0005", 5897, "Emily", "020814-05-0128", "012-645287419", 'F')
-        };
+    public static void main(String[] args) {
+        User[] user = { new User("M1111", 6790, "Michael", "020519-05-0219", "018-910512213", 'M'),
+                new User("S0001", 2324, "John", "021212-05-0210", "011-331946128", 'M'),
+                new User("S0002", 2425, "Dylan", "020109-05-0313", "017-249101281", 'M'),
+                new User("S0003", 5877, "Dannie", "021101-05-0414", "019-21564241", 'F'),
+                new User("S0004", 2497, "Nicole", "020905-05-0218", "014-123456789", 'F'),
+                new User("S0005", 5897, "Emily", "020814-05-0128", "012-645287419", 'F') };
 
         ArrayList<Bus> busList = new ArrayList<Bus>();
         busList.add(new Bus("WZO 5989", "Selangor", "25/5/2021", "7.00am", 10, 30));
@@ -123,26 +120,26 @@ public class Main {
                         }
                     } else {
                         System.err.println("Incorrect ID!");
-                   }
+                    }
                 }
             }
-            if(loginSuccess == false){
+            if (loginSuccess == false) {
                 do {
-                System.out.print("Login Again? (Yes = Y / No = N)");
-                choose = scanner.next().trim().toUpperCase().charAt(0);
-                if(choose != 'Y' && choose != 'N'){
-                    System.err.println("** Only Y or N are allowed **");
-                }
-            } while (choose != 'Y' && choose != 'N');
+                    System.out.print("Login Again? (Yes = Y / No = N)");
+                    choose = scanner.next().trim().toUpperCase().charAt(0);
+                    if (choose != 'Y' && choose != 'N') {
+                        System.err.println("** Only Y or N are allowed **");
+                    }
+                } while (choose != 'Y' && choose != 'N');
             }
-            
+
         } while (Character.toUpperCase(choose) == 'Y');
-        if(loginSuccess == true){
+        if (loginSuccess == true) {
             System.out.println("Welcome to the Staff system!!!");
             staff(busList);
         }
     }
-    
+
     public static void managementLoginPage(ArrayList<Details> usersList, ArrayList<Bus> busList) {
         char choose = 'N';
         boolean loginSuccess = false;
@@ -176,26 +173,26 @@ public class Main {
                         } else {
                             System.err.println("Incorrect Passcode!");
                         }
-                    }else {
+                    } else {
                         System.err.println("Incorrect ID!");
                     }
-                   
-                } 
-            }
-            if(loginSuccess == false){
-                do {
-                System.out.print("Login Again? (Yes = Y / No = N)");
-                choose = scanner.next().trim().toUpperCase().charAt(0);
-                if(choose != 'Y' && choose != 'N'){
-                    System.err.println("** Only Y or N are allowed **");
+
                 }
-            } while (choose != 'Y' && choose != 'N');
-            }   
+            }
+            if (loginSuccess == false) {
+                do {
+                    System.out.print("Login Again? (Yes = Y / No = N)");
+                    choose = scanner.next().trim().toUpperCase().charAt(0);
+                    if (choose != 'Y' && choose != 'N') {
+                        System.err.println("** Only Y or N are allowed **");
+                    }
+                } while (choose != 'Y' && choose != 'N');
+            }
         } while (Character.toUpperCase(choose) == 'Y');
-        if(loginSuccess == true){
+        if (loginSuccess == true) {
             System.out.println("Welcome to the Management system!!!");
             management(usersList, busList);
-        }    
+        }
     }
 
     public static void staff(ArrayList<Bus> busList) {
@@ -204,15 +201,15 @@ public class Main {
         boolean continueInput;
         do {
             continueInput = true;
-             // the MAIN MENU//
-             System.out.println("********************************************");
-             System.out.println("** BUS RESERVATION AND TICKETING SYSTEM   **");
-             System.out.println("********************************************");
-             System.out.println("** [1] Booking and Payment                **");
-             System.out.println("** [2] Maintainance                       **");
-             System.out.println("** [3] Exit                               **");
-             System.out.println("********************************************");
-             System.out.println("********************************************");  
+            // the MAIN MENU//
+            System.out.println("********************************************");
+            System.out.println("** BUS RESERVATION AND TICKETING SYSTEM   **");
+            System.out.println("********************************************");
+            System.out.println("** [1] Booking and Payment                **");
+            System.out.println("** [2] Maintainance                       **");
+            System.out.println("** [3] Exit                               **");
+            System.out.println("********************************************");
+            System.out.println("********************************************");
             do {
                 try {
                     System.out.print("Please select one: ");
@@ -237,198 +234,184 @@ public class Main {
                 default:
                     System.out.println("Exit Page");
             }
-        } while (select != 5);   
-        input.close(); 
-    }  
+        } while (select != 5);
+        input.close();
+    }
 
-    public static void bookingTicket(ArrayList<Bus> busList){
-        int to = 0,custAmount=0,s=0;
-		String name[]=new String[20];
-		int available[] = new int[27];
-		String ticketDes[] = new String [100];
-		int ticketFare[] = new int[3];
-		String ticketBus[] = new String [100];
-		int ticketSeat[] = new int [100];
-		Scanner book = new Scanner(System.in);
-		int amount = 0;
+    public static void bookingTicket(ArrayList<Bus> busList) {
+        int to = 0, custAmount = 0, s = 0;
+        String name;
+        int s1[][] = new int[28][30];
+        int available[] = new int[27];
+        String ticketDes[] = new String[100];
+        double ticketFare[] = new double[3];
+        String ticketBus[] = new String[100];
+        int ticketSeat[] = new int[100];
+        boolean sAvailable = true;
+        Scanner book = new Scanner(System.in);
 
-		for (int i = 1; i < 4;) {
+        // display first the Destination Details//
+        System.out.println("********************************************");
+        System.out.println("**   DESTINATION        |  FARE  |  SEAT  **");
+        System.out.println("********************************************");
+        System.out.println("**  - " + busList.get(0).getDestination() + "          |        |        **");
+        System.out.println("**    1)  " + busList.get(0).getDepartureTime() + "        |  RM "
+                + busList.get(0).getPrice() + " |   " + busList.get(0).getSeatNo() + "   **");
+        System.out.println("**    2)  " + busList.get(1).getDepartureTime() + "       |  RM "
+                + busList.get(1).getPrice() + " |   " + busList.get(1).getSeatNo() + "   **");
+        System.out.println("**    3)  " + busList.get(2).getDepartureTime() + "        |  RM "
+                + busList.get(2).getPrice() + " |   " + busList.get(2).getSeatNo() + "   **");
+        System.out.println("**    4)  " + busList.get(3).getDepartureTime() + "        |  RM "
+                + busList.get(3).getPrice() + " |   " + busList.get(3).getSeatNo() + "   **");
+        System.out.println("**----------------------------------------**");
+        System.out.println("**  - " + busList.get(4).getDestination() + "      |        |        **");
+        System.out.println("**    5)  " + busList.get(4).getDepartureTime() + "        |  RM "
+                + busList.get(4).getPrice() + " |   " + busList.get(4).getSeatNo() + "   **");
+        System.out.println("**    6)  " + busList.get(5).getDepartureTime() + "       |  RM "
+                + busList.get(5).getPrice() + " |   " + busList.get(5).getSeatNo() + "   **");
+        System.out.println("**    7)  " + busList.get(6).getDepartureTime() + "        |  RM "
+                + busList.get(6).getPrice() + " |   " + busList.get(6).getSeatNo() + "   **");
+        System.out.println("**    8)  " + busList.get(7).getDepartureTime() + "        |  RM "
+                + busList.get(7).getPrice() + " |   " + busList.get(7).getSeatNo() + "   **");
+        System.out.println("**----------------------------------------**");
+        System.out.println("**  - " + busList.get(8).getDestination() + "       |        |        **");
+        System.out.println("**    9)  " + busList.get(8).getDepartureTime() + "        |  RM "
+                + busList.get(8).getPrice() + " |   " + busList.get(8).getSeatNo() + "   **");
+        System.out.println("**    10) " + busList.get(9).getDepartureTime() + "       |  RM "
+                + busList.get(9).getPrice() + " |   " + busList.get(9).getSeatNo() + "   **");
+        System.out.println("**    11) " + busList.get(10).getDepartureTime() + "        |  RM "
+                + busList.get(10).getPrice() + " |   " + busList.get(10).getSeatNo() + "   **");
+        System.out.println("**    12) " + busList.get(11).getDepartureTime() + "        |  RM "
+                + busList.get(11).getPrice() + " |   " + busList.get(11).getSeatNo() + "   **");
+        System.out.println("**----------------------------------------**");
+        System.out.println("**  - " + busList.get(12).getDestination() + "   |        |        **");
+        System.out.println("**    13) " + busList.get(12).getDepartureTime() + "        |  RM "
+                + busList.get(12).getPrice() + " |   " + busList.get(12).getSeatNo() + "   **");
+        System.out.println("**    14) " + busList.get(13).getDepartureTime() + "       |  RM "
+                + busList.get(13).getPrice() + " |   " + busList.get(13).getSeatNo() + "   **");
+        System.out.println("**    15) " + busList.get(14).getDepartureTime() + "        |  RM "
+                + busList.get(14).getPrice() + " |   " + busList.get(14).getSeatNo() + "   **");
+        System.out.println("**    16) " + busList.get(15).getDepartureTime() + "        |  RM "
+                + busList.get(15).getPrice() + " |   " + busList.get(15).getSeatNo() + "   **");
+        System.out.println("**----------------------------------------**");
+        System.out.println("**  - " + busList.get(16).getDestination() + "            |        |        **");
+        System.out.println("**    17) " + busList.get(16).getDepartureTime() + "        |  RM "
+                + busList.get(16).getPrice() + " |   " + busList.get(16).getSeatNo() + "   **");
+        System.out.println("**    18) " + busList.get(17).getDepartureTime() + "       |  RM "
+                + busList.get(17).getPrice() + " |   " + busList.get(17).getSeatNo() + "   **");
+        System.out.println("**    19) " + busList.get(18).getDepartureTime() + "        |  RM "
+                + busList.get(18).getPrice() + " |   " + busList.get(18).getSeatNo() + "   **");
+        System.out.println("**    20) " + busList.get(19).getDepartureTime() + "        |  RM "
+                + busList.get(19).getPrice() + " |   " + busList.get(19).getSeatNo() + "   **");
+        System.out.println("**----------------------------------------**");
+        System.out.println("**  - " + busList.get(20).getDestination() + "          |        |        **");
+        System.out.println("**    21) " + busList.get(20).getDepartureTime() + "        |  RM "
+                + busList.get(20).getPrice() + " |   " + busList.get(20).getSeatNo() + "   **");
+        System.out.println("**    22) " + busList.get(21).getDepartureTime() + "       |  RM "
+                + busList.get(21).getPrice() + " |   " + busList.get(21).getSeatNo() + "   **");
+        System.out.println("**    23) " + busList.get(22).getDepartureTime() + "        |  RM "
+                + busList.get(22).getPrice() + " |   " + busList.get(22).getSeatNo() + "   **");
+        System.out.println("**    24) " + busList.get(23).getDepartureTime() + "        |  RM "
+                + busList.get(23).getPrice() + " |   " + busList.get(23).getSeatNo() + "   **");
+        System.out.println("**----------------------------------------**");
+        System.out.println("**  - " + busList.get(24).getDestination() + "             |        |        **");
+        System.out.println("**    25) " + busList.get(24).getDepartureTime() + "        |  RM "
+                + busList.get(24).getPrice() + " |   " + busList.get(24).getSeatNo() + "   **");
+        System.out.println("**    26) " + busList.get(25).getDepartureTime() + "       |  RM "
+                + busList.get(25).getPrice() + " |   " + busList.get(25).getSeatNo() + "   **");
+        System.out.println("**    27) " + busList.get(26).getDepartureTime() + "        |  RM "
+                + busList.get(26).getPrice() + " |   " + busList.get(26).getSeatNo() + "   **");
+        System.out.println("**    28) " + busList.get(27).getDepartureTime() + "        |  RM "
+                + busList.get(27).getPrice() + " |   " + busList.get(27).getSeatNo() + "   **");
+        System.out.println("********************************************");
+        System.out.println("********************************************\n");
+        if ((busList.get(0).getSeatNo() == 0) && (busList.get(1).getSeatNo() == 0) && (busList.get(2).getSeatNo() == 0)
+                && (busList.get(3).getSeatNo() == 0) && (busList.get(4).getSeatNo() == 0)
+                && (busList.get(5).getSeatNo() == 0) && (busList.get(6).getSeatNo() == 0)
+                && (busList.get(7).getSeatNo() == 0) && (busList.get(8).getSeatNo() == 0)
+                && (busList.get(9).getSeatNo() == 0) && (busList.get(10).getSeatNo() == 0)
+                && (busList.get(11).getSeatNo() == 0) && (busList.get(12).getSeatNo() == 0)
+                && (busList.get(13).getSeatNo() == 0) && (busList.get(14).getSeatNo() == 0)
+                && (busList.get(15).getSeatNo() == 0) && (busList.get(16).getSeatNo() == 0)
+                && (busList.get(17).getSeatNo() == 0) && (busList.get(18).getSeatNo() == 0)
+                && (busList.get(19).getSeatNo() == 0) && (busList.get(20).getSeatNo() == 0)
+                && (busList.get(21).getSeatNo() == 0) && (busList.get(22).getSeatNo() == 0)
+                && (busList.get(23).getSeatNo() == 0) && (busList.get(24).getSeatNo() == 0)
+                && (busList.get(25).getSeatNo() == 0) && (busList.get(26).getSeatNo() == 0)
+                && busList.get(27).getSeatNo() == 0) {
+            System.out.println("Sorry, We don't  have available seats for all Destination!");
 
-			for (int x = 1; x == 1;) {
+        }
 
-				int print = 1;
+        System.out.print("\n PASSENGER'S NAME: ");
+        name = book.nextLine();
 
-				// display first the Destination Details//
-				System.out.println("********************************************");
-				System.out.println("**   DESTINATION        |  FARE  |  SEAT  **");
-				System.out.println("********************************************");
-				System.out.println("**  - " + busList.get(0).getDestination() + "          |        |        **");
-				System.out.println("**    1)  " + busList.get(0).getDepartureTime() + "        |  RM " + busList.get(0).getPrice() + " |   " + busList.get(0).getSeatNo() + "   **");
-				System.out.println("**    2)  " + busList.get(1).getDepartureTime() + "       |  RM " + busList.get(1).getPrice() + " |   " + busList.get(1).getSeatNo() + "   **");
-				System.out.println("**    3)  " + busList.get(2).getDepartureTime() + "        |  RM " + busList.get(2).getPrice() + " |   " + busList.get(2).getSeatNo() + "   **");
-				System.out.println("**    4)  " + busList.get(3).getDepartureTime() + "        |  RM " + busList.get(3).getPrice() + " |   " + busList.get(3).getSeatNo() + "   **");
-				System.out.println("**----------------------------------------**");
-				System.out.println("**  - " + busList.get(4).getDestination() + "      |        |        **");
-				System.out.println("**    5)  " + busList.get(4).getDepartureTime() + "        |  RM " + busList.get(4).getPrice() + " |   " + busList.get(4).getSeatNo() + "   **");
-				System.out.println("**    6)  " + busList.get(5).getDepartureTime() + "       |  RM " + busList.get(5).getPrice() + " |   " + busList.get(5).getSeatNo() + "   **");
-				System.out.println("**    7)  " + busList.get(6).getDepartureTime() + "        |  RM " + busList.get(6).getPrice() + " |   " + busList.get(6).getSeatNo() + "   **");
-				System.out.println("**    8)  " + busList.get(7).getDepartureTime() + "        |  RM " + busList.get(7).getPrice() + " |   " + busList.get(7).getSeatNo() + "   **");
-				System.out.println("**----------------------------------------**");
-				System.out.println("**  - " + busList.get(8).getDestination() + "       |        |        **");
-				System.out.println("**    9)  " + busList.get(8).getDepartureTime() + "        |  RM " + busList.get(8).getPrice() + " |   " + busList.get(8).getSeatNo() + "   **");
-				System.out.println("**    10) " + busList.get(9).getDepartureTime() + "       |  RM " + busList.get(9).getPrice() + " |   " + busList.get(9).getSeatNo() + "   **");
-				System.out.println("**    11) " + busList.get(10).getDepartureTime() + "        |  RM " + busList.get(10).getPrice() + " |   " + busList.get(10).getSeatNo() + "   **");
-				System.out.println("**    12) " + busList.get(11).getDepartureTime() + "        |  RM " + busList.get(11).getPrice() + " |   " + busList.get(11).getSeatNo() + "   **");
-				System.out.println("**----------------------------------------**"); 
-				System.out.println("**  - " + busList.get(12).getDestination() + "   |        |        **");
-				System.out.println("**    13) " + busList.get(12).getDepartureTime() + "        |  RM " + busList.get(12).getPrice() + " |   " + busList.get(12).getSeatNo() + "   **");
-				System.out.println("**    14) " + busList.get(13).getDepartureTime() + "       |  RM " + busList.get(13).getPrice() + " |   " + busList.get(13).getSeatNo() + "   **");
-				System.out.println("**    15) " + busList.get(14).getDepartureTime() + "        |  RM " + busList.get(14).getPrice() + " |   " + busList.get(14).getSeatNo() + "   **");
-				System.out.println("**    16) " + busList.get(15).getDepartureTime() + "        |  RM " + busList.get(15).getPrice() + " |   " + busList.get(15).getSeatNo() + "   **");
-				System.out.println("**----------------------------------------**");
-				System.out.println("**  - " + busList.get(16).getDestination() + "            |        |        **");
-				System.out.println("**    17) " + busList.get(16).getDepartureTime() + "        |  RM " + busList.get(16).getPrice() + " |   " + busList.get(16).getSeatNo() + "   **");
-				System.out.println("**    18) " + busList.get(17).getDepartureTime() + "       |  RM " + busList.get(17).getPrice() + " |   " + busList.get(17).getSeatNo() + "   **");
-				System.out.println("**    19) " + busList.get(18).getDepartureTime() + "        |  RM " + busList.get(18).getPrice() + " |   " + busList.get(18).getSeatNo() + "   **");
-				System.out.println("**    20) " + busList.get(19).getDepartureTime() + "        |  RM " + busList.get(19).getPrice() + " |   " + busList.get(19).getSeatNo() + "   **");
-				System.out.println("**----------------------------------------**");
-				System.out.println("**  - " + busList.get(20).getDestination() + "          |        |        **");
-				System.out.println("**    21) " + busList.get(20).getDepartureTime() + "        |  RM " + busList.get(20).getPrice() + " |   " + busList.get(20).getSeatNo() + "   **");
-				System.out.println("**    22) " + busList.get(21).getDepartureTime() + "       |  RM " + busList.get(21).getPrice() + " |   " + busList.get(21).getSeatNo() + "   **");
-				System.out.println("**    23) " + busList.get(22).getDepartureTime() + "        |  RM " + busList.get(22).getPrice() + " |   " + busList.get(22).getSeatNo() + "   **");
-				System.out.println("**    24) " + busList.get(23).getDepartureTime() + "        |  RM " + busList.get(23).getPrice() + " |   " + busList.get(23).getSeatNo() + "   **");
-				System.out.println("**----------------------------------------**");
-				System.out.println("**  - " + busList.get(24).getDestination() + "             |        |        **");
-				System.out.println("**    25) " + busList.get(24).getDepartureTime() + "        |  RM " + busList.get(24).getPrice() + " |   " + busList.get(24).getSeatNo() + "   **");
-				System.out.println("**    26) " + busList.get(25).getDepartureTime() + "       |  RM " + busList.get(25).getPrice() + " |   " + busList.get(25).getSeatNo() + "   **");
-				System.out.println("**    27) " + busList.get(26).getDepartureTime() + "        |  RM " + busList.get(26).getPrice() + " |   " + busList.get(26).getSeatNo() + "   **");
-				System.out.println("**    28) " + busList.get(27).getDepartureTime() + "        |  RM " + busList.get(27).getPrice() + " |   " + busList.get(27).getSeatNo() + "   **");
-				System.out.println("********************************************");
-				System.out.println("********************************************\n");
-				if ((busList.get(0).getSeatNo() == 0) && (busList.get(1).getSeatNo() == 0) && (busList.get(2).getSeatNo() == 0) && (busList.get(3).getSeatNo() == 0)
-						&& (busList.get(4).getSeatNo() == 0) && (busList.get(5).getSeatNo() == 0) && (busList.get(6).getSeatNo() == 0) && (busList.get(7).getSeatNo() == 0)
-						&& (busList.get(8).getSeatNo() == 0) && (busList.get(9).getSeatNo() == 0) && (busList.get(10).getSeatNo() == 0) && (busList.get(11).getSeatNo() == 0)
-						&& (busList.get(12).getSeatNo() == 0) && (busList.get(13).getSeatNo() == 0) && (busList.get(14).getSeatNo() == 0) && (busList.get(15).getSeatNo() == 0)
-						&& (busList.get(16).getSeatNo() == 0) && (busList.get(17).getSeatNo() == 0) && (busList.get(18).getSeatNo() == 0) && (busList.get(19).getSeatNo() == 0)
-						&& (busList.get(20).getSeatNo() == 0) && (busList.get(21).getSeatNo() == 0) && (busList.get(22).getSeatNo() == 0) && (busList.get(23).getSeatNo() == 0)
-						&& (busList.get(24).getSeatNo() == 0) && (busList.get(25).getSeatNo() == 0) && (busList.get(26).getSeatNo() == 0) && busList.get(27).getSeatNo() == 0) {
-					System.out.println("Sorry, We don't  have available seats for all Destination!");
-					x = 0;
+        System.out.print("ENTER DESTINATION [number]: ");
+        to = book.nextInt();
+        if (to < 1 || to > 28) {
+            System.out.println("Sorry, it is a invalid number");
+        }
 
-				}
+        System.out.print("HOW MANY PASSENGERS ARE YOU?: ");
+        custAmount = book.nextInt();
 
-				// inputing of Passenger's Name//
-				else{
-					for(x=1; x==1;){
-						System.out.print("\n PASSENGER'S NAME: ");
-						name[0] = book.nextLine();
-						System.out.print("\n");
-						x=0;
-						
-						//if Passenger's Name already used, display error and go back to Inputing//
-						for(int l=0; l<0; l++){
-							if(name[0].equalsIgnoreCase(name[l])){
-								System.out.println("Sorry, Passenger's name have already used!");
-								x=1;
-							}
-						}
-					}
-					
-					
-					for (x = 1; x == 1;) {
-						System.out.print("ENTER DESTINATION [number]: ");
-						to = book.nextInt();
+        // int seatID[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
+        // 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30 };
 
-						// if Inputed integers are not between 1-28, display error and go back to
-						// Inputing//
+        for (int b = 0; b < custAmount; b++) {
+            do {
+                sAvailable=false;
+                System.out.print("ENTER SEAT NUMBER [1-30]: ");
+                s = book.nextInt();
+                
+                ticketSeat[b] = s;
+                for (int c = 0; c < s1.length; c++) {
+                    if (s == s1[to][c]) {
+                        System.out.println("This seat is not available");
+                        sAvailable=true;
+                    }
+                }
+                s1[to][b] = s;
+            } while (sAvailable);
 
-						// if available seat is equal to "Zero", display error and go back to Inputing//
-						for (int d = 1; d <= 28; d++) {
-							if (to == d) {
-								if (available[0] == 0) {
-									System.out.println("Sorry, We don't have available seat!");
-									x = 1;
-								}
-								x = 0;
-							}
-						}
-					}
-					/*for (x = 1; x == 1;) {
-						System.out.print("HOW MANY PASSENGERS ARE YOU?: ");
-						custAmount = book.nextInt();
-
-						// subtract the available seat by the the number inputed//
-						for (int p = 0; p < 30; p++) {
-							if (to == p) {
-								available[to] = busList.get(to).getSeatNo() - 1;
-								print = 1;
-							}
-
-							if (busList.get(to).getSeatNo() < 0) {
-								System.out.print("Sorry, We don't have seat available for " + custAmount + " person\n");
-								available[to] = busList.get(to).getSeatNo() - custAmount;
-								System.out.print("We only have " + available[to] + " seat available\n");
-								x = 1;
-								print = 0;
-							} else {
-								x = 0;
-							}*/
-							int seatID[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-									21, 22, 23, 24, 25, 26, 27, 28, 29, 30 };
-							//for (int j = 0; j < custAmount; j++) {
-								//do {
-
-									for (x = 1; x == 1;) {
-										System.out.print("ENTER SEAT NUMBER [1-30]: ");
-										s = book.nextInt();
-										for(int l = s; l < seatID.length -1; l++){
-                                            seatID[l] = seatID[l + 1];
-                                        }
-										// if Inputed integers are not between 1-28, display error and go back to
-										// Inputing//
-
-										// if available seat is equal to "Zero", display error and go back to Inputing//
-										for (int S = 1; S <= 30; S++) {
-											if (s == S) {
-												if (s < 1 || s > 30) {
-													System.out.println("Sorry, it is a invalid number");
-													x = 1;
-												}
-												x = 0;
-                                                
-											}
-										}
-									}
-
-								//} while (j > custAmount);
-								// converted integer to string, transfer to storage array//
-								ticketDes[to] = busList.get(to - 1).getDestination();
-								ticketFare[to] = busList.get(to - 1).getPrice();
-								ticketBus[to] = busList.get(to - 1).getBusID();
-								ticketSeat[s] = seatID[s];
-
-								displayDetails.CustomerDetails(name, ticketDes, ticketFare, ticketSeat, custAmount, to, ticketBus, s);
-
-							}
-						}
-
-					}book.close();
-
-					// print out of passengers details....
-					/*if (print == 1) {
-						displayDetails.CustomerDetails(name, ticketDes, ticketFare, ticketSeat, custAmount, to, ticketBus, s);
-					}
-
-                    amount = calcAmount(ticketFare[to], custAmount);
-                    System.out.println("Total: RM" + amount);*/
-				}
-					
-            
+        }
+        ticketDes[to] = busList.get(to - 1).getDestination();
+		ticketFare[to] = busList.get(to - 1).getPrice();
+		ticketBus[to] = busList.get(to - 1).getBusID();
         
-	
-	
+        System.out.println("\n***************************************");
+        System.out.println("        PASSENGER'S DETAILS        ");
+        System.out.println("***************************************");
+        System.out.println("PASSENGER'S NAME: " + name);
+        System.out.println("PASSENGER'S DESTINATION : " + ticketDes[to]);
+        System.out.printf("FARE PRICE(PER PERSON): RM %.2f\n", ticketFare[to]);
+        System.out.println("NO. OF PASSENGERS: " + custAmount);
+        System.out.print("SEAT: "); 
+        for(int d=0; d<custAmount;d++){
+            if(d==custAmount-1){
+                System.out.print( ticketSeat[d]+"\n" );
+            }
+            else{
+                System.out.print( ticketSeat[d]+"," );
+            }
+        }
+        System.out.println("BUS ID: " + ticketBus[to]);
+        System.out.println("***************************************");
+        System.out.println("***************************************\n");
+        
 
-    public static void proceedPayment(int price, int quantity, int amount){
+    }
+
+    // print out of passengers details....
+    /*
+     * if (print == 1) { displayDetails.CustomerDetails(name, ticketDes, ticketFare,
+     * ticketSeat, custAmount, to, ticketBus, s); }
+     * 
+     * amount = calcAmount(ticketFare[to], custAmount);
+     * System.out.println("Total: RM" + amount);
+     */
+
+    public static void proceedPayment(int price, int quantity, int amount) {
         Scanner input = new Scanner(System.in);
         int paymentMethod, eWalletOption, bankOption;
         boolean continueInput = true;
@@ -438,12 +421,12 @@ public class Main {
         boolean transactionFailed;
         int receiptNo;
 
-        do{
-            try{
-                do{
+        do {
+            try {
+                do {
                     transactionFailed = false;
 
-                    //print payment menu
+                    // print payment menu
                     System.out.print("*********************\n");
                     System.out.print("** Payment  Method **\n");
                     System.out.print("*********************\n");
@@ -452,19 +435,19 @@ public class Main {
                     System.out.print("* 3. E-wallet       *\n");
                     System.out.print("* 4. Online Banking *\n");
                     System.out.print("*********************\n");
-                    
-                    //ask user which payment they want
+
+                    // ask user which payment they want
                     System.out.print("Select a payment method : ");
                     paymentMethod = input.nextInt();
 
-                    switch(paymentMethod) {
+                    switch (paymentMethod) {
                         case 1:
-                            do{
-                                try{
+                            do {
+                                try {
                                     Cash byCash = new Cash();
-                                    byCash.calcServiceCharge(amount);//get the service charge
-                                    byCash.calcTotalIncludeSC(amount);//get the total include service charge
-                                    //get user input (cash tendered)
+                                    byCash.calcServiceCharge(amount);// get the service charge
+                                    byCash.calcTotalIncludeSC(amount);// get the total include service charge
+                                    // get user input (cash tendered)
                                     System.out.println("\nCash");
                                     System.out.println("====");
                                     System.out.printf("Amount to Pay : RM %.2f\n", byCash.getTotalIncludeSC());
@@ -473,10 +456,12 @@ public class Main {
                                     byCash.setCashTendered(amountReceived);
                                     byCash.paymentBalance(byCash.getTotalIncludeSC());
 
-                                    //check is the cash tendered correct or not
-                                    if (byCash.getBalance() < 0){
+                                    // check is the cash tendered correct or not
+                                    if (byCash.getBalance() < 0) {
                                         balanceDue = Math.abs(byCash.getBalance());
-                                        System.out.printf("Insufficient payment amount! Please pay the remaining balance.\nBalance Due : RM %.2f\n", balanceDue);
+                                        System.out.printf(
+                                                "Insufficient payment amount! Please pay the remaining balance.\nBalance Due : RM %.2f\n",
+                                                balanceDue);
                                         do {
                                             System.out.print("Enter amount of remaining balance received : RM ");
                                             otherCashReceived = input.nextDouble();
@@ -493,56 +478,68 @@ public class Main {
                                         byCash.calculateTotalAmountReceived();
                                         System.out.printf("Change : RM %.2f\n", byCash.getBalance());
                                     }
-                                    //print receipt
+                                    // print receipt
                                     receiptNo = byCash.getReceiptNo();
                                     receipt receipt1 = new receipt(price, quantity, amount, receiptNo);
                                     receipt1.printReceipt();
                                     continueInput = false;
-                                } catch (InputMismatchException inputMismatchException){
+                                } catch (InputMismatchException inputMismatchException) {
                                     System.out.println("Please input correctly, you should enter a number only.");
                                     input.nextLine();
                                 }
-                            }while(continueInput);
+                            } while (continueInput);
                             break;
                         case 2:
-                            do{
-                                try{
+                            do {
+                                try {
                                     CreditCard byCrCard = new CreditCard();
-                                    byCrCard.calcServiceCharge(amount);//get the service charge
-                                    byCrCard.calcTotalIncludeSC(amount);//get the total include service charge
+                                    byCrCard.calcServiceCharge(amount);// get the service charge
+                                    byCrCard.calcTotalIncludeSC(amount);// get the total include service charge
 
-                                    //get user input credit card number
+                                    // get user input credit card number
                                     System.out.println("\nCredit Card");
                                     System.out.println("===========");
-                                    System.out.print("Enter credit card number : "); //4440967484181607
+                                    System.out.print("Enter credit card number : "); // 4440967484181607
                                     creditCardNum = input.nextLong();
                                     input.nextLine();
                                     byCrCard.setCardNum(creditCardNum);
-                                    if(byCrCard.validateCardNum()){
+                                    if (byCrCard.validateCardNum()) {
                                         byCrCard.creditCardType();
                                         System.out.println("Card Type: " + byCrCard.getCardType());
-                                        System.out.println(String.valueOf(byCrCard.getCardNum()).replaceAll("\\w(?=\\w{4})", "*"));
+                                        System.out.println(
+                                                String.valueOf(byCrCard.getCardNum()).replaceAll("\\w(?=\\w{4})", "*"));
                                         System.out.println("Transaction Successful !");
                                     } else {
                                         transactionFailed = true;
-                                        System.out.println("Transaction Failed due to invalid credit card number!"); //transaction faiiled , order cancelled? select other payment method ? enter again
+                                        System.out.println("Transaction Failed due to invalid credit card number!"); // transaction
+                                                                                                                     // faiiled
+                                                                                                                     // ,
+                                                                                                                     // order
+                                                                                                                     // cancelled?
+                                                                                                                     // select
+                                                                                                                     // other
+                                                                                                                     // payment
+                                                                                                                     // method
+                                                                                                                     // ?
+                                                                                                                     // enter
+                                                                                                                     // again
                                         System.out.println("Please input again.\n\n");
                                     }
-                                    //print receipt
+                                    // print receipt
                                     receiptNo = byCrCard.getReceiptNo();
                                     receipt receipt2 = new receipt(price, quantity, amount, receiptNo);
                                     receipt2.printReceipt();
                                     continueInput = false;
-                                } catch (InputMismatchException inputMismatchException){
+                                } catch (InputMismatchException inputMismatchException) {
                                     System.out.println("Please input correctly, you should enter a number only.");
                                     input.nextLine();
                                 }
-                            }while (continueInput);
+                            } while (continueInput);
                             break;
                         case 3:
-                            do{
-                                try{
-                                    do{
+                            do {
+                                try {
+                                    do {
                                         System.out.println("\nE-wallet");
                                         System.out.println("========");
                                         System.out.println("+--------------------------------+");
@@ -556,11 +553,13 @@ public class Main {
                                         switch (eWalletOption) {
                                             case 1:
                                                 Ewallet byTouchnGo = new Ewallet();
-                                                byTouchnGo.calcServiceCharge(amount);//get the service charge
-                                                byTouchnGo.calcTotalIncludeSC(amount);//get the total include service charge
+                                                byTouchnGo.calcServiceCharge(amount);// get the service charge
+                                                byTouchnGo.calcTotalIncludeSC(amount);// get the total include service
+                                                                                      // charge
                                                 byTouchnGo.generatePaymentCode();
                                                 System.out.println("\nPayment Code: " + byTouchnGo.getPaymentCode());
-                                                System.out.println("Please enter this code in your eWallet to proceed the payment.");
+                                                System.out.println(
+                                                        "Please enter this code in your eWallet to proceed the payment.");
                                                 System.out.print("Enter pay code (xxxx) : ");
                                                 payCode = input.nextInt();
                                                 byTouchnGo.setPayCode(payCode);
@@ -568,7 +567,7 @@ public class Main {
                                                     byTouchnGo.ewalletType(eWalletOption);
                                                     System.out.println(byTouchnGo.getType());
                                                     System.out.println("Transaction Successful !");
-                                                    //print receipt
+                                                    // print receipt
                                                     receiptNo = byTouchnGo.getReceiptNo();
                                                     receipt receipt3 = new receipt(price, quantity, amount, receiptNo);
                                                     receipt3.printReceipt();
@@ -580,11 +579,13 @@ public class Main {
                                                 break;
                                             case 2:
                                                 Ewallet byBoost = new Ewallet();
-                                                byBoost.calcServiceCharge(amount);//get the service charge
-                                                byBoost.calcTotalIncludeSC(amount);//get the total include service charge
+                                                byBoost.calcServiceCharge(amount);// get the service charge
+                                                byBoost.calcTotalIncludeSC(amount);// get the total include service
+                                                                                   // charge
                                                 byBoost.generatePaymentCode();
                                                 System.out.println("\nPayment Code: " + byBoost.getPaymentCode());
-                                                System.out.println("Please enter this code in your eWallet to proceed the payment.");
+                                                System.out.println(
+                                                        "Please enter this code in your eWallet to proceed the payment.");
                                                 System.out.print("Enter pay code (xxxx) : ");
                                                 payCode = input.nextInt();
                                                 byBoost.setPayCode(payCode);
@@ -592,7 +593,7 @@ public class Main {
                                                     byBoost.ewalletType(eWalletOption);
                                                     System.out.println(byBoost.getType());
                                                     System.out.println("Transaction Successful !");
-                                                    //print receipt
+                                                    // print receipt
                                                     receiptNo = byBoost.getReceiptNo();
                                                     receipt receipt4 = new receipt(price, quantity, amount, receiptNo);
                                                     receipt4.printReceipt();
@@ -601,15 +602,17 @@ public class Main {
                                                     System.out.println("Transaction Failed due to invalid pay code!");
                                                     System.out.println("Please input again.\n\n");
                                                 }
-                                                
+
                                                 break;
                                             case 3:
                                                 Ewallet byShopeePay = new Ewallet();
-                                                byShopeePay.calcServiceCharge(amount);//get the service charge
-                                                byShopeePay.calcTotalIncludeSC(amount);//get the total include service charge
+                                                byShopeePay.calcServiceCharge(amount);// get the service charge
+                                                byShopeePay.calcTotalIncludeSC(amount);// get the total include service
+                                                                                       // charge
                                                 byShopeePay.generatePaymentCode();
                                                 System.out.println("\nPayment Code: " + byShopeePay.getPaymentCode());
-                                                System.out.println("Please enter this code in your eWallet to proceed the payment.");
+                                                System.out.println(
+                                                        "Please enter this code in your eWallet to proceed the payment.");
                                                 System.out.print("Enter pay code (xxxx) : ");
                                                 payCode = input.nextInt();
                                                 byShopeePay.setPayCode(payCode);
@@ -617,7 +620,7 @@ public class Main {
                                                     byShopeePay.ewalletType(eWalletOption);
                                                     System.out.println(byShopeePay.getType());
                                                     System.out.println("Transaction Successful !");
-                                                    //print receipt
+                                                    // print receipt
                                                     receiptNo = byShopeePay.getReceiptNo();
                                                     receipt receipt5 = new receipt(price, quantity, amount, receiptNo);
                                                     receipt5.printReceipt();
@@ -626,23 +629,23 @@ public class Main {
                                                     System.out.println("Transaction Failed due to invalid pay code!");
                                                     System.out.println("Please input again.\n\n");
                                                 }
-                                                
+
                                                 break;
                                             default:
                                                 System.out.println("Invalid input, please enter again");
                                         }
-                                    }while(eWalletOption != 1 && eWalletOption != 2 && eWalletOption != 3);
+                                    } while (eWalletOption != 1 && eWalletOption != 2 && eWalletOption != 3);
                                     continueInput = false;
-                                }catch (InputMismatchException inputMismatchException){
+                                } catch (InputMismatchException inputMismatchException) {
                                     System.out.println("Please input correctly, you should enter a number only.");
                                     input.nextLine();
                                 }
-                            }while (continueInput);
+                            } while (continueInput);
                             break;
                         case 4:
-                            do{
-                                try{
-                                    do{
+                            do {
+                                try {
+                                    do {
                                         System.out.println("\n Online Banking");
                                         System.out.println("=================");
                                         System.out.println("+--------------------------------+");
@@ -657,8 +660,9 @@ public class Main {
                                         switch (bankOption) {
                                             case 1:
                                                 OnlineBanking byPbBank = new OnlineBanking();
-                                                byPbBank.calcServiceCharge(amount);//get the service charge
-                                                byPbBank.calcTotalIncludeSC(amount);//get the total include service charge
+                                                byPbBank.calcServiceCharge(amount);// get the service charge
+                                                byPbBank.calcTotalIncludeSC(amount);// get the total include service
+                                                                                    // charge
                                                 System.out.print("\nEnter account number : ");
                                                 accountNum = input.nextLong();
                                                 input.nextLine();
@@ -666,27 +670,41 @@ public class Main {
                                                 System.out.print("Enter pay code (xxxx) : ");
                                                 payCode = input.nextInt();
                                                 byPbBank.setPayCode(payCode);
-                                                if(byPbBank.validateAccountNum(bankOption)){
-                                                    if(byPbBank.validatePayCode()){
-                                                        byPbBank .setBankName(bankOption);
+                                                if (byPbBank.validateAccountNum(bankOption)) {
+                                                    if (byPbBank.validatePayCode()) {
+                                                        byPbBank.setBankName(bankOption);
                                                         System.out.println("Bank: " + byPbBank.getBankName());
                                                         System.out.println("Transaction Successful !");
-                                                        //print receipt
+                                                        // print receipt
                                                         receiptNo = byPbBank.getReceiptNo();
-                                                        receipt receipt6 = new receipt(price, quantity, amount, receiptNo);
+                                                        receipt receipt6 = new receipt(price, quantity, amount,
+                                                                receiptNo);
                                                         receipt6.printReceipt();
                                                     }
                                                 } else {
                                                     transactionFailed = true;
-                                                    System.out.println("Transaction Failed due to invalid credit card number!"); //transaction faiiled , order cancelled? select other payment method ? enter again
+                                                    System.out.println(
+                                                            "Transaction Failed due to invalid credit card number!"); // transaction
+                                                                                                                      // faiiled
+                                                                                                                      // ,
+                                                                                                                      // order
+                                                                                                                      // cancelled?
+                                                                                                                      // select
+                                                                                                                      // other
+                                                                                                                      // payment
+                                                                                                                      // method
+                                                                                                                      // ?
+                                                                                                                      // enter
+                                                                                                                      // again
                                                     System.out.println("Please input again.\n\n");
                                                 }
-                                                
+
                                                 break;
                                             case 2:
                                                 OnlineBanking byMBank = new OnlineBanking();
-                                                byMBank.calcServiceCharge(amount);//get the service charge
-                                                byMBank.calcTotalIncludeSC(amount);//get the total include service charge
+                                                byMBank.calcServiceCharge(amount);// get the service charge
+                                                byMBank.calcTotalIncludeSC(amount);// get the total include service
+                                                                                   // charge
                                                 System.out.print("\nEnter account number : ");
                                                 accountNum = input.nextLong();
                                                 input.nextLine();
@@ -694,27 +712,41 @@ public class Main {
                                                 System.out.print("Enter pay code (xxxx) : ");
                                                 payCode = input.nextInt();
                                                 byMBank.setPayCode(payCode);
-                                                if(byMBank.validateAccountNum(bankOption)){
-                                                    if(byMBank.validatePayCode()){
+                                                if (byMBank.validateAccountNum(bankOption)) {
+                                                    if (byMBank.validatePayCode()) {
                                                         byMBank.setBankName(bankOption);
                                                         System.out.println("Bank: " + byMBank.getBankName());
                                                         System.out.println("Transaction Successful !");
-                                                        //print receipt
+                                                        // print receipt
                                                         receiptNo = byMBank.getReceiptNo();
-                                                        receipt receipt7 = new receipt(price, quantity, amount, receiptNo);
+                                                        receipt receipt7 = new receipt(price, quantity, amount,
+                                                                receiptNo);
                                                         receipt7.printReceipt();
                                                     }
                                                 } else {
                                                     transactionFailed = true;
-                                                    System.out.println("Transaction Failed due to invalid credit card number!"); //transaction faiiled , order cancelled? select other payment method ? enter again
+                                                    System.out.println(
+                                                            "Transaction Failed due to invalid credit card number!"); // transaction
+                                                                                                                      // faiiled
+                                                                                                                      // ,
+                                                                                                                      // order
+                                                                                                                      // cancelled?
+                                                                                                                      // select
+                                                                                                                      // other
+                                                                                                                      // payment
+                                                                                                                      // method
+                                                                                                                      // ?
+                                                                                                                      // enter
+                                                                                                                      // again
                                                     System.out.println("Please input again.\n\n");
                                                 }
-          
+
                                                 break;
                                             case 3:
                                                 OnlineBanking byCimBank = new OnlineBanking();
-                                                byCimBank.calcServiceCharge(amount);//get the service charge
-                                                byCimBank.calcTotalIncludeSC(amount);//get the total include service charge
+                                                byCimBank.calcServiceCharge(amount);// get the service charge
+                                                byCimBank.calcTotalIncludeSC(amount);// get the total include service
+                                                                                     // charge
                                                 System.out.print("\nEnter account number : ");
                                                 accountNum = input.nextLong();
                                                 input.nextLine();
@@ -722,27 +754,41 @@ public class Main {
                                                 System.out.print("Enter pay code (xxxx) : ");
                                                 payCode = input.nextInt();
                                                 byCimBank.setPayCode(payCode);
-                                                if(byCimBank.validateAccountNum(bankOption)){
-                                                    if(byCimBank.validatePayCode()){
+                                                if (byCimBank.validateAccountNum(bankOption)) {
+                                                    if (byCimBank.validatePayCode()) {
                                                         byCimBank.setBankName(bankOption);
                                                         System.out.println("Bank: " + byCimBank.getBankName());
                                                         System.out.println("Transaction Successful !");
-                                                         //print receipt
+                                                        // print receipt
                                                         receiptNo = byCimBank.getReceiptNo();
-                                                        receipt receipt8 = new receipt(price, quantity, amount, receiptNo);
+                                                        receipt receipt8 = new receipt(price, quantity, amount,
+                                                                receiptNo);
                                                         receipt8.printReceipt();
                                                     }
                                                 } else {
                                                     transactionFailed = true;
-                                                    System.out.println("Transaction Failed due to invalid credit card number!"); //transaction faiiled , order cancelled? select other payment method ? enter again
+                                                    System.out.println(
+                                                            "Transaction Failed due to invalid credit card number!"); // transaction
+                                                                                                                      // faiiled
+                                                                                                                      // ,
+                                                                                                                      // order
+                                                                                                                      // cancelled?
+                                                                                                                      // select
+                                                                                                                      // other
+                                                                                                                      // payment
+                                                                                                                      // method
+                                                                                                                      // ?
+                                                                                                                      // enter
+                                                                                                                      // again
                                                     System.out.println("Please input again.\n\n");
                                                 }
-                                               
+
                                                 break;
                                             case 4:
                                                 OnlineBanking byRhBank = new OnlineBanking();
-                                                byRhBank.calcServiceCharge(amount);//get the service charge
-                                                byRhBank.calcTotalIncludeSC(amount);//get the total include service charge
+                                                byRhBank.calcServiceCharge(amount);// get the service charge
+                                                byRhBank.calcTotalIncludeSC(amount);// get the total include service
+                                                                                    // charge
                                                 System.out.print("\nEnter account number : ");
                                                 accountNum = input.nextLong();
                                                 input.nextLine();
@@ -750,354 +796,363 @@ public class Main {
                                                 System.out.print("Enter pay code (xxxx) : ");
                                                 payCode = input.nextInt();
                                                 byRhBank.setPayCode(payCode);
-                                                if(byRhBank.validateAccountNum(bankOption)){
-                                                    if(byRhBank.validatePayCode()){
+                                                if (byRhBank.validateAccountNum(bankOption)) {
+                                                    if (byRhBank.validatePayCode()) {
                                                         byRhBank.setBankName(bankOption);
                                                         System.out.println("Bank: " + byRhBank.getBankName());
                                                         System.out.println("Transaction Successful !");
-                                                        //print receipt
+                                                        // print receipt
                                                         receiptNo = byRhBank.getReceiptNo();
-                                                        receipt receipt9 = new receipt(price, quantity, amount, receiptNo);
+                                                        receipt receipt9 = new receipt(price, quantity, amount,
+                                                                receiptNo);
                                                         receipt9.printReceipt();
                                                     }
                                                 } else {
                                                     transactionFailed = true;
-                                                    System.out.println("Transaction Failed due to invalid credit card number!"); //transaction faiiled , order cancelled? select other payment method ? enter again
+                                                    System.out.println(
+                                                            "Transaction Failed due to invalid credit card number!"); // transaction
+                                                                                                                      // faiiled
+                                                                                                                      // ,
+                                                                                                                      // order
+                                                                                                                      // cancelled?
+                                                                                                                      // select
+                                                                                                                      // other
+                                                                                                                      // payment
+                                                                                                                      // method
+                                                                                                                      // ?
+                                                                                                                      // enter
+                                                                                                                      // again
                                                     System.out.println("Please input again.\n\n");
                                                 }
-                                                
+
                                                 break;
                                             default:
                                                 System.out.println("Invalid input, please enter again");
                                         }
-                                    }while(bankOption != 1 && bankOption != 2 && bankOption != 3);
+                                    } while (bankOption != 1 && bankOption != 2 && bankOption != 3);
                                     continueInput = false;
-                                }catch (InputMismatchException inputMismatchException){
+                                } catch (InputMismatchException inputMismatchException) {
                                     System.out.println("Please input correctly, you should enter a number only.");
                                     input.nextLine();
                                 }
-                            }while (continueInput);
+                            } while (continueInput);
                             break;
                         default:
                             System.out.println("Invalid input, please enter again");
                     }
-                }while (paymentMethod != 1 && paymentMethod != 2 && paymentMethod != 3 && paymentMethod != 4 || transactionFailed);
+                } while (paymentMethod != 1 && paymentMethod != 2 && paymentMethod != 3 && paymentMethod != 4
+                        || transactionFailed);
                 continueInput = false;
-            } catch(InputMismatchException inputMInputMismatchException){
+            } catch (InputMismatchException inputMInputMismatchException) {
                 System.out.println("Please input correctly, you should enter a number only.");
                 input.nextLine();
             }
 
-        }while(continueInput);
+        } while (continueInput);
     }
 
-    public static int calcAmount(int price, int quantity){
+    public static int calcAmount(int price, int quantity) {
         return price * quantity;
     }
 
+    public static int getPrice(int[] priceArray, int onwardTime) {
 
-    public static int getPrice(int[] priceArray, int onwardTime){
+        if (onwardTime == 7) {
+            return priceArray[0];
+        } else if (onwardTime == 10) {
+            return priceArray[1];
+        } else if (onwardTime == 5) {
+            return priceArray[2];
+        } else
+            return priceArray[3];
 
-    if(onwardTime == 7){
-        return priceArray[0];
     }
-    else if(onwardTime == 10){
-        return priceArray[1];
-    }
-    else if(onwardTime == 5){
-        return priceArray[2];
-    }
-    else
-        return priceArray[3];
-
-}
 
     public static void UpdateBusMenu(ArrayList<Bus> busList) {
-    int choice;
-    boolean continueInput = true;
-    Scanner scanner = new Scanner(System.in);
-    do{	
-        try{
-            do{
-                System.out.println("************************");
-                System.out.println("**    Maintainance    **");
-                System.out.println("************************");
-                System.out.println("*1. Add Bus Detail     *");
-                System.out.println("*2. Modify Bus Detail  *");
-                System.out.println("*3. Delete Bus Detail  *");
-                System.out.println("*4. Display Bus Detail *");
-                System.out.println("*5. Back to Main Menu  *");
-                System.out.println("************************");
-                System.out.println("\nWhich you want to do.(1-5) :");
-                choice = scanner.nextInt();
-                switch (choice){
-                    case 1:
-                        addBus(busList);
-                        break;
-                    case 2:
-                        modifyBus(busList);
-                        break;
-                    case 3:
-                        deleteBus(busList);
-                        break;
-                    case 4:
-                        displayBus(busList);
-                        System.out.print("Press X to back to the menu.");
-                        char actionBack = scanner.next().trim().toUpperCase().charAt(0);
-
-                        if (actionBack == 'X') {
-                            staff(busList);
+        int choice;
+        boolean continueInput = true;
+        Scanner scanner = new Scanner(System.in);
+        do {
+            try {
+                do {
+                    System.out.println("************************");
+                    System.out.println("**    Maintainance    **");
+                    System.out.println("************************");
+                    System.out.println("*1. Add Bus Detail     *");
+                    System.out.println("*2. Modify Bus Detail  *");
+                    System.out.println("*3. Delete Bus Detail  *");
+                    System.out.println("*4. Display Bus Detail *");
+                    System.out.println("*5. Back to Main Menu  *");
+                    System.out.println("************************");
+                    System.out.println("\nWhich you want to do.(1-5) :");
+                    choice = scanner.nextInt();
+                    switch (choice) {
+                        case 1:
+                            addBus(busList);
                             break;
-                        } else {
-                            System.out.println("Press again X to back to the menu.");
-                        }
-                    case 5:
-                        continueInput = false;
-                        break;
-                    default:
-                        System.out.println("Invalid input, please enter again");  
-                }
-            }while (choice !=5);
-        }catch (InputMismatchException inputMismatchException) {
-            System.out.println("Please enter again!");
-            scanner.nextLine();
-        }
-    }while (continueInput);   
-}
+                        case 2:
+                            modifyBus(busList);
+                            break;
+                        case 3:
+                            deleteBus(busList);
+                            break;
+                        case 4:
+                            displayBus(busList);
+                            System.out.print("Press X to back to the menu.");
+                            char actionBack = scanner.next().trim().toUpperCase().charAt(0);
 
-    public static void addBus(ArrayList<Bus> busList){
-    Scanner scanner = new Scanner(System.in);
-    char confirm;
+                            if (actionBack == 'X') {
+                                staff(busList);
+                                break;
+                            } else {
+                                System.out.println("Press again X to back to the menu.");
+                            }
+                        case 5:
+                            continueInput = false;
+                            break;
+                        default:
+                            System.out.println("Invalid input, please enter again");
+                    }
+                } while (choice != 5);
+            } catch (InputMismatchException inputMismatchException) {
+                System.out.println("Please enter again!");
+                scanner.nextLine();
+            }
+        } while (continueInput);
+    }
 
-    do{
-        System.out.println("Add Bus");
+    public static void addBus(ArrayList<Bus> busList) {
+        Scanner scanner = new Scanner(System.in);
+        char confirm;
 
-        String busID;
-            do{
+        do {
+            System.out.println("Add Bus");
+
+            String busID;
+            do {
                 System.out.println("Enter Bus ID:");
                 busID = scanner.nextLine();
-                if(Bus.validateBusId(busID)!=true){
+                if (Bus.validateBusId(busID) != true) {
                     System.out.println("Bus ID cannot more than 3 characters,");
                     System.out.println("Bus ID cannot more than 5 number");
                     System.out.println("Please enter proper bus ID!");
                 }
-            }while(Bus.validateBusId(busID)!=true);
+            } while (Bus.validateBusId(busID) != true);
 
-        String destination;
-            do{
+            String destination;
+            do {
                 System.out.println("Enter Destination:");
                 destination = scanner.nextLine();
                 destination = destination.toUpperCase();
-                if(Bus.validateDestination(destination)!=true){
-                    System.out.println("Destination must be one of Selangor, Pulau Pinang, Johor Bahru, Negeri Sembilan, Melaka, Kelatan or Perak.");
+                if (Bus.validateDestination(destination) != true) {
+                    System.out.println(
+                            "Destination must be one of Selangor, Pulau Pinang, Johor Bahru, Negeri Sembilan, Melaka, Kelatan or Perak.");
                     System.out.println("Please enter proper destination!");
                 }
-            }while(Bus.validateDestination(destination)!=true);
+            } while (Bus.validateDestination(destination) != true);
 
-        String departureDate;
-            do{
+            String departureDate;
+            do {
                 System.out.println("Enter Departure Date:");
                 departureDate = scanner.nextLine();
-                if(Bus.validateDate(departureDate)!=true){
+                if (Bus.validateDate(departureDate) != true) {
                     System.out.println("Departure date must be in dd/mm/yyyy format.");
                     System.out.println("Please enter proper departure date!");
                 }
-            }while(Bus.validateDate(departureDate)!=true);
+            } while (Bus.validateDate(departureDate) != true);
 
-        String departureTime;
-            do{
+            String departureTime;
+            do {
                 System.out.println("Enter Departure Time:");
                 departureTime = scanner.nextLine();
-                if(Bus.validateTime(departureTime)!=true){
+                if (Bus.validateTime(departureTime) != true) {
                     System.out.println("The departure time must be in xx:xx(am/pm) format.");
                     System.out.println("Please enter proper departure time!");
                 }
-            }while(Bus.validateTime(departureTime)!=true);
+            } while (Bus.validateTime(departureTime) != true);
 
-        int price;
-            do{
+            int price;
+            do {
                 System.out.println("Enter Price:");
                 price = scanner.nextInt();
-                if(Bus.validateprice(price)!=true){
+                if (Bus.validateprice(price) != true) {
                     System.out.println("The price cannot be zero or negative.");
                     System.out.println("Please enter proper price!");
-                }   
-            }while(Bus.validateprice(price)!=true);
+                }
+            } while (Bus.validateprice(price) != true);
 
-        int seatNo;
-            do{
+            int seatNo;
+            do {
                 System.out.println("Enter Seat Avaible:");
                 seatNo = scanner.nextInt();
-                if(Bus.validateSeatNo(seatNo)!=true){
+                if (Bus.validateSeatNo(seatNo) != true) {
                     System.out.println("The seat avaible cannot more than 30.");
                     System.out.println("Please enter proper seat avaible!");
                 }
-            }while(Bus.validateSeatNo(seatNo)!=true);
+            } while (Bus.validateSeatNo(seatNo) != true);
 
-        Bus addBus = new Bus(busID, destination, departureDate, departureTime, price, seatNo);
-        try{
-            addBus.addNewBus(busList);
-        }catch (IndexOutOfBoundsException e) {
+            Bus addBus = new Bus(busID, destination, departureDate, departureTime, price, seatNo);
+            try {
+                addBus.addNewBus(busList);
+            } catch (IndexOutOfBoundsException e) {
                 System.out.println("Error");
             }
 
             System.out.print("Do you want to add more bus? Yes(Y)/ No (N)?");
             confirm = scanner.next().trim().toUpperCase().charAt(0);
-    } while (confirm == 'Y');
-}
-
-    public static void modifyBus(ArrayList<Bus> busList){
-    Bus bus = new Bus();
-    Scanner scanner = new Scanner(System.in);
-
-    System.out.println("Bus List");
-    bus.displayBus(busList);
-
-    String busID;
-    do{
-        System.out.println("Enter Bus ID for modify:");
-        busID = scanner.nextLine();
-        if(Bus.validateBusId(busID)==false){
-            System.out.println("Bus ID cannot more than 3 characters,");
-            System.out.println("Bus ID cannot more than 5 number");
-            System.out.println("Please enter proper bus ID!");
-        }
-    }while(Bus.validateBusId(busID)==false);
-
-    for(int i=0 ; i<busList.size() ; i++){
-        if(busID.toUpperCase().compareTo(busList.get(i).getBusID())==0 || busID.equals(busList.get(i).getBusID())){
-            
-            int choice;
-            boolean continueInput;
-            String modifiedDestination;
-            String destination = "";
-            String departureDate = "";
-            String departureTime = "";
-            int price = 0;
-            int seatNo = 0;
-            do{	
-                System.out.println("\nWhat do you wish to modify ?"
-                + "\n1.Destination"
-                + "\n2.Departure Date"
-                + "\n3.Departure Time"
-                + "\n4.Price"
-                + "\n5.Seat Available"
-                + "\n6.Back to Menu");
-                System.out.print("\n\n Please select(1-6) : ");
-                choice = scanner.nextInt();
-                switch (choice){
-                    case 1:
-                    
-                        do{
-                            System.out.println("Enter Destination:");
-                            destination = scanner.nextLine();
-                            if(Bus.validateDestination(destination)!=true){
-                                System.out.println("Destination must be one of Selangor, Pulau Pinang, Johor Bahru, Negeri Sembilan, Melaka, Kelatan or Perak.");
-                                System.out.println("Please enter proper destination!");
-                            }
-                        }while(Bus.validateDestination(destination)!=true);
-                        modifiedDestination = destination;
-                        break;
-                    case 2:
-                    
-                        do{
-                            System.out.println("Enter Departure Date:");
-                            departureDate = scanner.nextLine();
-                            if(Bus.validateDate(departureDate)!=true){
-                                System.out.println("Departure date must be in dd/mm/yyyy format.");
-                                System.out.println("Please enter proper departure date!");
-                            }
-                        }while(Bus.validateDate(departureDate)!=true);
-                        break;
-                    case 3:
-                    
-                        do{
-                            System.out.println("Enter Departure Time:");
-                            departureTime = scanner.nextLine();
-                            if(Bus.validateTime(departureTime)!=true){
-                                System.out.println("The departure time must be in xx:xx(am/pm) format.");
-                                System.out.println("Please enter proper departure time!");
-                            }
-                        }while(Bus.validateTime(departureTime)!=true);
-                        break;
-                    case 4:
-                    
-                        do{
-                            System.out.println("Enter Price:");
-                            price = scanner.nextInt();
-                            if(Bus.validateprice(price)!=true){
-                            System.out.println("The price cannot be zero or negative.");
-                                System.out.println("Please enter proper price!");
-                            }   
-                        }while(Bus.validateprice(price)!=true);
-                        break;
-                    case 5:
-                    
-                        do{
-                            System.out.println("Enter Seat Avaible:");
-                            seatNo = scanner.nextInt();
-                            if(Bus.validateSeatNo(seatNo)!=true){
-                                System.out.println("The seat avaible cannot more than 30.");
-                                System.out.println("Please enter proper seat avaible!");
-                            }
-                        }while(Bus.validateSeatNo(seatNo)!=true);
-                        break;
-                    case 6:
-                        continueInput = false;
-                        break;
-                    default:
-                        System.out.println("Invalid input, please enter again");
-                }
-            }while (choice !=6);
-
-            Bus modifyBus = new Bus(busID, destination, departureDate, departureTime, price, seatNo);
-            modifyBus.modifyBus(busList, i);
-            System.out.println("Bus's Details Modify!\n");
-
-        }
+        } while (confirm == 'Y');
     }
 
-}
-
-    public static void deleteBus(ArrayList<Bus> busList){
+    public static void modifyBus(ArrayList<Bus> busList) {
         Bus bus = new Bus();
-        boolean chekID=true;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Bus List");
+        bus.displayBus(busList);
+
+        String busID;
+        do {
+            System.out.println("Enter Bus ID for modify:");
+            busID = scanner.nextLine();
+            if (Bus.validateBusId(busID) == false) {
+                System.out.println("Bus ID cannot more than 3 characters,");
+                System.out.println("Bus ID cannot more than 5 number");
+                System.out.println("Please enter proper bus ID!");
+            }
+        } while (Bus.validateBusId(busID) == false);
+
+        for (int i = 0; i < busList.size(); i++) {
+            if (busID.toUpperCase().compareTo(busList.get(i).getBusID()) == 0
+                    || busID.equals(busList.get(i).getBusID())) {
+
+                int choice;
+                boolean continueInput;
+                String modifiedDestination;
+                String destination = "";
+                String departureDate = "";
+                String departureTime = "";
+                int price = 0;
+                int seatNo = 0;
+                do {
+                    System.out.println("\nWhat do you wish to modify ?" + "\n1.Destination" + "\n2.Departure Date"
+                            + "\n3.Departure Time" + "\n4.Price" + "\n5.Seat Available" + "\n6.Back to Menu");
+                    System.out.print("\n\n Please select(1-6) : ");
+                    choice = scanner.nextInt();
+                    switch (choice) {
+                        case 1:
+
+                            do {
+                                System.out.println("Enter Destination:");
+                                destination = scanner.nextLine();
+                                if (Bus.validateDestination(destination) != true) {
+                                    System.out.println(
+                                            "Destination must be one of Selangor, Pulau Pinang, Johor Bahru, Negeri Sembilan, Melaka, Kelatan or Perak.");
+                                    System.out.println("Please enter proper destination!");
+                                }
+                            } while (Bus.validateDestination(destination) != true);
+                            modifiedDestination = destination;
+                            break;
+                        case 2:
+
+                            do {
+                                System.out.println("Enter Departure Date:");
+                                departureDate = scanner.nextLine();
+                                if (Bus.validateDate(departureDate) != true) {
+                                    System.out.println("Departure date must be in dd/mm/yyyy format.");
+                                    System.out.println("Please enter proper departure date!");
+                                }
+                            } while (Bus.validateDate(departureDate) != true);
+                            break;
+                        case 3:
+
+                            do {
+                                System.out.println("Enter Departure Time:");
+                                departureTime = scanner.nextLine();
+                                if (Bus.validateTime(departureTime) != true) {
+                                    System.out.println("The departure time must be in xx:xx(am/pm) format.");
+                                    System.out.println("Please enter proper departure time!");
+                                }
+                            } while (Bus.validateTime(departureTime) != true);
+                            break;
+                        case 4:
+
+                            do {
+                                System.out.println("Enter Price:");
+                                price = scanner.nextInt();
+                                if (Bus.validateprice(price) != true) {
+                                    System.out.println("The price cannot be zero or negative.");
+                                    System.out.println("Please enter proper price!");
+                                }
+                            } while (Bus.validateprice(price) != true);
+                            break;
+                        case 5:
+
+                            do {
+                                System.out.println("Enter Seat Avaible:");
+                                seatNo = scanner.nextInt();
+                                if (Bus.validateSeatNo(seatNo) != true) {
+                                    System.out.println("The seat avaible cannot more than 30.");
+                                    System.out.println("Please enter proper seat avaible!");
+                                }
+                            } while (Bus.validateSeatNo(seatNo) != true);
+                            break;
+                        case 6:
+                            continueInput = false;
+                            break;
+                        default:
+                            System.out.println("Invalid input, please enter again");
+                    }
+                } while (choice != 6);
+
+                Bus modifyBus = new Bus(busID, destination, departureDate, departureTime, price, seatNo);
+                modifyBus.modifyBus(busList, i);
+                System.out.println("Bus's Details Modify!\n");
+
+            }
+        }
+
+    }
+
+    public static void deleteBus(ArrayList<Bus> busList) {
+        Bus bus = new Bus();
+        boolean chekID = true;
         String busID;
         char confirm;
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Bus List");
         bus.displayBus(busList);
-        
-        do{
-            do{
+
+        do {
+            do {
                 System.out.println("Enter Bus ID for delete: ");
                 busID = scanner.nextLine();
-                for(int i=0 ; i<busList.size() ; i++){
-                    if(busID.toUpperCase().compareTo(busList.get(i).getBusID())==0 || busID.equals(busList.get(i).getBusID())){
-                        chekID=true;
+                for (int i = 0; i < busList.size(); i++) {
+                    if (busID.toUpperCase().compareTo(busList.get(i).getBusID()) == 0
+                            || busID.equals(busList.get(i).getBusID())) {
+                        chekID = true;
                         busList.remove(i);
                         break;
-                        
-                        }else{
-                            chekID = false;
-                        }
+
+                    } else {
+                        chekID = false;
                     }
-    
-                if(chekID == false){
+                }
+
+                if (chekID == false) {
                     System.out.println("Record Not Found");
-                    
-                }else{
+
+                } else {
                     System.out.println("Delete Successfully ! !");
 
                 }
-            }while(chekID = false); 
+            } while (chekID = false);
             System.out.print("Do you want to modify again? Yes(Y)/ No (N)?");
             confirm = scanner.next().trim().toUpperCase().charAt(0);
-        }while(confirm=='y');
+        } while (confirm == 'y');
     }
 
-    public static void displayBus(ArrayList<Bus> busList){
+    public static void displayBus(ArrayList<Bus> busList) {
         Bus bus = new Bus();
         System.out.println("Bus List");
         bus.displayBus(busList);
@@ -1139,10 +1194,10 @@ public class Main {
                     UpdateBusMenu(busList);
                     break;
                 case 3:
-                   staffPage(usersList);
+                    staffPage(usersList);
                     break;
                 case 4:
-                    
+
                     break;
                 default:
                     System.out.println("Exit Management Page");
@@ -1152,28 +1207,28 @@ public class Main {
 
     public static void orderMenu(ArrayList<Bus> busList) {
         Scanner input = new Scanner(System.in);
-        int[] selangorPrice = {10,11,12,10};
-        int[] pulauPngPrice = {40, 41, 42, 40};
-        int[] johorPrice = {40, 41, 42, 40};
-        int[] negeriSemPrice = {15, 16, 17, 18};
-        int[] melakaPrice = {16, 17, 18, 16};
-        int[] kelatanPrice = {42, 43, 44, 42};
-        int[] perakPrice = {39, 40, 41, 39}; 
+        int[] selangorPrice = { 10, 11, 12, 10 };
+        int[] pulauPngPrice = { 40, 41, 42, 40 };
+        int[] johorPrice = { 40, 41, 42, 40 };
+        int[] negeriSemPrice = { 15, 16, 17, 18 };
+        int[] melakaPrice = { 16, 17, 18, 16 };
+        int[] kelatanPrice = { 42, 43, 44, 42 };
+        int[] perakPrice = { 39, 40, 41, 39 };
         int price = 0;
         int amount = 0;
         int select = 0;
         boolean continueInput;
         do {
             continueInput = true;
-             // the MAIN MENU//
-             System.out.println("********************************************");
-             System.out.println("** BUS RESERVATION AND TICKETING SYSTEM   **");
-             System.out.println("********************************************");
-             System.out.println("** [1] Booking                            **");
-             System.out.println("** [2] Payment                            **");
-             System.out.println("** [3] Exit                               **");
-             System.out.println("********************************************");
-             System.out.println("********************************************");  
+            // the MAIN MENU//
+            System.out.println("********************************************");
+            System.out.println("** BUS RESERVATION AND TICKETING SYSTEM   **");
+            System.out.println("********************************************");
+            System.out.println("** [1] Booking                            **");
+            System.out.println("** [2] Payment                            **");
+            System.out.println("** [3] Exit                               **");
+            System.out.println("********************************************");
+            System.out.println("********************************************");
             do {
                 try {
                     System.out.print("Please select one: ");
@@ -1190,50 +1245,44 @@ public class Main {
             } while (continueInput);
             switch (select) {
                 case 1:
-                    //input Booking details
+                    // input Booking details
                     break;
                 case 2:
-                System.out.println("\n------------------------ Booking-------------------------");
-                System.out.print("\nDestination: ");
-                String destination = input.nextLine();
-            
-                System.out.print("Onward Time (7am / 10am / 5pm / 8pm): ");
-                int onwardTime = input.nextInt();
-        
-                System.out.print("Quantity: ");
-                int quantity = input.nextInt();
-        
-                if(destination.equalsIgnoreCase("Selangor")){
-                    price = getPrice(selangorPrice, onwardTime);
-                }
-                else if(destination.equalsIgnoreCase("Pulau Pinang")){
-                    price = getPrice(pulauPngPrice, onwardTime);
-                }
-                else if(destination.equalsIgnoreCase("Johor Bahru")){
-                    price = getPrice(johorPrice, onwardTime);
-                }
-                else if(destination.equalsIgnoreCase("Negeri Sembilan")){
-                    price = getPrice(negeriSemPrice, onwardTime);
-                }
-                else if(destination.equalsIgnoreCase("Melaka")){
-                    price = getPrice(melakaPrice, onwardTime);
-                }
-                else if(destination.equalsIgnoreCase("Kelantan")){
-                    price = getPrice(kelatanPrice, onwardTime);
-                }
-                else if(destination.equalsIgnoreCase("Perak")){
-                    price = getPrice(perakPrice, onwardTime);  
-                }
-                
-                amount = calcAmount(price, quantity);
-                System.out.println("Total: RM" + amount);
-        
-                proceedPayment(price, quantity, amount);
-                break;
+                    System.out.println("\n------------------------ Booking-------------------------");
+                    System.out.print("\nDestination: ");
+                    String destination = input.nextLine();
+
+                    System.out.print("Onward Time (7am / 10am / 5pm / 8pm): ");
+                    int onwardTime = input.nextInt();
+
+                    System.out.print("Quantity: ");
+                    int quantity = input.nextInt();
+
+                    if (destination.equalsIgnoreCase("Selangor")) {
+                        price = getPrice(selangorPrice, onwardTime);
+                    } else if (destination.equalsIgnoreCase("Pulau Pinang")) {
+                        price = getPrice(pulauPngPrice, onwardTime);
+                    } else if (destination.equalsIgnoreCase("Johor Bahru")) {
+                        price = getPrice(johorPrice, onwardTime);
+                    } else if (destination.equalsIgnoreCase("Negeri Sembilan")) {
+                        price = getPrice(negeriSemPrice, onwardTime);
+                    } else if (destination.equalsIgnoreCase("Melaka")) {
+                        price = getPrice(melakaPrice, onwardTime);
+                    } else if (destination.equalsIgnoreCase("Kelantan")) {
+                        price = getPrice(kelatanPrice, onwardTime);
+                    } else if (destination.equalsIgnoreCase("Perak")) {
+                        price = getPrice(perakPrice, onwardTime);
+                    }
+
+                    amount = calcAmount(price, quantity);
+                    System.out.println("Total: RM" + amount);
+
+                    proceedPayment(price, quantity, amount);
+                    break;
                 default:
                     System.out.println("Exit Order Menu Page");
             }
-        } while (select != 3);    
+        } while (select != 3);
     }
 
     public static void staffPage(ArrayList<Details> usersList) {
@@ -1287,7 +1336,7 @@ public class Main {
         } while (continueInput);
     }
 
-   public static void addStaff(ArrayList<Details> usersList) {
+    public static void addStaff(ArrayList<Details> usersList) {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -1297,60 +1346,59 @@ public class Main {
             System.out.println("Add Staff");
 
             String staffID;
-                do{
-                   System.out.print("Enter Staff ID (Sxxxx):");
-                   staffID = scanner.next();
-                   if(Details.validateStaffID(staffID)!=true){
-                       System.err.print("Please Enter Proper Staff ID!\n");
-                   }
-                }while(Details.validateStaffID(staffID)!=true);
-            
+            do {
+                System.out.print("Enter Staff ID (Sxxxx):");
+                staffID = scanner.next();
+                if (Details.validateStaffID(staffID) != true) {
+                    System.err.print("Please Enter Proper Staff ID!\n");
+                }
+            } while (Details.validateStaffID(staffID) != true);
+
             int staffPasscode = 0;
-            
-             do{
-                 try{
-                     
-                   System.out.print("Enter Passcode :");
-                   staffPasscode = scanner.nextInt();
-                   if(Details.validatePasscode(staffPasscode)!=true){
-                       System.err.print("Please Enter 4 integer!\n");
-                   }
-                 }catch (IndexOutOfBoundsException e) {
-                  System.out.println("Error! Enter integer!\n");
-                  }
-                }while(Details.validatePasscode(staffPasscode)!=true);
-       
-             
+
+            do {
+                try {
+
+                    System.out.print("Enter Passcode :");
+                    staffPasscode = scanner.nextInt();
+                    if (Details.validatePasscode(staffPasscode) != true) {
+                        System.err.print("Please Enter 4 integer!\n");
+                    }
+                } catch (IndexOutOfBoundsException e) {
+                    System.out.println("Error! Enter integer!\n");
+                }
+            } while (Details.validatePasscode(staffPasscode) != true);
+
             System.out.print("Enter Staff Name :");
             Scanner name = new Scanner(System.in);
             String staffName = name.nextLine();
 
             String staffICNo;
-                do{
-                   System.out.print("Enter IC Number(xxxxxx-xx-xxxx) :");
-                   staffICNo = scanner.next();
-                   if(Details.validateICNo(staffICNo)!=true){
-                       System.err.print("Please Enter Proper IC Number!\n");
-                   }
-                }while(Details.validateICNo(staffICNo)!=true);
-            
-             String staffPhoneNo;
-                do{
-                   System.out.print("Enter Phone Number with - :");
-                   staffPhoneNo = scanner.next();
-                   if(Details.validatePhoneNumber(staffPhoneNo)!=true){
-                       System.err.print("Please Enter Proper Phone Number!\n");
-                   }
-                }while(Details.validatePhoneNumber(staffPhoneNo)!=true);
+            do {
+                System.out.print("Enter IC Number(xxxxxx-xx-xxxx) :");
+                staffICNo = scanner.next();
+                if (Details.validateICNo(staffICNo) != true) {
+                    System.err.print("Please Enter Proper IC Number!\n");
+                }
+            } while (Details.validateICNo(staffICNo) != true);
+
+            String staffPhoneNo;
+            do {
+                System.out.print("Enter Phone Number with - :");
+                staffPhoneNo = scanner.next();
+                if (Details.validatePhoneNumber(staffPhoneNo) != true) {
+                    System.err.print("Please Enter Proper Phone Number!\n");
+                }
+            } while (Details.validatePhoneNumber(staffPhoneNo) != true);
 
             char staffGender;
-                do{
-                   System.out.print("Enter Staff's Gender(F/M):");
-                   staffGender = scanner.next().toUpperCase().charAt(0); 
-                   if(Details.validateStaffGender(staffGender)!=true){
-                       System.err.print("Please Enter F / M\n");
-                   }
-                }while(Details.validateStaffGender(staffGender)!=true);   
+            do {
+                System.out.print("Enter Staff's Gender(F/M):");
+                staffGender = scanner.next().toUpperCase().charAt(0);
+                if (Details.validateStaffGender(staffGender) != true) {
+                    System.err.print("Please Enter F / M\n");
+                }
+            } while (Details.validateStaffGender(staffGender) != true);
 
             Details addstaffs = new Details(staffID, staffPasscode, staffName, staffICNo, staffPhoneNo, staffGender);
             try {
@@ -1366,106 +1414,106 @@ public class Main {
 
     }
 
-   public static void updateStaff(ArrayList<Details> usersList) {
+    public static void updateStaff(ArrayList<Details> usersList) {
 
         Details staff = new Details();
 
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Staff List");
-        System.out.printf("%-10s %-10s %-30s %-15s %-15s %-10s\n", "Staff ID", "Passcode", "Staff Name", "IC Number", "Phone Number", "Gender");
-        System.out.println("--------------------------------------------------------------------------------------------------");
+        System.out.printf("%-10s %-10s %-30s %-15s %-15s %-10s\n", "Staff ID", "Passcode", "Staff Name", "IC Number",
+                "Phone Number", "Gender");
+        System.out.println(
+                "--------------------------------------------------------------------------------------------------");
         staff.displayDetail(usersList);
 
-        
         String staffID;
-        do{
+        do {
             System.out.print("Enter the staff ID need to update (Sxxxx):");
             staffID = scanner.next();
-            if(Details.validateStaffID(staffID)==false){
+            if (Details.validateStaffID(staffID) == false) {
                 System.err.print("Please Enter Proper Staff ID!\n");
                 break;
             }
-        }while(Details.validateStaffID(staffID)==false);
-            
+        } while (Details.validateStaffID(staffID) == false);
+
         for (int n = 0; n <= usersList.size() - 1; n++) {
             if (staffID.equals(usersList.get(n).getID())) {
                 System.out.print("Enter the staff name :");
                 Scanner name = new Scanner(System.in);
                 String staffName = name.nextLine();
-                
-                int staffPasscode = 0;
-            
-                do{
-                 try{
-                     
-                   System.out.print("Enter passcode:");
-                   staffPasscode = scanner.nextInt();
-                   if(Details.validatePasscode(staffPasscode)!=true){
-                       System.err.print("Please Enter 4 integer!\n");
-                   }
-                 }catch (IndexOutOfBoundsException e) {
-                  System.out.println("Error! Enter integer!\n");
-                  }
-                }while(Details.validatePasscode(staffPasscode)!=true);
 
+                int staffPasscode = 0;
+
+                do {
+                    try {
+
+                        System.out.print("Enter passcode:");
+                        staffPasscode = scanner.nextInt();
+                        if (Details.validatePasscode(staffPasscode) != true) {
+                            System.err.print("Please Enter 4 integer!\n");
+                        }
+                    } catch (IndexOutOfBoundsException e) {
+                        System.out.println("Error! Enter integer!\n");
+                    }
+                } while (Details.validatePasscode(staffPasscode) != true);
 
                 String staffICNo;
-                do{
-                   System.out.print("Enter IC Number(xxxxxx-xx-xxxx) :");
-                   staffICNo = scanner.next();
-                   if(Details.validatePhoneNumber(staffICNo)!=true){
-                       System.err.print("Please Enter Proper IC Number!\n");
-                   }
-                }while(Details.validateICNo(staffICNo)!=true);
-                   
-                String staffPhoneNo;
-                do{
-                   System.out.print("Enter Phone Number with - :");
-                   staffPhoneNo = scanner.next();
-                   if(Details.validatePhoneNumber(staffPhoneNo)!=true){
-                       System.err.print("Please Enter Proper Phone Number!\n");
-                   }
-                }while(Details.validatePhoneNumber(staffPhoneNo)!=true);
+                do {
+                    System.out.print("Enter IC Number(xxxxxx-xx-xxxx) :");
+                    staffICNo = scanner.next();
+                    if (Details.validatePhoneNumber(staffICNo) != true) {
+                        System.err.print("Please Enter Proper IC Number!\n");
+                    }
+                } while (Details.validateICNo(staffICNo) != true);
 
-                
+                String staffPhoneNo;
+                do {
+                    System.out.print("Enter Phone Number with - :");
+                    staffPhoneNo = scanner.next();
+                    if (Details.validatePhoneNumber(staffPhoneNo) != true) {
+                        System.err.print("Please Enter Proper Phone Number!\n");
+                    }
+                } while (Details.validatePhoneNumber(staffPhoneNo) != true);
+
                 char staffGender;
-                do{
-                   System.out.print("Enter Staff's Gender(F/M):");
-                   staffGender = scanner.next().toUpperCase().charAt(0); 
-                   if(Details.validateStaffGender(staffGender)){
-                       System.err.print("Please Enter F / M\n");
-                   }
-                }while(Details.validateStaffGender(staffGender)!=true);
-            
-                Details updatestaff = new Details(staffID, staffPasscode, staffName, staffICNo, staffPhoneNo, staffGender);
+                do {
+                    System.out.print("Enter Staff's Gender(F/M):");
+                    staffGender = scanner.next().toUpperCase().charAt(0);
+                    if (Details.validateStaffGender(staffGender)) {
+                        System.err.print("Please Enter F / M\n");
+                    }
+                } while (Details.validateStaffGender(staffGender) != true);
+
+                Details updatestaff = new Details(staffID, staffPasscode, staffName, staffICNo, staffPhoneNo,
+                        staffGender);
                 updatestaff.modifyDetail(usersList, n);
                 System.out.println("Staff's Details Updated!\n");
             }
         }
     }
 
-  public static void removeStaff(ArrayList<Details> usersList) {
+    public static void removeStaff(ArrayList<Details> usersList) {
 
         Details staff = new Details();
 
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Staff List");
-        System.out.printf("%-10s %-10s %-30s %-15s %-15s %-10s\n", "Staff ID", "Passcode", "Staff Name", "IC Number", "Phone Number", "Gender");
-        System.out.println("--------------------------------------------------------------------------------------------------");
+        System.out.printf("%-10s %-10s %-30s %-15s %-15s %-10s\n", "Staff ID", "Passcode", "Staff Name", "IC Number",
+                "Phone Number", "Gender");
+        System.out.println(
+                "--------------------------------------------------------------------------------------------------");
         staff.displayDetail(usersList);
-        
-        
+
         String selectedID;
-        do{
+        do {
             System.out.print("Enter the staff ID want to remove (Sxxxxx):");
             selectedID = scanner.next();
-            if(Details.validateStaffID(selectedID)!=true){
+            if (Details.validateStaffID(selectedID) != true) {
                 System.err.print("Please Enter Proper Staff ID!\n");
             }
-        }while(Details.validateStaffID(selectedID)!=true);
-
+        } while (Details.validateStaffID(selectedID) != true);
 
         for (int m = 0; m <= usersList.size() - 1; m++) {
             if (selectedID.equals(usersList.get(m).getID())) {
@@ -1482,10 +1530,11 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Staff List");
-        System.out.printf("%-10s %-10s %-30s %-15s %-15s %-10s\n", "Staff ID", "Passcode", "Staff Name", "IC Number", "Phone Number", "Gender");
-        System.out.println("--------------------------------------------------------------------------------------------------");
+        System.out.printf("%-10s %-10s %-30s %-15s %-15s %-10s\n", "Staff ID", "Passcode", "Staff Name", "IC Number",
+                "Phone Number", "Gender");
+        System.out.println(
+                "--------------------------------------------------------------------------------------------------");
         staff.displayDetail(usersList);
 
     }
 }
-
