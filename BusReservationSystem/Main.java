@@ -289,26 +289,27 @@ public class Main {
 
     public static void bookingTicket(ArrayList<Bus> busList) {
         int to = 0, custAmount = 0, s = 0,z=0;
-        String name[]=new String[100];
         int s1[][] = new int[28][30];
         int available = 30;
+        String name;
         String ticketDes[] = new String[100];
         double ticketFare[] = new double[100];
         String ticketBus[] = new String[100];
         String ticketTime[] = new String[100];
         int ticketSeat[] = new int[100];
         boolean sAvailable = true;
-        String place;
-        String time;
         int price = 0;
+        String place;
         int amount = 0;
         Scanner book = new Scanner(System.in);
+
+        ArrayList<Reservation> transaction = new ArrayList<Reservation>();
 
        
         Bus bus = new Bus();
         bus.displayBus(busList);
        
-
+       
        
         if ((busList.get(0).getSeatNo() == 0) && (busList.get(1).getSeatNo() == 0) && (busList.get(2).getSeatNo() == 0)
                 && (busList.get(3).getSeatNo() == 0) && (busList.get(4).getSeatNo() == 0)
@@ -329,7 +330,7 @@ public class Main {
         }
 
         System.out.print("\n PASSENGER'S NAME: ");
-        name[z] = book.nextLine();
+        name = book.nextLine();
 
         System.out.print("ENTER DESTINATION [number]: ");
         to = book.nextInt();
@@ -365,7 +366,7 @@ public class Main {
             System.out.println("\n***************************************");
             System.out.println("        PASSENGER'S DETAILS        ");
             System.out.println("***************************************");
-            System.out.println("PASSENGER'S NAME: " + name[z]);
+            System.out.println("PASSENGER'S NAME: " + name);
             System.out.println("PASSENGER'S DESTINATION : " + ticketDes[to]);
             System.out.println("DEPARTURE TIME : " + ticketTime[to]);
             System.out.printf("FARE PRICE(PER PERSON): RM %.2f\n", ticketFare[to]);
@@ -384,13 +385,17 @@ public class Main {
         System.out.println("***************************************");
         System.out.println("***************************************\n");
         
-        place = ticketDes[to];
-        time = ticketTime[to];
+       
         price = (int) ticketFare[to];
         amount = calcAmount(price, custAmount);
         System.out.println("Total: RM" + amount);
-        proceedPayment(place, time, price, custAmount, amount);
+        //Reservation booking = new Reservation(name, ticketDes[to], ticketTime[to], custAmount, price,  amount);
+        transaction.add(new Reservation(name, ticketDes[to], ticketTime[to], custAmount, price, amount));
+      
+        proceedPayment(ticketDes[to], ticketTime[to], price, custAmount, amount);
+        //ticketDes[to], ticketTime[to], price, custAmount, amount
     }
+    
 	
 
     public static void proceedPayment(String place, String time, int price, int quantity, int amount){
