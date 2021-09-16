@@ -298,6 +298,8 @@ public class Main {
         String ticketTime[] = new String[100];
         int ticketSeat[] = new int[100];
         boolean sAvailable = true;
+        String place;
+        String time;
         int price = 0;
         int amount = 0;
         Scanner book = new Scanner(System.in);
@@ -382,10 +384,12 @@ public class Main {
         System.out.println("***************************************");
         System.out.println("***************************************\n");
         
+        place = ticketDes[to];
+        time = ticketTime[to];
         price = (int) ticketFare[to];
         amount = calcAmount(price, custAmount);
         System.out.println("Total: RM" + amount);
-        proceedPayment(price, custAmount, amount);
+        proceedPayment(place, time, price, custAmount, amount);
     }
 	
 
