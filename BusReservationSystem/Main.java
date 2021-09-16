@@ -345,7 +345,7 @@ public class Main {
 						// if available seat is equal to "Zero", display error and go back to Inputing//
 						for (int d = 1; d <= 28; d++) {
 							if (to == d) {
-								if (available[to] == 0) {
+								if (available[0] == 0) {
 									System.out.println("Sorry, We don't have available seat!");
 									x = 1;
 								}
@@ -353,7 +353,7 @@ public class Main {
 							}
 						}
 					}
-					for (x = 1; x == 1;) {
+					/*for (x = 1; x == 1;) {
 						System.out.print("HOW MANY PASSENGERS ARE YOU?: ");
 						custAmount = book.nextInt();
 
@@ -372,17 +372,18 @@ public class Main {
 								print = 0;
 							} else {
 								x = 0;
-							}
+							}*/
 							int seatID[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
 									21, 22, 23, 24, 25, 26, 27, 28, 29, 30 };
-							for (int j = 0; j < custAmount; j++) {
-								do {
+							//for (int j = 0; j < custAmount; j++) {
+								//do {
 
 									for (x = 1; x == 1;) {
 										System.out.print("ENTER SEAT NUMBER [1-30]: ");
 										s = book.nextInt();
-										int[] proxyArray = new int[seatID.length - 1];
-
+										for(int l = s; l < seatID.length -1; l++){
+                                            seatID[l] = seatID[l + 1];
+                                        }
 										// if Inputed integers are not between 1-28, display error and go back to
 										// Inputing//
 
@@ -394,36 +395,37 @@ public class Main {
 													x = 1;
 												}
 												x = 0;
+                                                
 											}
 										}
 									}
 
-								} while (j <= custAmount);
+								//} while (j > custAmount);
 								// converted integer to string, transfer to storage array//
 								ticketDes[to] = busList.get(to - 1).getDestination();
 								ticketFare[to] = busList.get(to - 1).getPrice();
 								ticketBus[to] = busList.get(to - 1).getBusID();
 								ticketSeat[s] = seatID[s];
 
-								// inputing for Number of Passenger's//
+								displayDetails.CustomerDetails(name, ticketDes, ticketFare, ticketSeat, custAmount, to, ticketBus, s);
 
 							}
 						}
 
-					}
+					}book.close();
 
 					// print out of passengers details....
-					if (print == 1) {
+					/*if (print == 1) {
 						displayDetails.CustomerDetails(name, ticketDes, ticketFare, ticketSeat, custAmount, to, ticketBus, s);
 					}
 
                     amount = calcAmount(ticketFare[to], custAmount);
-                    System.out.println("Total: RM" + amount);
+                    System.out.println("Total: RM" + amount);*/
 				}
-				book.close();	
-            }
-        }
-	}
+					
+            
+        
+	
 	
 
     public static void proceedPayment(int price, int quantity, int amount){
