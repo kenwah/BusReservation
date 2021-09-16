@@ -298,6 +298,8 @@ public class Main {
         String ticketTime[] = new String[100];
         int ticketSeat[] = new int[100];
         boolean sAvailable = true;
+        String place;
+        String time;
         int price = 0;
         int amount = 0;
         Scanner book = new Scanner(System.in);
@@ -382,14 +384,16 @@ public class Main {
         System.out.println("***************************************");
         System.out.println("***************************************\n");
         
+        place = ticketDes[to];
+        time = ticketTime[to];
         price = (int) ticketFare[to];
         amount = calcAmount(price, custAmount);
         System.out.println("Total: RM" + amount);
-        proceedPayment(price, custAmount, amount);
+        proceedPayment(place, time, price, custAmount, amount);
     }
 	
 
-    public static void proceedPayment(int price, int quantity, int amount){
+    public static void proceedPayment(String place, String time, int price, int quantity, int amount){
         Scanner input = new Scanner(System.in);
         int paymentMethod, eWalletOption, bankOption;
         boolean continueInput = true;
@@ -456,7 +460,7 @@ public class Main {
                                     }
                                     //print receipt
                                     receiptNo = byCash.getReceiptNo();
-                                    receipt receipt1 = new receipt(price, quantity, amount, receiptNo);
+                                    receipt receipt1 = new receipt(place, time, price, quantity, amount, receiptNo);
                                     receipt1.printReceipt();
                                     continueInput = false;
                                 } catch (InputMismatchException inputMismatchException){
@@ -491,7 +495,7 @@ public class Main {
                                     }
                                     //print receipt
                                     receiptNo = byCrCard.getReceiptNo();
-                                    receipt receipt2 = new receipt(price, quantity, amount, receiptNo);
+                                    receipt receipt2 = new receipt(place, time, price, quantity, amount, receiptNo);
                                     receipt2.printReceipt();
                                     continueInput = false;
                                 } catch (InputMismatchException inputMismatchException){
@@ -531,7 +535,7 @@ public class Main {
                                                     System.out.println("Transaction Successful !");
                                                     //print receipt
                                                     receiptNo = byTouchnGo.getReceiptNo();
-                                                    receipt receipt3 = new receipt(price, quantity, amount, receiptNo);
+                                                    receipt receipt3 = new receipt(place, time, price, quantity, amount, receiptNo);
                                                     receipt3.printReceipt();
                                                 } else {
                                                     transactionFailed = true;
@@ -555,7 +559,7 @@ public class Main {
                                                     System.out.println("Transaction Successful !");
                                                     //print receipt
                                                     receiptNo = byBoost.getReceiptNo();
-                                                    receipt receipt4 = new receipt(price, quantity, amount, receiptNo);
+                                                    receipt receipt4 = new receipt(place, time, price, quantity, amount, receiptNo);
                                                     receipt4.printReceipt();
                                                 } else {
                                                     transactionFailed = true;
@@ -580,7 +584,7 @@ public class Main {
                                                     System.out.println("Transaction Successful !");
                                                     //print receipt
                                                     receiptNo = byShopeePay.getReceiptNo();
-                                                    receipt receipt5 = new receipt(price, quantity, amount, receiptNo);
+                                                    receipt receipt5 = new receipt(place, time, price, quantity, amount, receiptNo);
                                                     receipt5.printReceipt();
                                                 } else {
                                                     transactionFailed = true;
@@ -634,7 +638,7 @@ public class Main {
                                                         System.out.println("Transaction Successful !");
                                                         //print receipt
                                                         receiptNo = byPbBank.getReceiptNo();
-                                                        receipt receipt6 = new receipt(price, quantity, amount, receiptNo);
+                                                        receipt receipt6 = new receipt(place, time, price, quantity, amount, receiptNo);
                                                         receipt6.printReceipt();
                                                     }
                                                 } else {
@@ -662,7 +666,7 @@ public class Main {
                                                         System.out.println("Transaction Successful !");
                                                         //print receipt
                                                         receiptNo = byMBank.getReceiptNo();
-                                                        receipt receipt7 = new receipt(price, quantity, amount, receiptNo);
+                                                        receipt receipt7 = new receipt(place, time, price, quantity, amount, receiptNo);
                                                         receipt7.printReceipt();
                                                     }
                                                 } else {
@@ -690,7 +694,7 @@ public class Main {
                                                         System.out.println("Transaction Successful !");
                                                          //print receipt
                                                         receiptNo = byCimBank.getReceiptNo();
-                                                        receipt receipt8 = new receipt(price, quantity, amount, receiptNo);
+                                                        receipt receipt8 = new receipt(place, time, price, quantity, amount, receiptNo);
                                                         receipt8.printReceipt();
                                                     }
                                                 } else {
@@ -718,7 +722,7 @@ public class Main {
                                                         System.out.println("Transaction Successful !");
                                                         //print receipt
                                                         receiptNo = byRhBank.getReceiptNo();
-                                                        receipt receipt9 = new receipt(price, quantity, amount, receiptNo);
+                                                        receipt receipt9 = new receipt(place, time, price, quantity, amount, receiptNo);
                                                         receipt9.printReceipt();
                                                     }
                                                 } else {
@@ -1081,15 +1085,6 @@ public static void modifyBus(ArrayList<Bus> busList){
 
     public static void orderMenu(ArrayList<Bus> busList) {
         Scanner input = new Scanner(System.in);
-        int[] selangorPrice = {10,11,12,10};
-        int[] pulauPngPrice = {40, 41, 42, 40};
-        int[] johorPrice = {40, 41, 42, 40};
-        int[] negeriSemPrice = {15, 16, 17, 18};
-        int[] melakaPrice = {16, 17, 18, 16};
-        int[] kelatanPrice = {42, 43, 44, 42};
-        int[] perakPrice = {39, 40, 41, 39}; 
-        int price = 0;
-        int amount = 0;
         int select = 0;
         boolean continueInput;
         do {
@@ -1122,42 +1117,7 @@ public static void modifyBus(ArrayList<Bus> busList){
                     //input Booking details
                     break;
                 case 2:
-                System.out.println("\n------------------------ Booking-------------------------");
-                System.out.print("\nDestination: ");
-                String destination = input.nextLine();
-            
-                System.out.print("Onward Time (7am / 10am / 5pm / 8pm): ");
-                int onwardTime = input.nextInt();
-        
-                System.out.print("Quantity: ");
-                int quantity = input.nextInt();
-        
-                if(destination.equalsIgnoreCase("Selangor")){
-                    price = getPrice(selangorPrice, onwardTime);
-                }
-                else if(destination.equalsIgnoreCase("Pulau Pinang")){
-                    price = getPrice(pulauPngPrice, onwardTime);
-                }
-                else if(destination.equalsIgnoreCase("Johor Bahru")){
-                    price = getPrice(johorPrice, onwardTime);
-                }
-                else if(destination.equalsIgnoreCase("Negeri Sembilan")){
-                    price = getPrice(negeriSemPrice, onwardTime);
-                }
-                else if(destination.equalsIgnoreCase("Melaka")){
-                    price = getPrice(melakaPrice, onwardTime);
-                }
-                else if(destination.equalsIgnoreCase("Kelantan")){
-                    price = getPrice(kelatanPrice, onwardTime);
-                }
-                else if(destination.equalsIgnoreCase("Perak")){
-                    price = getPrice(perakPrice, onwardTime);  
-                }
-                
-                amount = calcAmount(price, quantity);
-                System.out.println("Total: RM" + amount);
-        
-                proceedPayment(price, quantity, amount);
+                    bookingTicket(busList);
                 break;
                 default:
                     System.out.println("Exit Order Menu Page");

@@ -5,6 +5,8 @@ import java.time.format.DateTimeFormatter;
 
 public class receipt implements serviceCharge{
     
+    private String place;
+    private String time;
     private int price;
     private int quantity;
     private int total;
@@ -17,7 +19,9 @@ public class receipt implements serviceCharge{
 
     public receipt(){}
 
-    public receipt(int price, int quantity, int total, int receiptNo){
+    public receipt(String place, String time, int price, int quantity, int total, int receiptNo){
+        this.place = place;
+        this.price = price;
         this.price = price;
         this.quantity = quantity;
         this.total = total;
@@ -46,15 +50,15 @@ public class receipt implements serviceCharge{
 
         calcServiceCharge(total);
         calcTotalIncludeSC(total);
-        System.out.println("\n\n*********************************************************************");
-        System.out.printf("*  Receipt No: %d               Date & Time: %s  *\n", receiptNo, currentDate);
-        System.out.println("*********************************************************************");
-        System.out.println("*     Price (RM)               Quantity               Total (RM)    *");
-        System.out.printf("*%10d %23d %25d       *\n", price, quantity, total);
-        System.out.println("*********************************************************************");
-        System.out.printf("*  Service Charge 2%%:                                     %.2f      *\n", serviceCharge);
-        System.out.printf("*  Grandtotal:                                           %.2f      *\n", grandTotal);
-        System.out.println("*********************************************************************");
-        System.out.println("Thank you. Please come again.");
+        System.out.println("\n\n************************************************************************************");
+        System.out.printf("*        Receipt No: %d               Date & Time: %s        *\n", receiptNo, currentDate);
+        System.out.println("************************************************************************************");
+        System.out.println("*  Description       Price (RM)               Quantity               Total (RM)    *");
+        System.out.printf("*%5s%s %10d %23d %25d       *\n",place, time, price, quantity, total);
+        System.out.println("************************************************************************************");
+        System.out.printf("*  Service Charge 2%%:                                              %.2f      *\n", serviceCharge);
+        System.out.printf("*  Grandtotal:                                                      %.2f      *\n", grandTotal);
+        System.out.println("************************************************************************************\n\n");
+        
     }
 }
