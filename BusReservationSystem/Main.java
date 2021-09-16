@@ -453,6 +453,7 @@ public class Main {
         price = (int) ticketFare[to];
         amount = calcAmount(price, custAmount);
         System.out.println("Total: RM" + amount);
+        proceedPayment(price, custAmount, amount);
     }
 	
 
