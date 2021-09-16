@@ -288,8 +288,8 @@ public class Main {
     }  
 
     public static void bookingTicket(ArrayList<Bus> busList) {
-        int to = 0, custAmount = 0, s = 0;
-        String name;
+        int to = 0, custAmount = 0, s = 0,z=0;
+        String name[]=new String[100];
         int s1[][] = new int[28][30];
         int available = 30;
         String ticketDes[] = new String[100];
@@ -298,8 +298,6 @@ public class Main {
         String ticketTime[] = new String[100];
         int ticketSeat[] = new int[100];
         boolean sAvailable = true;
-        String place;
-        String time;
         int price = 0;
         int amount = 0;
         Scanner book = new Scanner(System.in);
@@ -329,7 +327,7 @@ public class Main {
         }
 
         System.out.print("\n PASSENGER'S NAME: ");
-        name = book.nextLine();
+        name[z] = book.nextLine();
 
         System.out.print("ENTER DESTINATION [number]: ");
         to = book.nextInt();
@@ -362,34 +360,32 @@ public class Main {
 		ticketFare[to] = busList.get(to - 1).getPrice();
         ticketTime[to] = busList.get(to - 1).getDepartureTime();
 		ticketBus[to] = busList.get(to - 1).getBusID();
+            System.out.println("\n***************************************");
+            System.out.println("        PASSENGER'S DETAILS        ");
+            System.out.println("***************************************");
+            System.out.println("PASSENGER'S NAME: " + name[z]);
+            System.out.println("PASSENGER'S DESTINATION : " + ticketDes[to]);
+            System.out.println("DEPARTURE TIME : " + ticketTime[to]);
+            System.out.printf("FARE PRICE(PER PERSON): RM %.2f\n", ticketFare[to]);
+            System.out.println("NO. OF PASSENGERS: " + custAmount);
+            System.out.print("SEAT: "); 
+            for(int d = 0; d < custAmount;d++){
+                if(d == custAmount - 1){
+                    System.out.print( ticketSeat[d]+"\n" );
+                }
+                else{
+                    System.out.print( ticketSeat[d]+"," );
+                }
+            }
         
-        System.out.println("\n***************************************");
-        System.out.println("        PASSENGER'S DETAILS        ");
-        System.out.println("***************************************");
-        System.out.println("PASSENGER'S NAME: " + name);
-        System.out.println("PASSENGER'S DESTINATION : " + ticketDes[to]);
-        System.out.println("DEPARTURE TIME : " + ticketTime[to]);
-        System.out.printf("FARE PRICE(PER PERSON): RM %.2f\n", ticketFare[to]);
-        System.out.println("NO. OF PASSENGERS: " + custAmount);
-        System.out.print("SEAT: "); 
-        for(int d = 0; d < custAmount;d++){
-            if(d == custAmount - 1){
-                System.out.print( ticketSeat[d]+"\n" );
-            }
-            else{
-                System.out.print( ticketSeat[d]+"," );
-            }
-        }
         System.out.println("BUS ID: " + ticketBus[to]);
         System.out.println("***************************************");
         System.out.println("***************************************\n");
         
-        place = ticketDes[to];
-        time = ticketTime[to];
         price = (int) ticketFare[to];
         amount = calcAmount(price, custAmount);
         System.out.println("Total: RM" + amount);
-        proceedPayment(place, time, price, custAmount, amount);
+        proceedPayment(price, custAmount, amount);
     }
 	
 
