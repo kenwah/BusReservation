@@ -6,7 +6,7 @@ public class menu {
     public static void displayMenu(String [] args)throws IOException{
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         String choice;
-        int end1=0;
+        int end1 = 0;
         for (int x = 1; x == 1;) {
             // the MAIN MENU//
             System.out.println("********************************************");
