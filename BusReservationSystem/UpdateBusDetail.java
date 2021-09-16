@@ -145,19 +145,22 @@ public class UpdateBusDetail {
         System.out.println("Bus List");
         bus.displayBus(busList);
 
-        String busID;
-        do{
-            System.out.println("Enter Bus ID for modify:");
-            busID = scanner.nextLine();
-            busID = busID.toUpperCase();
-            if(Bus.validateBusId(busID)==false){
-                System.out.println("Bus ID cannot more than 3 characters,");
-                System.out.println("Bus ID cannot more than 5 number");
-                System.out.println("Please enter proper bus ID!");
-            }
-        }while(Bus.validateBusId(busID)==false);
+        char confirm;
 
-        for(int i=0 ; i<busList.size() ; i++){
+        do{
+            String busID;
+            do{
+                System.out.println("Enter Bus ID for modify:");
+                busID = scanner.nextLine();
+                busID = busID.toUpperCase();
+                if(Bus.validateBusId(busID)==false){
+                    System.out.println("Bus ID cannot more than 3 characters,");
+                    System.out.println("Bus ID cannot more than 5 number");
+                    System.out.println("Please enter proper bus ID!");
+                }
+            }while(Bus.validateBusId(busID)==false);
+
+            for(int i=0 ; i<busList.size() ; i++){
             if(busID.toUpperCase().compareTo(busList.get(i).getBusID())==0 || busID.equals(busList.get(i).getBusID())){
 
                 String destination;
@@ -214,9 +217,11 @@ public class UpdateBusDetail {
                 Bus modifyBus = new Bus(busID, destination, departureDate, departureTime, price, seatNo);
                 modifyBus.modifyBus(busList, i);
                 System.out.println("Bus's Details Modify!\n");
-
+                }
             }
-        }
+            System.out.print("Do you want to modify more bus? Yes(Y)/ No (N)?");
+            confirm = scanner.next().trim().toUpperCase().charAt(0);
+        }while (confirm == 'Y');
     }
 
     public static void deleteBus(ArrayList<Bus> busList){
@@ -252,9 +257,9 @@ public class UpdateBusDetail {
  
                 }
             }while(chekID = false); 
-            System.out.print("Do you want to modify again? Yes(Y)/ No (N)?");
+            System.out.print("Do you want to delete again? Yes(Y)/ No (N)?");
             confirm = scanner.next().trim().toUpperCase().charAt(0);
-        }while(confirm=='y');
+        }while(confirm=='Y');
     }
 
     public static void displayBus(ArrayList<Bus> busList){
