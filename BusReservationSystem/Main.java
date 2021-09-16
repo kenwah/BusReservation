@@ -335,79 +335,81 @@ public class Main {
 					}
 					
 					
-					for(x=1; x==1;){
+					for (x = 1; x == 1;) {
 						System.out.print("ENTER DESTINATION [number]: ");
 						to = book.nextInt();
-						
-						//if Inputed integers are not between 1-28, display error and go back to Inputing//
-						if(to<1 || to>28){
-                            System.out.println("Invalid Input! We have total 1-5 destinations.");
-                            x=1;
-                        }
-						//if available seat is equal to "Zero", display error and go back to Inputing//
-						for(int d=1; d<=28; d++){
-							if(to==d){
-								if(available[to]!=0){
+
+						// if Inputed integers are not between 1-28, display error and go back to
+						// Inputing//
+
+						// if available seat is equal to "Zero", display error and go back to Inputing//
+						for (int d = 1; d <= 28; d++) {
+							if (to == d) {
+								if (available[to] == 0) {
 									System.out.println("Sorry, We don't have available seat!");
-									x=1;
+									x = 1;
 								}
-								x=0;
+								x = 0;
 							}
 						}
 					}
-					for(x=1; x==1;){
-						System.out.print("ENTER SEAT NUMBER [1-30]: ");
-						s = book.nextInt();
-						
-						//if Inputed integers are not between 1-28, display error and go back to Inputing//
-						
-						//if available seat is equal to "Zero", display error and go back to Inputing//
-						for(int S=1; S<=30; S++){
-							if(s==S){
-								if(s<1||s>30){
-									System.out.println("Sorry, it is a invalid number");
-									x=1;
-								}
-								x=0;
-							}
-						}
-					}
-					
-					int seatID[]={0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30};
+					for (x = 1; x == 1;) {
+						System.out.print("HOW MANY PASSENGERS ARE YOU?: ");
+						custAmount = book.nextInt();
 
-					// converted integer to string, transfer to storage array//
-					ticketDes[to] = busList.get(to-1).getDestination();
-					ticketFare[to] = busList.get(to-1).getPrice();
-					ticketBus[to] = busList.get(to-1).getBusID();
-					ticketSeat[s] = seatID[s];
-					
-					//inputing for Number of Passenger's//
-					for(x=1; x==1;){
-					System.out.print("HOW MANY PASSENGERS ARE YOU?: ");
-					custAmount = book.nextInt();
-
-		
-						//subtract the available seat by the the number inputed//
+						// subtract the available seat by the the number inputed//
 						for (int p = 0; p < 30; p++) {
-							if(to==p){
-								available[to]= busList.get(to).getSeatNo()-1;
-							print=1;
+							if (to == p) {
+								available[to] = busList.get(to).getSeatNo() - 1;
+								print = 1;
 							}
-							
-								if (busList.get(to).getSeatNo() < 0) {
-									System.out.print(
-											"Sorry, We don't have seat available for " + custAmount + " person\n");
-											available[to] = busList.get(to).getSeatNo() - custAmount;
-									System.out.print("We only have " + available[to] + " seat available\n");
-									x=1;
-									print=0;
-								}
-								else{
-									x=0;
-								}
+
+							if (busList.get(to).getSeatNo() < 0) {
+								System.out.print("Sorry, We don't have seat available for " + custAmount + " person\n");
+								available[to] = busList.get(to).getSeatNo() - custAmount;
+								System.out.print("We only have " + available[to] + " seat available\n");
+								x = 1;
+								print = 0;
+							} else {
+								x = 0;
+							}
+							int seatID[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+									21, 22, 23, 24, 25, 26, 27, 28, 29, 30 };
+							for (int j = 0; j < custAmount; j++) {
+								do {
+
+									for (x = 1; x == 1;) {
+										System.out.print("ENTER SEAT NUMBER [1-30]: ");
+										s = book.nextInt();
+										int[] proxyArray = new int[seatID.length - 1];
+
+										// if Inputed integers are not between 1-28, display error and go back to
+										// Inputing//
+
+										// if available seat is equal to "Zero", display error and go back to Inputing//
+										for (int S = 1; S <= 30; S++) {
+											if (s == S) {
+												if (s < 1 || s > 30) {
+													System.out.println("Sorry, it is a invalid number");
+													x = 1;
+												}
+												x = 0;
+											}
+										}
+									}
+
+								} while (j <= custAmount);
+								// converted integer to string, transfer to storage array//
+								ticketDes[to] = busList.get(to - 1).getDestination();
+								ticketFare[to] = busList.get(to - 1).getPrice();
+								ticketBus[to] = busList.get(to - 1).getBusID();
+								ticketSeat[s] = seatID[s];
+
+								// inputing for Number of Passenger's//
+
 							}
 						}
-		
+
 					}
 
 					// print out of passengers details....

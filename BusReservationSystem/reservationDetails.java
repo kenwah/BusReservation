@@ -1,4 +1,4 @@
-package BusReservationSystem;
+/*package BusReservationSystem;
 
 public class reservationDetails {
     private String name;
@@ -25,13 +25,5 @@ public class reservationDetails {
         this.seat = seat;
     }
     
-    @Override
-    public String toString() {
-        return "Your ticket's details: \n" +
-                "Name: " + getname() + "\n" +
-                "Destination: " + getdest() + "\n" +
-                "Seat: " + getseat()  + "\n" +
-                "Number of passenger: " + getpassenger()  + "\n" +
-                "Thank You for traveling with us!";
-    }
 }
+*/
