@@ -148,6 +148,7 @@ public class UpdateBusDetail {
         do{
             System.out.println("Enter Bus ID for modify:");
             busID = scanner.nextLine();
+            busID = busID.toUpperCase();
             if(Bus.validateBusId(busID)==false){
                 System.out.println("Bus ID cannot more than 3 characters,");
                 System.out.println("Bus ID cannot more than 5 number");
@@ -157,95 +158,64 @@ public class UpdateBusDetail {
 
         for(int i=0 ; i<busList.size() ; i++){
             if(busID.toUpperCase().compareTo(busList.get(i).getBusID())==0 || busID.equals(busList.get(i).getBusID())){
-                
-                int choice;
-                boolean continueInput;
-                String destination = "";
-                String departureDate = "";
-                String departureTime = "";
-                int price = 0;
-                int seatNo = 0;
-                do{	
-                    System.out.println("\nWhat do you wish to modify ?"
-                    + "\n1.Destination"
-                    + "\n2.Departure Date"
-                    + "\n3.Departure Time"
-                    + "\n4.Price"
-                    + "\n5.Seat Available"
-                    + "\n6.Back to Menu");
-                    System.out.print("\n\n Please select(1-6) : ");
-                    choice = scanner.nextInt();
-                    switch (choice){
-                        case 1:
-                        
-                            do{
-                                System.out.println("Enter Destination:");
-                                destination = scanner.nextLine();
-                                if(Bus.validateDestination(destination)!=true){
-                                    System.out.println("Destination must be one of Selangor, Pulau Pinang, Johor Bahru, Negeri Sembilan, Melaka, Kelatan or Perak.");
-                                    System.out.println("Please enter proper destination!");
-                                }
-                            }while(Bus.validateDestination(destination)!=true);
-                            break;
-                        case 2:
-                        
-                            do{
-                                System.out.println("Enter Departure Date:");
-                                departureDate = scanner.nextLine();
-                                if(Bus.validateDate(departureDate)!=true){
-                                    System.out.println("Departure date must be in dd/mm/yyyy format.");
-                                    System.out.println("Please enter proper departure date!");
-                                }
-                            }while(Bus.validateDate(departureDate)!=true);
-                            break;
-                        case 3:
-                        
-                            do{
-                                System.out.println("Enter Departure Time:");
-                                departureTime = scanner.nextLine();
-                                if(Bus.validateTime(departureTime)!=true){
-                                    System.out.println("The departure time must be in xx:xx(am/pm) format.");
-                                    System.out.println("Please enter proper departure time!");
-                                }
-                            }while(Bus.validateTime(departureTime)!=true);
-                            break;
-                        case 4:
-                        
-                            do{
-                                System.out.println("Enter Price:");
-                                price = scanner.nextInt();
-                                if(Bus.validateprice(price)!=true){
-                                System.out.println("The price cannot be zero or negative.");
-                                    System.out.println("Please enter proper price!");
-                                }   
-                            }while(Bus.validateprice(price)!=true);
-                            break;
-                        case 5:
-                        
-                            do{
-                                System.out.println("Enter Seat Avaible:");
-                                seatNo = scanner.nextInt();
-                                if(Bus.validateSeatNo(seatNo)!=true){
-                                    System.out.println("The seat avaible cannot more than 30.");
-                                    System.out.println("Please enter proper seat avaible!");
-                                }
-                            }while(Bus.validateSeatNo(seatNo)!=true);
-                            break;
-                        case 6:
-                            continueInput = false;
-                            break;
-                        default:
-                            System.out.println("Invalid input, please enter again");
-                    }
-                }while (choice !=6);
 
+                String destination;
+                do{
+                    System.out.println("Enter Destination:");
+                    destination = scanner.nextLine();
+                    destination = destination.toUpperCase();
+                    if(Bus.validateDestination(destination)!=true){
+                        System.out.println("Destination must be one of Selangor, Pulau Pinang, Johor Bahru, Negeri Sembilan, Melaka, Kelatan or Perak.");
+                        System.out.println("Please enter proper destination!");
+                    }
+                }while(Bus.validateDestination(destination)!=true);
+
+                String departureDate;
+                do{
+                    System.out.println("Enter Departure Date:");
+                    departureDate = scanner.nextLine();
+                    if(Bus.validateDate(departureDate)!=true){
+                        System.out.println("Departure date must be in dd/mm/yyyy format.");
+                        System.out.println("Please enter proper departure date!");
+                    }
+                }while(Bus.validateDate(departureDate)!=true);
+
+                String departureTime;
+                do{
+                    System.out.println("Enter Departure Time:");
+                    departureTime = scanner.nextLine();
+                    if(Bus.validateTime(departureTime)!=true){
+                        System.out.println("The departure time must be in xx:xx(am/pm) format.");
+                        System.out.println("Please enter proper departure time!");
+                    }
+                }while(Bus.validateTime(departureTime)!=true);
+
+                int price;
+                do{
+                    System.out.println("Enter Price:");
+                    price = scanner.nextInt();
+                    if(Bus.validateprice(price)!=true){
+                        System.out.println("The price cannot be zero or negative.");
+                        System.out.println("Please enter proper price!");
+                    }   
+                }while(Bus.validateprice(price)!=true);
+
+                int seatNo;
+                do{
+                    System.out.println("Enter Seat Avaible:");
+                    seatNo = scanner.nextInt();
+                    if(Bus.validateSeatNo(seatNo)!=true){
+                        System.out.println("The seat avaible cannot more than 30.");
+                        System.out.println("Please enter proper seat avaible!");
+                    }
+                }while(Bus.validateSeatNo(seatNo)!=true);
+                
                 Bus modifyBus = new Bus(busID, destination, departureDate, departureTime, price, seatNo);
                 modifyBus.modifyBus(busList, i);
                 System.out.println("Bus's Details Modify!\n");
 
             }
         }
-
     }
 
     public static void deleteBus(ArrayList<Bus> busList){

@@ -929,14 +929,15 @@ public class Main {
     do{	
         try{
             do{
-                System.out.println(" -----------------------");
-                System.out.println("|     Maintainance      |");
-                System.out.println(" -----------------------");
-                System.out.println("1. Add Bus Detail ");
-                System.out.println("2. Modify Bus Detail ");
-                System.out.println("3. Delete Bus Detail ");
-                System.out.println("4. Display Bus Detail ");
-                System.out.println("5. Back to Main Menu ");
+                System.out.println("************************");
+                System.out.println("**    Maintainance    **");
+                System.out.println("************************");
+                System.out.println("*1. Add Bus Detail     *");
+                System.out.println("*2. Modify Bus Detail  *");
+                System.out.println("*3. Delete Bus Detail  *");
+                System.out.println("*4. Display Bus Detail *");
+                System.out.println("*5. Back to Main Menu  *");
+                System.out.println("************************");
                 System.out.println("\nWhich you want to do.(1-5) :");
                 choice = scanner.nextInt();
                 switch (choice){
@@ -1078,7 +1079,7 @@ public class Main {
             
             int choice;
             boolean continueInput;
-            String destination = "";
+            String destination ="";
             String departureDate = "";
             String departureTime = "";
             int price = 0;
@@ -1091,7 +1092,7 @@ public class Main {
                 + "\n4.Price"
                 + "\n5.Seat Available"
                 + "\n6.Back to Menu");
-                System.out.print("\n\n Please select(1-6) : ");
+                System.out.print("Please select(1-6) : ");
                 choice = scanner.nextInt();
                 switch (choice){
                     case 1:
@@ -1104,6 +1105,7 @@ public class Main {
                                 System.out.println("Please enter proper destination!");
                             }
                         }while(Bus.validateDestination(destination)!=true);
+                        
                         break;
                     case 2:
                     
