@@ -246,11 +246,11 @@ public class Main {
 		String name[]=new String[20];
 		int available[] = new int[27];
 		String ticketDes[] = new String [100];
-		double ticketFare[] = new double[3];
+		int ticketFare[] = new int[3];
 		String ticketBus[] = new String [100];
 		int ticketSeat[] = new int [100];
 		Scanner book = new Scanner(System.in);
-		
+		int amount = 0;
 
 		for (int i = 1; i < 4;) {
 
@@ -416,9 +416,13 @@ public class Main {
 					if (print == 1) {
 						displayDetails.CustomerDetails(name, ticketDes, ticketFare, ticketSeat, custAmount, to, ticketBus, s);
 					}
+
+                    amount = calcAmount(ticketFare[to], custAmount);
+                    System.out.println("Total: RM" + amount);
 				}
 				book.close();	
             }
+        }
 	}
 	
 
