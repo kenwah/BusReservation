@@ -42,16 +42,16 @@ public class OnlineBanking extends Payment{
 
     public void setBankName(int optionBank){
         if(optionBank == 1){
-            bankName = "Public Bank";
+            this.bankName = "Public Bank";
         }
         else if(optionBank == 2){
-            bankName = "Maybank";
+            this.bankName = "Maybank";
         }
         else if(optionBank == 3){
-            bankName = "CIMB Bank";
+            this.bankName = "CIMB Bank";
         }
         else{
-            bankName = "RHB Bank";
+            this.bankName = "RHB Bank";
         }
     }
 

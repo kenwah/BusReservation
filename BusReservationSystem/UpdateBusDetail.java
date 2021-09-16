@@ -12,14 +12,15 @@ public class UpdateBusDetail {
         do{	
             try{
                 do{
-                    System.out.println(" -----------------------");
-                    System.out.println("|   Update Bus Detail   |");
-                    System.out.println(" -----------------------");
-                    System.out.println("1. Add Bus Detail ");
-                    System.out.println("2. Modify Bus Detail ");
-                    System.out.println("3. Delete Bus Detail ");
-                    System.out.println("4. Display Bus Detail ");
-                    System.out.println("5. Back to Main Menu ");
+                    System.out.println("************************");
+                    System.out.println("**    Maintainance    **");
+                    System.out.println("************************");
+                    System.out.println("*1. Add Bus Detail     *");
+                    System.out.println("*2. Modify Bus Detail  *");
+                    System.out.println("*3. Delete Bus Detail  *");
+                    System.out.println("*4. Display Bus Detail *");
+                    System.out.println("*5. Back to Main Menu  *");
+                    System.out.println("************************");
                     System.out.println("\nWhich you want to do.(1-5) :");
                     choice = scanner.nextInt();
                     switch (choice){
