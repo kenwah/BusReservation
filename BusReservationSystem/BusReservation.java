@@ -90,7 +90,7 @@ public class BusReservation {
 						System.out.print("\nENTER PASSENGER'S NAME: ");
 						name[a] = book.nextLine();
 						}
-					}
+					
 
 						
 					
@@ -182,6 +182,7 @@ public class BusReservation {
 					}
 				}
 				book.close();	}
+			}
 		}
 		
 	}
