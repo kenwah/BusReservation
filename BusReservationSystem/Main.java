@@ -291,9 +291,9 @@ public class Main {
         int to = 0, custAmount = 0, s = 0;
         String name;
         int s1[][] = new int[28][30];
-        int available[] = new int[27];
+        int available = 30;
         String ticketDes[] = new String[100];
-        double ticketFare[] = new double[3];
+        double ticketFare[] = new double[100];
         String ticketBus[] = new String[100];
         int ticketSeat[] = new int[100];
         boolean sAvailable = true;
@@ -406,12 +406,9 @@ public class Main {
         System.out.print("HOW MANY PASSENGERS ARE YOU?: ");
         custAmount = book.nextInt();
 
-        // int seatID[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
-        // 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30 };
-
         for (int b = 0; b < custAmount; b++) {
             do {
-                sAvailable=false;
+                sAvailable = false;
                 System.out.print("ENTER SEAT NUMBER [1-30]: ");
                 s = book.nextInt();
                 
@@ -419,13 +416,14 @@ public class Main {
                 for (int c = 0; c < s1.length; c++) {
                     if (s == s1[to][c]) {
                         System.out.println("This seat is not available");
-                        sAvailable=true;
+                        sAvailable = true;
                     }
                 }
                 s1[to][b] = s;
-            } while (sAvailable);
-
+            } while (sAvailable);      
         }
+        available -= custAmount;
+        busList.get(to - 1).setSeatNo(available);
         ticketDes[to] = busList.get(to - 1).getDestination();
 		ticketFare[to] = busList.get(to - 1).getPrice();
 		ticketBus[to] = busList.get(to - 1).getBusID();
@@ -438,8 +436,8 @@ public class Main {
         System.out.printf("FARE PRICE(PER PERSON): RM %.2f\n", ticketFare[to]);
         System.out.println("NO. OF PASSENGERS: " + custAmount);
         System.out.print("SEAT: "); 
-        for(int d=0; d<custAmount;d++){
-            if(d==custAmount-1){
+        for(int d = 0; d < custAmount;d++){
+            if(d == custAmount - 1){
                 System.out.print( ticketSeat[d]+"\n" );
             }
             else{
