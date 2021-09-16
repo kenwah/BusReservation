@@ -295,6 +295,7 @@ public class Main {
         String ticketDes[] = new String[100];
         double ticketFare[] = new double[100];
         String ticketBus[] = new String[100];
+        String ticketTime[] = new String[100];
         int ticketSeat[] = new int[100];
         boolean sAvailable = true;
         int price = 0;
@@ -302,6 +303,7 @@ public class Main {
         Scanner book = new Scanner(System.in);
 
         // display first the Destination Details//
+        /*
         System.out.println("********************************************");
         System.out.println("**   DESTINATION        |  FARE  |  SEAT  **");
         System.out.println("********************************************");
@@ -376,6 +378,12 @@ public class Main {
                 + busList.get(27).getPrice() + " |   " + busList.get(27).getSeatNo() + "   **");
         System.out.println("********************************************");
         System.out.println("********************************************\n");
+        */
+        Bus bus = new Bus();
+        bus.displayBus(busList);
+       
+
+       
         if ((busList.get(0).getSeatNo() == 0) && (busList.get(1).getSeatNo() == 0) && (busList.get(2).getSeatNo() == 0)
                 && (busList.get(3).getSeatNo() == 0) && (busList.get(4).getSeatNo() == 0)
                 && (busList.get(5).getSeatNo() == 0) && (busList.get(6).getSeatNo() == 0)
@@ -426,6 +434,7 @@ public class Main {
         busList.get(to - 1).setSeatNo(available);
         ticketDes[to] = busList.get(to - 1).getDestination();
 		ticketFare[to] = busList.get(to - 1).getPrice();
+        ticketTime[to] = busList.get(to - 1).getDepartureTime();
 		ticketBus[to] = busList.get(to - 1).getBusID();
         
         System.out.println("\n***************************************");
@@ -433,6 +442,7 @@ public class Main {
         System.out.println("***************************************");
         System.out.println("PASSENGER'S NAME: " + name);
         System.out.println("PASSENGER'S DESTINATION : " + ticketDes[to]);
+        System.out.println("DEPARTURE TIME : " + ticketTime[to]);
         System.out.printf("FARE PRICE(PER PERSON): RM %.2f\n", ticketFare[to]);
         System.out.println("NO. OF PASSENGERS: " + custAmount);
         System.out.print("SEAT: "); 
