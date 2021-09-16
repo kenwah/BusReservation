@@ -1,6 +1,6 @@
 package BusReservationSystem;
 import java.util.ArrayList;
-public class Details {
+public class Details{
 
     private String ID;
     private int    passcode;
@@ -8,18 +8,20 @@ public class Details {
     private String ICNo;
     private String phoneNo;
     private char   gender ;
+    private Address address;
 
     public Details() {
 
     }
 
-    public Details(String ID, int passcode, String name, String ICNo, String phoneNo, char gender) {
+    public Details(String ID, int passcode, String name, String ICNo, String phoneNo, char gender, Address address) {
         this.ID = ID;
         this.passcode = passcode;
         this.name = name;
         this.ICNo = ICNo;
         this.phoneNo = phoneNo;
         this.gender = gender;
+        this.address = address;
     }
 
     public String getID() {
@@ -62,16 +64,20 @@ public class Details {
         this.phoneNo = phoneNo;
     }
     
-    public char getGender() {
-        return gender;
-    }
-
     public void setGender(char gender) {
         this.gender = gender;
     }
+
+     public char getGender() {
+        return gender;
+    }
+
+    public void setAddress(Address address){
+        this.address = address;
+    }
     
     public void addNewDetail(ArrayList<Details> detailsList) {
-        detailsList.add(new Details(ID, passcode, name, ICNo, phoneNo, gender));
+        detailsList.add(new Details(ID, passcode, name, ICNo, phoneNo, gender, address));
     }
   
 
@@ -82,7 +88,7 @@ public class Details {
     }
 
     public void modifyDetail(ArrayList<Details> detailsList, int modifyDetail) {
-        detailsList.set((modifyDetail), new Details(ID, passcode, name, ICNo, phoneNo, gender));
+        detailsList.set((modifyDetail), new Details(ID, passcode, name, ICNo, phoneNo, gender, address));
     }
 
     public void deleteDetail(ArrayList<Details> detailsList, int deleteDetail) {
