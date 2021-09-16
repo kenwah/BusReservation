@@ -4,7 +4,6 @@ public class CreditCard extends Payment{
     private long cardNum;
     private String cardType;
     
-
     //constructor
     public CreditCard(){}
 
