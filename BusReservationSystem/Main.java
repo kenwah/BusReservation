@@ -3,6 +3,8 @@ package BusReservationSystem;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 //maindad
 public class Main {
     public static void main(String[] args)
@@ -26,34 +28,34 @@ public class Main {
         };
 
         ArrayList<Bus> busList = new ArrayList<Bus>();
-        busList.add(new Bus("WZO 5989", "Selangor", "25/5/2021", "7.00am", 10, 30));
-        busList.add(new Bus("WAZ 1325", "Selangor", "25/5/2021", "10.00am", 11, 30));
-        busList.add(new Bus("WRT 7226", "Selangor", "25/5/2021", "5.00pm", 12, 30));
-        busList.add(new Bus("WFS 2391", "Selangor", "25/5/2021", "8.00pm", 10, 30));
-        busList.add(new Bus("WFK 1490", "Pulau Pinang", "25/5/2021", "7.00am", 40, 30));
-        busList.add(new Bus("WYF 6457", "Pulau Pinang", "25/5/2021", "10.00am", 41, 30));
-        busList.add(new Bus("WXI 1812", "Pulau Pinang", "25/5/2021", "5.00pm", 42, 30));
-        busList.add(new Bus("WEE 5027", "Pulau Pinang", "25/5/2021", "8.00pm", 40, 30));
-        busList.add(new Bus("WYP 0563", "Johor Bahru", "25/5/2021", "7.00am", 40, 30));
-        busList.add(new Bus("WFP 9608", "Johor Bahru", "25/5/2021", "10.00am", 41, 30));
-        busList.add(new Bus("WEO 7328", "Johor Bahru", "25/5/2021", "5.00pm", 42, 30));
-        busList.add(new Bus("WTD 9930", "Johor Bahru", "25/5/2021", "8.00pm", 40, 30));
-        busList.add(new Bus("WUO 4034", "Negeri Sembilan", "25/5/2021", "7.00am", 15, 30));
-        busList.add(new Bus("WXR 2322", "Negeri Sembilan", "25/5/2021", "10.00am", 16, 30));
-        busList.add(new Bus("WDY 3288", "Negeri Sembilan", "25/5/2021", "5.00pm", 17, 30));
-        busList.add(new Bus("WSB 1611", "Negeri Sembilan", "25/5/2021", "8.00pm", 15, 30));
-        busList.add(new Bus("WMQ 8787", "Melaka", "25/5/2021", "7.00am", 16, 30));
-        busList.add(new Bus("WEU 4211", "Melaka", "25/5/2021", "10.00am", 17, 30));
-        busList.add(new Bus("WZD 8826", "Melaka", "25/5/2021", "5.00pm", 18, 30));
-        busList.add(new Bus("WRF 6736", "Melaka", "25/5/2021", "8.00pm", 16, 30));
-        busList.add(new Bus("WTF 4522", "Kelantan", "25/5/2021", "7.00am", 42, 30));
-        busList.add(new Bus("WFX 9128", "Kelantan", "25/5/2021", "10.00am", 43, 30));
-        busList.add(new Bus("WGL 9060", "Kelantan", "25/5/2021", "5.00pm", 44, 30));
-        busList.add(new Bus("WYQ 4868", "Kelantan", "25/5/2021", "8.00pm", 42, 30));
-        busList.add(new Bus("WBY 5428", "Perak", "25/5/2021", "7.00am", 39, 30));
-        busList.add(new Bus("WFN 6188", "Perak", "25/5/2021", "10.00am", 40, 30));
-        busList.add(new Bus("WNX 0932", "Perak", "25/5/2021", "5.00pm", 41, 30));
-        busList.add(new Bus("WON 1539", "Perak", "25/5/2021", "8.00pm", 39, 30));
+        busList.add(new Bus("WZO 5989", "SELANGOR", "24/9/2021", "7.00am", 10, 30));
+        busList.add(new Bus("WAZ 1325", "SELANGOR", "25/9/2021", "10.00am", 11, 30));
+        busList.add(new Bus("WRT 7226", "SELANGOR", "26/9/2021", "5.00pm", 12, 30));
+        busList.add(new Bus("WFS 2391", "SELANGOR", "27/9/2021", "8.00pm", 10, 30));
+        busList.add(new Bus("WFK 1490", "PULAU PINANG", "24/9/2021", "7.00am", 40, 30));
+        busList.add(new Bus("WYF 6457", "PULAU PINANG", "25/9/2021", "10.00am", 41, 30));
+        busList.add(new Bus("WXI 1812", "PULAU PINANG", "26/9/2021", "5.00pm", 42, 30));
+        busList.add(new Bus("WEE 5027", "PULAU PINANG", "27/9/2021", "8.00pm", 40, 30));
+        busList.add(new Bus("WYP 0563", "JOHOR BAHRU", "24/9/2021", "7.00am", 40, 30));
+        busList.add(new Bus("WFP 9608", "JOHOR BAHRU", "25/9/2021", "10.00am", 41, 30));
+        busList.add(new Bus("WEO 7328", "JOHOR BAHRU", "26/9/2021", "5.00pm", 42, 30));
+        busList.add(new Bus("WTD 9930", "JOHOR BAHRU", "27/9/2021", "8.00pm", 40, 30));
+        busList.add(new Bus("WUO 4034", "NEGERI SEMBILAN", "24/9/2021", "7.00am", 15, 30));
+        busList.add(new Bus("WXR 2322", "NEGERI SEMBILAN", "25/9/2021", "10.00am", 16, 30));
+        busList.add(new Bus("WDY 3288", "NEGERI SEMBILAN", "26/9/2021", "5.00pm", 17, 30));
+        busList.add(new Bus("WSB 1611", "NEGERI SEMBILAN", "27/9/2021", "8.00pm", 15, 30));
+        busList.add(new Bus("WMQ 8787", "MELAKA", "24/9/2021", "7.00am", 16, 30));
+        busList.add(new Bus("WEU 4211", "MELAKA", "25/9/2021", "10.00am", 17, 30));
+        busList.add(new Bus("WZD 8826", "MELAKA", "26/9/2021", "5.00pm", 18, 30));
+        busList.add(new Bus("WRF 6736", "MELAKA", "27/9/2021", "8.00pm", 16, 30));
+        busList.add(new Bus("WTF 4522", "KELANTAN", "24/9/2021", "7.00am", 42, 30));
+        busList.add(new Bus("WFX 9128", "KELANTAN", "25/9/2021", "10.00am", 43, 30));
+        busList.add(new Bus("WGL 9060", "KELANTAN", "26/9/2021", "5.00pm", 44, 30));
+        busList.add(new Bus("WYQ 4868", "KELANTAN", "27/9/2021", "8.00pm", 42, 30));
+        busList.add(new Bus("WBY 5428", "PERAK", "24/9/2021", "7.00am", 39, 30));
+        busList.add(new Bus("WFN 6188", "PERAK", "25/9/2021", "10.00am", 40, 30));
+        busList.add(new Bus("WNX 0932", "PERAK", "26/9/2021", "5.00pm", 41, 30));
+        busList.add(new Bus("WON 1539", "PERAK", "27/9/2021", "8.00pm", 39, 30));
 
         ArrayList<Details> usersList = new ArrayList<>();
         for (int i = 0; i < user.length; i++) {
@@ -1395,5 +1397,116 @@ public static void modifyBus(ArrayList<Bus> busList){
         System.out.printf("*           Online Banking                      *                           %d                     *", OnlineBanking.getCountBank());
         System.out.println("***************************************************************************************************");
         System.out.println("Total Payment: " + total);
+    }
+
+    public static void summaryBusReport(ArrayList<Bus> busList){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = new Date();
+        Bus bus = new Bus();
+        int sCount = 0;
+        int pCount = 0;
+        int jCount = 0;
+        int nCount = 0;
+        int mCount = 0;
+        int kCount = 0;
+        int peCount = 0;
+        
+
+
+        System.out.println("+-----------------------------------------------------------------+");
+        System.out.println("|                       SUMMARY BUS REPORT                        |");
+        System.out.println("|                            KKAZ Bus                             |");
+        System.out.println("|                                                Date: "+dateFormat.format(date)+" |");
+        System.out.println("+-----------------------------------------------------------------+");
+        System.out.println("\nSummary Bus go Selangor");
+        System.out.println("+-----------------------------------------------------------------+");
+        System.out.println("|     Bus ID    |     Departure Date     |     Departure Time     |");
+        System.out.println("+-----------------------------------------------------------------+");
+        for(int i=0 ; i<busList.size(); i++){
+            if(busList.get(i).getDestination().equals("SELANGOR")){
+                System.out.printf("|   %-10s  |       %10s       |       %10s       |\n",busList.get(i).getBusID(),busList.get(i).getDepartureDate(),busList.get(i).getDepartureTime());
+                sCount++;
+            }   
+        }
+        System.out.println("+-----------------------------------------------------------------+");
+        System.out.println("There are total of "+sCount+ " buses to Selangor.");
+
+        System.out.println("\nSummary Bus go Pulau Pinang");
+        System.out.println("+-----------------------------------------------------------------+");
+        System.out.println("|     Bus ID    |     Departure Date     |     Departure Time     |");
+        System.out.println("+-----------------------------------------------------------------+");
+        for(int i=0 ; i<busList.size(); i++){
+            if(busList.get(i).getDestination().equals("PULAU PINANG")){
+                System.out.printf("|   %-10s  |       %10s       |       %10s       |\n",busList.get(i).getBusID(),busList.get(i).getDepartureDate(),busList.get(i).getDepartureTime());
+                pCount++;
+            }   
+        }
+        System.out.println("+-----------------------------------------------------------------+");
+        System.out.println("There are total of "+pCount+ " buses to Pulau Pinang.");
+
+        System.out.println("\nSummary Bus go Johor Bahru");
+        System.out.println("+-----------------------------------------------------------------+");
+        System.out.println("|     Bus ID    |     Departure Date     |     Departure Time     |");
+        System.out.println("+-----------------------------------------------------------------+");
+        for(int i=0 ; i<busList.size(); i++){
+            if(busList.get(i).getDestination().equals("JOHOR BAHRU")){
+                System.out.printf("|   %-10s  |       %10s       |       %10s       |\n",busList.get(i).getBusID(),busList.get(i).getDepartureDate(),busList.get(i).getDepartureTime());
+                jCount++;
+            }   
+        }
+        System.out.println("+-----------------------------------------------------------------+");
+        System.out.println("There are total of "+jCount+ " buses to Johor Bahru.");
+
+        System.out.println("\nSummary Bus go Negeri Sembilan");
+        System.out.println("+-----------------------------------------------------------------+");
+        System.out.println("|     Bus ID    |     Departure Date     |     Departure Time     |");
+        System.out.println("+-----------------------------------------------------------------+");
+        for(int i=0 ; i<busList.size(); i++){
+            if(busList.get(i).getDestination().equals("NEGERI SEMBILAN")){
+                System.out.printf("|   %-10s  |       %10s       |       %10s       |\n",busList.get(i).getBusID(),busList.get(i).getDepartureDate(),busList.get(i).getDepartureTime());
+                nCount++;
+            }   
+        }
+        System.out.println("+-----------------------------------------------------------------+");
+        System.out.println("There are total of "+nCount+ " buses to Negeri Sembilan.");
+
+        System.out.println("\nSummary Bus go Melaka");
+        System.out.println("+-----------------------------------------------------------------+");
+        System.out.println("|     Bus ID    |     Departure Date     |     Departure Time     |");
+        System.out.println("+-----------------------------------------------------------------+");
+        for(int i=0 ; i<busList.size(); i++){
+            if(busList.get(i).getDestination().equals("MELAKA")){
+                System.out.printf("|   %-10s  |       %10s       |       %10s       |\n",busList.get(i).getBusID(),busList.get(i).getDepartureDate(),busList.get(i).getDepartureTime());
+                mCount++;
+            }   
+        }
+        System.out.println("+-----------------------------------------------------------------+");
+        System.out.println("There are total of "+mCount+ " buses to Melaka.");
+
+        System.out.println("\nSummary Bus go Kelantan");
+        System.out.println("+-----------------------------------------------------------------+");
+        System.out.println("|     Bus ID    |     Departure Date     |     Departure Time     |");
+        System.out.println("+-----------------------------------------------------------------+");
+        for(int i=0 ; i<busList.size(); i++){
+            if(busList.get(i).getDestination().equals("KELANTAN")){
+                System.out.printf("|   %-10s  |       %10s       |       %10s       |\n",busList.get(i).getBusID(),busList.get(i).getDepartureDate(),busList.get(i).getDepartureTime());
+                kCount++;
+            }   
+        }
+        System.out.println("+-----------------------------------------------------------------+");
+        System.out.println("There are total of "+kCount+ " buses to Kelantan.");
+
+        System.out.println("\nSummary Bus go Perak");
+        System.out.println("+-----------------------------------------------------------------+");
+        System.out.println("|     Bus ID    |     Departure Date     |     Departure Time     |");
+        System.out.println("+-----------------------------------------------------------------+");
+        for(int i=0 ; i<busList.size(); i++){
+            if(busList.get(i).getDestination().equals("PERAK")){
+                System.out.printf("|   %-10s  |       %10s       |       %10s       |\n",busList.get(i).getBusID(),busList.get(i).getDepartureDate(),busList.get(i).getDepartureTime());
+                peCount++;
+            }   
+        }
+        System.out.println("+-----------------------------------------------------------------+");
+        System.out.println("There are total of "+peCount+ " buses to Perak.");
     }
 }
