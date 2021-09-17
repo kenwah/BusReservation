@@ -711,7 +711,7 @@ public class Main {
                                             default:
                                                 System.out.println("Invalid input, please enter again");
                                         }
-                                    }while(bankOption != 1 && bankOption != 2 && bankOption != 3);
+                                    }while(bankOption != 1 && bankOption != 2 && bankOption != 3 && bankOption != 4);
                                     continueInput = false;
                                 }catch (InputMismatchException inputMismatchException){
                                     System.out.println("Please input correctly, you should enter a number only.");
@@ -721,6 +721,7 @@ public class Main {
                             break;
                         default:
                             System.out.println("Invalid input, please enter again");
+                    
                     }
                     if(transactionFailed){
                         System.out.println("Please try again or select other payment methods to complete your payment.");
