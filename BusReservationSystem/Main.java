@@ -1229,6 +1229,7 @@ public static void modifyBus(ArrayList<Bus> busList){
             String staffAddressCountry;
 
             System.out.print("Enter Staff's Address State: ");
+            scanner.nextLine();
             staffAddressState = scanner.nextLine();
             System.out.print("Enter Staff's Address Country：");
             staffAddressCountry = scanner.nextLine();
