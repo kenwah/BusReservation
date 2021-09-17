@@ -1055,7 +1055,7 @@ public static void modifyBus(ArrayList<Bus> busList){
                     staffPage(usersList);
                     break;
                 case 4:
-                System.out.println("*********************************************");
+                System.out.println("\n\n*********************************************");
                 System.out.println("**                Report                   **");
                 System.out.println("*********************************************");
                 System.out.println("** [1] Staff Report                        **");
@@ -1318,15 +1318,13 @@ public static void modifyBus(ArrayList<Bus> busList){
                 do{
                    System.out.print("Enter Staff's Gender(F/M):");
                    staffGender = scanner.next().toUpperCase().charAt(0); 
-                   if(Details.validateStaffGender(staffGender)){
-                       System.err.print("Please Enter F / M\n");
-                   }
                 }while(Details.validateStaffGender(staffGender)!=true);
 
                 String staffAddressCountry;
                 String staffAddressState;
 
                 System.out.print("Enter Staff's Address State: ");
+                scanner.nextLine();
                 staffAddressState = scanner.nextLine();
                 System.out.print("Enter Staff's Address Country：");
                 staffAddressCountry = scanner.nextLine();
