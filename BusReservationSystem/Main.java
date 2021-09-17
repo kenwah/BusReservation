@@ -219,15 +219,14 @@ public class Main {
              System.out.println("********************************************");
              System.out.println("** [1] Booking and Payment                **");
              System.out.println("** [2] Maintainance                       **");
-             System.out.println("** [3] Report                             **");
-             System.out.println("** [4] Exit                               **");
+             System.out.println("** [3] Exit                               **");
              System.out.println("********************************************");
              System.out.println("********************************************");  
             do {
                 try {
                     System.out.print("Please select one: ");
                     select = input.nextInt();
-                    if (select > 0 && select < 5) {
+                    if (select > 0 && select < 4) {
                         continueInput = false;
                     } else {
                         System.err.println("** Please enter between 1 to 4 **");
@@ -244,59 +243,10 @@ public class Main {
                 case 2:
                     UpdateBusMenu(busList);
                     break;
-                case 3:
-
-                    System.out.println("*********************************************");
-                    System.out.println("**                Report                   **");
-                    System.out.println("*********************************************");
-                    System.out.println("** [1] an report                           **");
-                    System.out.println("** [2] zr report                           **");
-                    System.out.println("** [3] Payment Method Summary              **");
-                    System.out.println("** [4] Assume that all the ticket sold out **");
-                    System.out.println("*********************************************");
-                    System.out.println("*********************************************");  
-                    do {
-                        try {
-                            System.out.print("Please select one: ");
-                            selectReport = input.nextInt();
-                            if (selectReport > 0 && select < 5) {
-                                continueInput = false;
-                            } else {
-                                System.err.println("** Please enter between 1 to 4 **");
-                            }
-                        } catch (Exception ex) {
-                            System.err.println("** Incorrect input: an integer is required **");
-                            input.nextLine();
-                        }
-                    } while (continueInput);
-                    switch(selectReport){
-                        case 1:
-                        break;
-                        case 2:
-                        break;
-                        case 3:
-                            reportPayment();
-                        break;
-                        default:
-                        do{
-                            int x=28;
-                            int z=0;
-                            System.out.println("Assume that all the ticket sold out,");
-                            for(int a=0;a<28;a++){
-                                z=x * busList.get(a).getPrice();
-                                
-                                System.out.printf("\nThe total amount for "+busList.get(a).getDestination()+" in "+busList.get(a).getDepartureTime()+" will be : RM "+z+"\n");
-                            }
-                            
-                        }while(continueInput);
-                        break;
-                    }
-                break;
                 default:
                     System.out.println("Exit Page");
             }
-        } while (select != 4);   
-        input.close(); 
+        } while (select != 3);   
     }  
 
     public static void bookingTicket(ArrayList<Bus> busList) {
@@ -1064,17 +1014,20 @@ public static void modifyBus(ArrayList<Bus> busList){
 
         Scanner scanner = new Scanner(System.in);
         int select = 0;
-        int selectReport = 0;
         boolean continueInput;
+        int selectReport = 0;
         do {
             continueInput = true;
-            System.out.println("\nManagement Page");
-            System.out.println("===============");
-            System.out.println("1. Order Menu");
-            System.out.println("2. Bus Details");
-            System.out.println("3. Staff Management");
-            System.out.println("4. Reports");
-            System.out.println("5. Exit");
+            System.out.println("********************************************");
+            System.out.println("**              MANAGEMENT                **");
+            System.out.println("********************************************");
+            System.out.println("** [1] Booking and Payment                **");
+            System.out.println("** [2] Bus Details                        **");
+            System.out.println("** [3] Staff Details                      **");
+            System.out.println("** [4] Reports                            **");
+            System.out.println("** [5] Exit                               **");
+            System.out.println("********************************************");
+            System.out.println("********************************************");  
             do {
                 try {
                     System.out.print("Please select one: ");
@@ -1091,110 +1044,70 @@ public static void modifyBus(ArrayList<Bus> busList){
             } while (continueInput);
             switch (select) {
                 case 1:
-                    orderMenu(busList);
+                    bookingTicket(busList);
                     break;
                 case 2:
                     UpdateBusMenu(busList);
                     break;
                 case 3:
-                   staffPage(usersList);
+                    staffPage(usersList);
                     break;
                 case 4:
-                    System.out.println("*********************************************");
-                    System.out.println("**                Report                   **");
-                    System.out.println("*********************************************");
-                    System.out.println("** [1] an report                           **");
-                    System.out.println("** [2] zr report                           **");
-                    System.out.println("** [3] Payment Method Summary              **");
-                    System.out.println("** [4] Assume that all the ticket sold out **");
-                    System.out.println("*********************************************");
-                    System.out.println("*********************************************");  
-                    do {
-                        try {
-                            System.out.print("Please select one: ");
-                            selectReport = scanner.nextInt();
-                            if (selectReport > 0 && select < 5) {
-                                continueInput = false;
-                            } else {
-                                System.err.println("** Please enter between 1 to 4 **");
-                            }
-                        } catch (Exception ex) {
-                            System.err.println("** Incorrect input: an integer is required **");
-                            scanner.nextLine();
+                System.out.println("*********************************************");
+                System.out.println("**                Report                   **");
+                System.out.println("*********************************************");
+                System.out.println("** [1] Staff Report                        **");
+                System.out.println("** [2] zr report                           **");
+                System.out.println("** [3] Payment Method Summary              **");
+                System.out.println("** [4] Assume that all the ticket sold out **");
+                System.out.println("** [5] Back                                **");
+                System.out.println("*********************************************");
+                System.out.println("*********************************************");  
+                do {
+                    try {
+                        System.out.print("Please select one: ");
+                        selectReport = scanner.nextInt();
+                        if (selectReport > 0 && select < 6) {
+                            continueInput = false;
+                        } else {
+                            System.err.println("** Please enter between 1 to 4 **");
                         }
-                    } while (continueInput);
-                    switch(selectReport){
-                        case 1:
-                        break;
-                        case 2:
-                        break;
-                        case 3:
-                            reportPayment();
-                        break;
-                        case 4:
-                        do{
-                            int x=28;
-                            int z=0;
-                            System.out.println("Assume that all the ticket sold out,");
-                            for(int a=0;a<28;a++){
-                                z=x * busList.get(a).getPrice();
-                                
-                                System.out.printf("\nThe total amount for "+busList.get(a).getDestination()+" in "+busList.get(a).getDepartureTime()+" will be : RM "+z+"\n");
-                            }
-                            
-                        }while(continueInput);
-                        break;
-                        default:
-                            System.out.println("Exit Management Page");
+                    } catch (Exception ex) {
+                        System.err.println("** Incorrect input: an integer is required **");
+                        scanner.nextLine();
                     }
-            }
-        } while(select != 5);
-
-    }
-
-    public static void orderMenu(ArrayList<Bus> busList) {
-        Scanner input = new Scanner(System.in);
-        int select = 0;
-        boolean continueInput;
-        do {
-            continueInput = true;
-             // the MAIN MENU//
-             System.out.println("********************************************");
-             System.out.println("** BUS RESERVATION AND TICKETING SYSTEM   **");
-             System.out.println("********************************************");
-             System.out.println("** [1] Booking                            **");
-             System.out.println("** [2] Payment                            **");
-             System.out.println("** [3] Exit                               **");
-             System.out.println("********************************************");
-             System.out.println("********************************************");  
-            do {
-                try {
-                    System.out.print("Please select one: ");
-                    select = input.nextInt();
-                    if (select > 0 && select < 4) {
-                        continueInput = false;
-                    } else {
-                        System.err.println("** Please enter between 1 to 3 **");
-                    }
-                } catch (Exception ex) {
-                    System.err.println("** Incorrect input: an integer is required **");
-                    input.nextLine();
-                }
-            } while (continueInput);
-            switch (select) {
-                case 1:
-                    //input Booking details
+                } while (continueInput);
+                switch(selectReport){
+                    case 1:
+                        displayStaff(usersList);
                     break;
-                case 2:
-                    bookingTicket(busList);
-                break;
+                    case 2:
+                    break;
+                    case 3:
+                        reportPayment();
+                    break;
+                    default:
+                    do{
+                        int x=28;
+                        int z=0;
+                        System.out.println("Assume that all the ticket sold out,");
+                        for(int a=0;a<28;a++){
+                            z=x * busList.get(a).getPrice();
+                            
+                            System.out.printf("\nThe total amount for "+busList.get(a).getDestination()+" in "+busList.get(a).getDepartureTime()+" will be : RM "+z+"\n");
+                        }
+                        
+                    }while(continueInput);
+                    break;
+                }
+                    break;
                 default:
-                    System.out.println("Exit Order Menu Page");
+                    System.out.println("Exit Management Page");
             }
-        } while (select != 3);    
+        } while (select != 5);
     }
 
-    public static void staffPage(ArrayList<Details> usersList) {
+   public static void staffPage(ArrayList<Details> usersList) {
         int choice;
         boolean continueInput = true;
         Scanner scanner = new Scanner(System.in);
@@ -1460,7 +1373,7 @@ public static void modifyBus(ArrayList<Bus> busList){
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Staff List");
-        System.out.printf("%-10s %-10s %-30s %-15s %-15s %-10s\n", "Staff ID", "Passcode", "Staff Name", "IC Number", "Phone Number", "Gender");
+        System.out.printf("%-10s %-10s %-30s %-15s %-15s %-10s %-5s %-5s\n", "Staff ID", "Passcode", "Staff Name", "IC Number", "Phone Number", "Gender", "State", "Country");
         System.out.println("--------------------------------------------------------------------------------------------------");
         staff.displayDetail(usersList);
 
