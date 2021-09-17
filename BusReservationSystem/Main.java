@@ -1299,7 +1299,7 @@ public static void modifyBus(ArrayList<Bus> busList){
                 do{
                    System.out.print("Enter IC Number(xxxxxx-xx-xxxx) :");
                    staffICNo = scanner.next();
-                   if(Details.validatePhoneNumber(staffICNo)!=true){
+                   if(Details.validateICNo(staffICNo)!=true){
                        System.err.print("Please Enter Proper IC Number!\n");
                    }
                 }while(Details.validateICNo(staffICNo)!=true);
