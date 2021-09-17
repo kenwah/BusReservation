@@ -1392,10 +1392,10 @@ public static void modifyBus(ArrayList<Bus> busList){
         System.out.println("***************************************************************************************************");
         System.out.println("           Payment Method                      *                       Total Bus                  *");
         System.out.println("***************************************************************************************************");
-        System.out.printf("*                Cash                           *                           %d                     *", Cash.getCountCash());
-        System.out.printf("*             Credit Card                       *                           %d                     *", CreditCard.getCountCard());
-        System.out.printf("*              eWallet                          *                           %d                     *", Ewallet.getCountEwallet());
-        System.out.printf("*           Online Banking                      *                           %d                     *", OnlineBanking.getCountBank());
+        System.out.printf("*                Cash                           *                           %d                     *\n", Cash.getCountCash());
+        System.out.printf("*             Credit Card                       *                           %d                     *\n", CreditCard.getCountCard());
+        System.out.printf("*              eWallet                          *                           %d                     *\n", Ewallet.getCountEwallet());
+        System.out.printf("*           Online Banking                      *                           %d                     *\n", OnlineBanking.getCountBank());
         System.out.println("***************************************************************************************************");
         System.out.println("Total Payment: " + total);
     }
