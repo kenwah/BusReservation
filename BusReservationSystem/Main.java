@@ -1020,7 +1020,7 @@ public static void modifyBus(ArrayList<Bus> busList){
             System.out.println("**              MANAGEMENT                **");
             System.out.println("********************************************");
             System.out.println("** [1] Booking and Payment                **");
-            System.out.println("** [2] Bus Details                        **");
+            System.out.println("** [2] Maintainance                       **");
             System.out.println("** [3] Staff Details                      **");
             System.out.println("** [4] Reports                            **");
             System.out.println("** [5] Exit                               **");
