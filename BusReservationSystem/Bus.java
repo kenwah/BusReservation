@@ -115,7 +115,7 @@ public class Bus {
 
     public static boolean validateDestination(String newDestination){
         newDestination = newDestination.toUpperCase();
-        if(newDestination.equals("SELANGOR") || newDestination.equals("PULAU PINANG")|| newDestination.equals("JOHOR BAHRU") || newDestination.equals("NEGERI SEMBILAN") || newDestination.equals("PULAU PINANG") || newDestination.equals("KELATAN") || newDestination.equals("PERAK")){
+        if(newDestination.equals("SELANGOR") || newDestination.equals("PULAU PINANG")|| newDestination.equals("JOHOR BAHRU") || newDestination.equals("NEGERI SEMBILAN") || newDestination.equals("MELAKA") || newDestination.equals("KELATAN") || newDestination.equals("PERAK")){
             return true;
         }
         return false;
