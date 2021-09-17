@@ -723,7 +723,7 @@ public class Main {
                             System.out.println("Invalid input, please enter again");
                     }
                     if(transactionFailed){
-                        System.out.println("Please try again or select other payment methods to complete your payment.")
+                        System.out.println("Please try again or select other payment methods to complete your payment.");
                     }
                 }while (paymentMethod != 1 && paymentMethod != 2 && paymentMethod != 3 && paymentMethod != 4 || transactionFailed);
                 continueInput = false;
