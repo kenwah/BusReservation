@@ -276,6 +276,17 @@ public class Main {
                         case 3:
                         break;
                         case 4:
+                        do{
+                            int x=28;
+                            int z=0;
+                            System.out.println("Assume that all the ticket sold out,");
+                            for(int a=0;a<28;a++){
+                                z=x * busList.get(a).getPrice();
+                                
+                                System.out.printf("\nThe total amount for "+busList.get(a).getDestination()+" in "+busList.get(a).getDepartureTime()+" will be : RM "+z+"\n");
+                            }
+                            
+                        }while(continueInput);
                         break;
                         
                     }

@@ -38,6 +38,5 @@ public class Reservation {
     public int getAmount() {
         return amount;
     }
-
-
 }
+
