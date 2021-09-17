@@ -81,7 +81,7 @@ public class OnlineBanking extends Payment{
         else if(optionBank == 3){
            
             //check is it have 10 or 14 digits for cimb bank account 
-            if(String.valueOf(accountNum).length() != 10 || String.valueOf(accountNum).length() != 14){
+            if(String.valueOf(accountNum).length() != 10 && String.valueOf(accountNum).length() != 14){
                 return false;
             }
         }
