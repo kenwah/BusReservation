@@ -254,6 +254,7 @@ public class Main {
                     System.out.println("** [4] bla bla report                     **");
                     System.out.println("********************************************");
                     System.out.println("********************************************");  
+
                     do {
                         try {
                             System.out.print("Please select one: ");
@@ -347,17 +348,24 @@ public class Main {
         to = book.nextInt();
         if (to < 1 || to > 28) {
             System.out.println("Sorry, it is a invalid number");
+            return;
         }
 
         System.out.print("HOW MANY PASSENGERS ARE YOU?: ");
         custAmount = book.nextInt();
+        if (custAmount < 1 || custAmount > 30) {
+            System.out.println("Sorry, we don't have enough space");
+            return;
+        }
 
         for (int b = 0; b < custAmount; b++) {
             do {
                 sAvailable = false;
                 System.out.print("ENTER SEAT NUMBER [1-30]: ");
                 s = book.nextInt();
-                
+                if (s < 1 || s > 30) {
+                System.out.println("Sorry, it is a invalid seat number");
+                }
                 ticketSeat[b] = s;
                 for (int c = 0; c < s1.length; c++) {
                     if (s == s1[to][c]) {
