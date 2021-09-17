@@ -1082,6 +1082,7 @@ public static void modifyBus(ArrayList<Bus> busList){
                 switch(selectReport){
                     case 1:
                         displayStaff(usersList);
+                        System.out.println("\n");
                     break;
                     case 2:
                         summaryBusReport(busList);
