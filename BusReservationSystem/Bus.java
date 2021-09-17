@@ -170,7 +170,7 @@ public class Bus {
     }
 
     public static boolean validateSeatNo(int newSeatNo){
-        if(newSeatNo <= 30){
+        if(newSeatNo == 30){
             return true;
         }
         return false;
