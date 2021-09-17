@@ -978,7 +978,6 @@ public static void modifyBus(ArrayList<Bus> busList){
         System.out.println("Bus List");
         bus.displayBus(busList);
         
-        do{
             do{
                 System.out.println("Enter Bus ID for delete: ");
                 busID = scanner.nextLine();
@@ -1000,10 +999,7 @@ public static void modifyBus(ArrayList<Bus> busList){
                     System.out.println("Delete Successfully ! !");
 
                 }
-            }while(chekID = false); 
-            System.out.print("Do you want to modify again? Yes(Y)/ No (N)?");
-            confirm = scanner.next().trim().toUpperCase().charAt(0);
-        }while(confirm=='y');
+            }while(chekID = false);
     }
 
     public static void displayBus(ArrayList<Bus> busList){
