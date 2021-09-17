@@ -132,7 +132,7 @@ public class Details{
     }
 
     public String toString() {
-    	return String.format("%-10s %-10d %-30s %-15s %-15s %10s", ID, passcode, name, ICNo, phoneNo, gender);
+    	return String.format("%-10s %-10d %-30s %-15s %-15s %-10s %-10s %10s", ID, passcode, name, ICNo, phoneNo, gender, address.state, address.country);
     }
 
    

@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args)
     {
         Address[] address = {
-            new Address("Kuala Lumpur","Malaysia"),  
+            new Address("Selangor","Malaysia"),  
             new Address("Selangor","Malaysia"),
             new Address("Selangor","Malaysia"),
             new Address("Johor","Malaysia"),
@@ -1059,7 +1059,7 @@ public static void modifyBus(ArrayList<Bus> busList){
                 System.out.println("**                Report                   **");
                 System.out.println("*********************************************");
                 System.out.println("** [1] Staff Report                        **");
-                System.out.println("** [2] zr report                           **");
+                System.out.println("** [2] Summary Bus Report                  **");
                 System.out.println("** [3] Payment Method Summary              **");
                 System.out.println("** [4] Assume that all the ticket sold out **");
                 System.out.println("** [5] Back                                **");
@@ -1084,6 +1084,7 @@ public static void modifyBus(ArrayList<Bus> busList){
                         displayStaff(usersList);
                     break;
                     case 2:
+                        summaryBusReport(busList);
                     break;
                     case 3:
                         reportPayment();
@@ -1256,8 +1257,8 @@ public static void modifyBus(ArrayList<Bus> busList){
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Staff List");
-        System.out.printf("%-10s %-10s %-30s %-15s %-15s %-10s\n", "Staff ID", "Passcode", "Staff Name", "IC Number", "Phone Number", "Gender");
-        System.out.println("--------------------------------------------------------------------------------------------------");
+        System.out.printf("%-10s %-10s %-30s %-15s %-15s %-10s %-13s %5s\n", "Staff ID", "Passcode", "Staff Name", "IC Number", "Phone Number", "Gender", "State", "Country");
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------");
         staff.displayDetail(usersList);
 
         
@@ -1345,8 +1346,8 @@ public static void modifyBus(ArrayList<Bus> busList){
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Staff List");
-        System.out.printf("%-10s %-10s %-30s %-15s %-15s %-10s\n", "Staff ID", "Passcode", "Staff Name", "IC Number", "Phone Number", "Gender");
-        System.out.println("--------------------------------------------------------------------------------------------------");
+        System.out.printf("%-10s %-10s %-30s %-15s %-15s %-10s %-13s %5s\n", "Staff ID", "Passcode", "Staff Name", "IC Number", "Phone Number", "Gender", "State", "Country");
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------");
         staff.displayDetail(usersList);
         
         
@@ -1375,8 +1376,8 @@ public static void modifyBus(ArrayList<Bus> busList){
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Staff List");
-        System.out.printf("%-10s %-10s %-30s %-15s %-15s %-10s %-5s %-5s\n", "Staff ID", "Passcode", "Staff Name", "IC Number", "Phone Number", "Gender", "State", "Country");
-        System.out.println("--------------------------------------------------------------------------------------------------");
+        System.out.printf("%-10s %-10s %-30s %-15s %-15s %-10s %-13s %5s\n", "Staff ID", "Passcode", "Staff Name", "IC Number", "Phone Number", "Gender", "State", "Country");
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------");
         staff.displayDetail(usersList);
 
     }
