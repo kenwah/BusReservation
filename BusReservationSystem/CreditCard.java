@@ -3,16 +3,19 @@ public class CreditCard extends Payment{
     
     private long cardNum;
     private String cardType;
+    private static int countCard = 0;
     
     //constructor
-    public CreditCard(){}
+    public CreditCard(){
+        countCard++;
+    }
 
     //parameterized constructor
     public CreditCard(int receiptNo, double serviceCharge, double amount, double totalIncludeSC, long cardNum, String cardType){
         super(receiptNo, serviceCharge, amount, totalIncludeSC);  
         this.cardNum = cardNum;
         this.cardType = cardType;
-      
+        countCard++;
     }
 
     //getter for card num
@@ -25,6 +28,10 @@ public class CreditCard extends Payment{
         return cardType;
     }
 
+    public static int getCountCard() {
+        return countCard;
+    }
+    
     //setter for card num
     public void setCardNum(long cardNum) {
         this.cardNum = cardNum;

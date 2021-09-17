@@ -5,15 +5,19 @@ public class Cash extends Payment{
     private double otherCashReceived;
     private double totalAmountReceived;
     private double balance;
+    private static int countCash = 0;
 
     //constructor
-    public Cash(){}
+    public Cash(){
+        countCash++;
+    }
 
     //parameterized constructor
     public Cash(int receiptNo, double serviceCharge, double amount, double totalIncludeSC, double totalAmountReceived , double balance){
         super(receiptNo, serviceCharge, amount, totalIncludeSC);
         this.totalAmountReceived = totalAmountReceived;
         this.balance = balance;
+        countCash++;
     }
 
     //getter for cash tendered
@@ -24,6 +28,10 @@ public class Cash extends Payment{
     //getter for other cash tendered when cash tendered not enough
     public double getOtherCashReceived() {
         return otherCashReceived;
+    }
+
+    public static int getCountCash() {
+        return countCash;
     }
 
     //getter for total amount received

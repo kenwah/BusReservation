@@ -4,15 +4,19 @@ public class OnlineBanking extends Payment{
     private String bankName;
     private long accountNum;
     private int payCode;
+    private static int countBank = 0;
 
     //constructor
-    public OnlineBanking(){}
+    public OnlineBanking(){
+        countBank++;
+    }
 
     //parameterized constructor
     public OnlineBanking(int receiptNo, double serviceCharge, double amount, double totalIncludeSC, String bankName, long accountNum){
         super(receiptNo, serviceCharge, amount, totalIncludeSC);
         this.bankName = bankName;
         this.accountNum = accountNum;
+        countBank++;
     }
 
     //getter for bank name
@@ -23,6 +27,10 @@ public class OnlineBanking extends Payment{
     //getter for account number
     public long getAccountNum() {
         return accountNum;
+    }
+
+    public static int getCountBank() {
+        return countBank;
     }
 
     //getter for payCode

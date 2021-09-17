@@ -8,9 +8,12 @@ public class Ewallet extends Payment{
     private String accountName;
     private int paymentCode;
     private int payCode;
+    private static int countEwallet = 0;
 
     //costructor
-    public Ewallet(){}
+    public Ewallet(){
+        countEwallet++;
+    }
 
     //parameterized constructor
     public Ewallet(int receiptNo, double serviceCharge, double amount, double totalIncludeSC, String type, String accountName, int paymentCode){
@@ -18,11 +21,16 @@ public class Ewallet extends Payment{
         this.type = type;
         this.accountName = accountName;
         this.paymentCode = paymentCode;
+        countEwallet++;
     }
 
      //getter for ewallet type
      public String getType() {
         return type;
+    }
+
+    public static int getCountEwallet() {
+        return countEwallet;
     }
 
     //getter for payment code
